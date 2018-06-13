@@ -1,0 +1,245 @@
+<div class="pagesection col-xs-12 col-md-12">	
+	<h4 class="sub-header">Telematics - Lexus Personalized Settings <button type="button" class="btn btn-default pull-right" ng-click="redirectPage('/telematics', 'telematics')">Back</button></h4>
+	
+	<div class="acc-mycontainer pageMargin">
+    <div class="left-nav" id="lpsSections">	
+    <tabset>	
+		<img class="pull-right" src="/serviceLane/pages/asm/mobile/images/Tablet/RefreshIcon_iPad@2x.png" width="20" height="20" ng-click="lpsRefresh()" />
+    <tab heading="Current" select="bindLpsCurrentInfo()" class="current">
+		<div ng-if="lps.lpsCurrentErr && !lps.flatTireErr">
+			<h5 class="ng-binding">Vehicle's LPS as of: {{lpsCurrentObj.lpsCurrent.date}}<span   class="toolcircle" donlytip="" rel="lps_Current"></span></h5>
+			<ul id="lps_Current" class="tooltipPopUp">
+				<li>&bull; The settings in orange are still pending and not currently applied to the vehicle. </li> 
+				<li>&bull; The bolded settings are currently applied to the vehicle.</li> 
+				<li>&bull; The Update button is not enabled until a LPS setting is changed on this screen.</li> 
+				<li>&bull; Certain settings are disabled because they can be only updated with the Techstream.</li> 
+			</ul>
+		</div>
+		<div ng-if="lps.flatTireErr" ng-include="'/serviceLane/pages/asm/mobile/views/flattire.html'"></div>
+		<div class="panel panel-default clearfix adjMargin" ng-if="lps.lpsCurrentErr && !lps.flatTireErr">	
+			<div class="custPaneHead"><span>&nbsp;</span></div>
+			<div class="panel-body">
+				<div class="info-table-body redTxt">{{lpsCurrentObj.errorMsg}}</div>
+			</div>
+		</div>		
+		<div class="panel panel-default clearfix adjMargin" ng-if="!lps.lpsCurrentErr && lpsCurrentObj.lpsCurrent.screenNote1 != 'N/A'" ng-hide="lps.flatTireErr">				
+			<div class="panel-body">
+				<div class="info-table-body redTxt">{{lpsCurrentObj.lpsCurrent.screenNote1}}<button type="button" class="btn btn-default pull-right" ng-click="lpsRefresh()">Refresh</button></div>
+			</div>
+		</div>
+		<div class="lps_Btns pull-right" ng-if="!lps.flatTireErr">
+			<button type="button" class="btn btn-default updateBtn" ng-disabled="lps.lpsUpadte" ng-click="UpadteOptions(false)">Update</button>
+			<div class="icon-plus-sign pull-right" ng-click="expandCollapseAllGrp('current',true)" ng-if="!lps.lpsCurrentErr"></div>
+			<div class="icon-minus-sign pull-right" ng-click="expandCollapseAllGrp('current',false)" ng-if="!lps.lpsCurrentErr"></div>
+		</div>
+		<div ng-if="!lps.lpsCurrentErr && !lps.flatTireErr">
+		
+		<h5 class="ng-binding">Vehicle's LPS as of: {{lpsCurrentObj.lpsCurrent.date}}<span   class="toolcircle" donlytip="" rel="lps_Current"></span></h5>
+		<ul id="lps_Current" class="tooltipPopUp">
+			<li>&bull; The settings in orange are still pending and not currently applied to the vehicle. </li> 
+			<li>&bull; The bolded settings are currently applied to the vehicle.</li> 
+			<li>&bull; The Update button is not enabled until a LPS setting is changed on this screen.</li> 
+			<li>&bull; Certain settings are disabled because they can be only updated with the Techstream.</li> 
+		</ul>	
+		<accordion close-others="false">
+		<accordion-group is-open="grp.open" ng-repeat="grp in lpsCurrentObj.lpsCurrent.groupList" ng-if="grp.lpsItemList.length">
+		<accordion-heading>
+				<span ng-class="{'orangeItem': grp.pendingState}">{{grp.groupName}}<i class="pull-right glyphicon icon-plus-sign" ng-class="{'icon-minus-sign':grp.open}"></i></span>
+		</accordion-heading>
+		
+		<div ng-repeat="itemgrp in grp.lpsItemList" ng-class="{'optionDisabled': (lpsCurrentObj.nonLexusUser == true || lpsCurrentObj.updatingSettingsOnVehicle == true || !itemgrp.enabled)}" class="lpsItems">
+			<h5>{{itemgrp.lpsItemName}}</h5>
+			<P>{{itemgrp.lpsItemDescription}}</P>
+			<div ng-repeat="item in itemgrp.setKindVOList" class="lpscurrentOptions" >				
+				<label ng-class="{'orangeItem': item.pendingState ,'boldItem': item.bold }"><input type="radio" name="{{itemgrp.lpsItemName}}" ng-checked="{{item.selected}}" ng-disabled="(lpsCurrentObj.nonLexusUser == true || lpsCurrentObj.updatingSettingsOnVehicle == true || !itemgrp.enabled)" ng-click="lpsOptionChanges('{{item.setkindId}}','{{item.initialSelected}}','{{itemgrp.lpsItemId}}','{{grp.groupId}}')"><span></span><div class="optmsg">{{item.option}}</div></label>
+			</div>
+		</div>  
+	  
+    </accordion-group>    
+  </accordion>
+  </div>
+  </tab>
+    <tab heading="Pending" select="bindLpsPendingInfo()" class="pending">
+		<div ng-if="lps.flatTireErr" ng-include="'/serviceLane/pages/asm/mobile/views/flattire.html'"></div>
+		<div ng-if="lps.lpsPendingErr && !lps.flatTireErr ">
+			<h5 class="ng-binding" id="pendingHead">Vehicle's LPS as of: {{lpsPendingObj.lpsPending.date}}<span   class="toolcircle" donlytip="" rel="lps_Pending"></span></h5>
+					<ul id="lps_Pending" class="tooltipPopUp">
+			<li>&bull; The settings in orange are still pending and not currently applied to the vehicle. </li> 
+			<li>&bull; The bolded settings are currently applied to the vehicle.</li> 
+			<li>&bull; The Update button is not enabled until a LPS setting is changed on this screen. </li> 
+			<li>&bull; Certain settings are disabled because they can be only updated with the Techstream.</li> 
+		</ul>	
+		</div>
+		<div class="panel panel-default clearfix adjMargin" ng-if="lps.lpsPendingErr && !lps.flatTireErr">	
+			<div class="custPaneHead"><span>&nbsp;</span></div>
+			<div class="panel-body">
+				<div class="info-table-body redTxt">{{lpsPendingObj.errorMsg}}</div>
+			</div>
+		</div>
+		<div class="panel panel-default clearfix adjMargin" ng-if="!lps.lpsPendingErr && lpsPendingObj.lpsPending.screenNote1 != 'N/A'" ng-hide="lps.flatTireErr">				
+			<div class="panel-body">
+				<div class="info-table-body redTxt">{{lpsPendingObj.lpsPending.screenNote1}}<button type="button" class="btn btn-default pull-right" ng-click="lpsRefresh()">Refresh</button></div>
+			</div>
+		</div>
+		<div class="lps_Btns pull-right" id="pendingBtn" ng-if="!lps.flatTireErr">
+			<button type="button" class="btn btn-default updateBtn" id="cancelPending" ng-click="UpadteOptions(true)" ng-disabled="lpsPendingObj.lpsPendingNoData">Cancel Pending Settings</button>
+			<button type="button" class="btn btn-default updateBtn" ng-disabled="lps.lpsUpadte" ng-click="UpadteOptions(false)">Update</button>
+			<div class="icon-plus-sign pull-right" ng-click="expandCollapseAllGrp('pending',true)" ng-if="!lps.lpsPendingErr"></div>
+			<div class="icon-minus-sign pull-right" ng-click="expandCollapseAllGrp('pending',false)" ng-if="!lps.lpsPendingErr"></div>
+		</div>
+		<div ng-if="!lps.lpsPendingErr && !lps.flatTireErr">
+		<h5 class="ng-binding" id="pendingHead">Vehicle's LPS as of: {{lpsPendingObj.lpsPending.date}}<span   class="toolcircle" donlytip="" rel="lps_Pending"></span></h5>
+		<ul id="lps_Pending" class="tooltipPopUp">
+			<li>&bull; The settings in orange are still pending and not currently applied to the vehicle. </li> 
+			<li>&bull; The bolded settings are currently applied to the vehicle.</li> 
+			<li>&bull; The Update button is not enabled until a LPS setting is changed on this screen. </li> 
+			<li>&bull; Certain settings are disabled because they can be only updated with the Techstream.</li> 
+		</ul>	
+		<accordion close-others="false">
+		<accordion-group is-open="grpPending.open" ng-repeat="grpPending in lpsPendingObj.lpsPending.groupList" ng-if="grpPending.lpsItemList.length">
+		<accordion-heading>
+				<span ng-class="{'orangeItem': grpPending.pendingState}">{{grpPending.groupName}}<i class="pull-right glyphicon icon-plus-sign" ng-class="{'icon-minus-sign':grpPending.open}"></i></span>
+		</accordion-heading>		
+		<div ng-repeat="itemgrp in grpPending.lpsItemList" ng-class="{'optionDisabled': (lpsPendingObj.nonLexusUser == true || lpsPendingObj.updatingSettingsOnVehicle == true || !itemgrp.enabled)}" class="lpsItems" >
+			<h5>{{itemgrp.lpsItemName}}</h5>
+			<p>{{itemgrp.lpsItemDescription}}</p>
+			<div ng-repeat="item in itemgrp.setKindVOList" class="lpscurrentOptions">			
+				<label ng-class="{'orangeItem': (item.pendingState ),'boldItem': (item.bold )}"><input type="radio" name="{{itemgrp.lpsItemName}}" ng-checked="{{item.selected}}" ng-disabled="(lpsPendingObj.nonLexusUser == true || lpsPendingObj.updatingSettingsOnVehicle == true || !itemgrp.enabled)"ng-click="lpsOptionChanges('{{item.setkindId}}','{{item.initialSelected}}','{{itemgrp.lpsItemId}}','{{grpPending.groupId}}')"><span></span><div class="optmsg">{{item.option}}</div></label>
+				
+				
+			</div>
+		</div>
+		 </accordion-group>
+		<h5>Pending Changes Submitted By:</h5>
+		<table ng-table="tableParams" class="table ng-table lpsSection">
+			<thead>
+			<tr>
+			<th class="header">DATE</th><th class="header">USER TYPE</th><th class="header">USER</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="list in lpsPendingObj.lpsPending.changedByList">
+			<td>{{list.changedDate}}</td>
+			<td>{{list.userType}}</td>
+			<td class="addrPopup">
+				<span ng-if="list.setterId == 04">{{list.customerCareId}}</span>
+				<a ng-if="(list.setterId == 01 || list.setterId == 02) && lpsPendingObj.lpsPending.nonLexusUser && list.link" rel="subscriber_{{$index}}" pop-swindow data-scode="{{list.subscriberId}}">{{list.subscriberName}}</a>
+				<span ng-if="(list.setterId == 01 || list.setterId == 02) && lpsPendingObj.lpsPending.nonLexusUser && !list.link">{{list.subscriberName}}</span>
+				<a ng-if="(list.setterId == 01 || list.setterId == 02) && !lpsPendingObj.lpsPending.nonLexusUser && list.link" rel="subscriber_{{$index}}" pop-swindow data-scode="{{list.subscriberId}}" >{{list.subscriberName}}				
+				</a>
+				<div class="shadowpopup subscriber"  id="subscriber_{{$index}}" ng-if="list.subscriberId" ng-show="dealPopUp">
+					<h4><span ng-hide="subscriperErr || subscriberObj.errorMsg !='N/A'">{{subscriberObj.custDetailsVOJson.displayName}} </span><span class="pull-right close" ng-click="overlayShow()">X</span></h4>
+					<div ng-if="subscriberObj.errorMsg =='N/A'" ng-hide="subscriperErr">
+						<p ng-if="subscriberObj.custDetailsVOJson.addressLine1" class="cusLabel">{{subscriberObj.custDetailsVOJson.addressLine1}}</p>	
+						<p ng-if="subscriberObj.custDetailsVOJson.addressLine2" class="cusLabel">{{subscriberObj.custDetailsVOJson.addressLine2}}</p>	
+						<p ng-if="subscriberObj.custDetailsVOJson.addressLine3" class="cusLabel">{{subscriberObj.custDetailsVOJson.addressLine3}}</p>	
+						<p ng-if="subscriberObj.custDetailsVOJson.primaryPhoneNO" class="customerPhoneIcon">{{subscriberObj.custDetailsVOJson.primaryPhoneNO}}</p>	
+						<p ng-if="subscriberObj.custDetailsVOJson.alternatePhoneNO" class="customerPhoneIcon">{{subscriberObj.custDetailsVOJson.alternatePhoneNO}}</p>	
+						<p ng-if="subscriberObj.custDetailsVOJson.emailAddress" class="customerMailIcon">{{subscriberObj.custDetailsVOJson.emailAddress}}</p>
+					</div>
+					<div ng-if="subscriberObj.errorMsg !='N/A'" class="redTxt" ng-hide="subscriperErr">{{subscriberObj.errorMsg}}</div>
+					<div ng-if="subscriperErr" ng-include="'/serviceLane/pages/asm/mobile/views/flattire.html'"></div>	
+				</div>
+				<span ng-if="(list.setterId == 01 || list.setterId == 02) && !lpsPendingObj.lpsPending.nonLexusUser && !list.link">{{list.subscriberName}}</span>
+				<a ng-if="list.setterId == 03" pop-window rel="currentDealer_{{$index}}" data-dcode="{{list.dealerCode}}">
+				{{list.userCommonName +" ("+ list.dealerName +"-"+ list.dealerCode +")"}}</a>
+				<div class="shadowpopup" id="currentDealer_{{$index}}" ng-if="list.dealerCode" ng-show="dealPopUp" ng-include="'/serviceLane/pages/asm/mobile/views/dealerPopup.html'"></div>
+			</td>			
+			</tr>
+			</tbody>
+	</table>
+	</div>
+		</accordion>
+		
+	</tab>
+    <tab heading="History" select="bindLpsHistoryInfo()">
+    <div ng-if="lpsHistoryErr && !lps.flatTireErr">
+		<h5 class="ng-binding">Vehicle's LPS History<span   class="toolcircle" donlytip="" rel="lps_History"></span></h5>
+		<ul id="lps_History" class="tooltipPopUp">
+			<li>&bull; Changes submitted via the Techstream and/or head unit of the vehicle will not be included in the history</li> 
+		</ul>
+		</div>
+		
+				
+		<div ng-if="lps.flatTireErr" ng-include="'/serviceLane/pages/asm/mobile/views/flattire.html'"></div>
+		<div class="panel panel-default clearfix adjMargin" ng-if="lpsHistoryErr && !lps.flatTireErr">	
+			<div class="custPaneHead"><span>&nbsp;</span></div>
+			<div class="panel-body">
+				<div class="info-table-body redTxt">{{lpsHistoryObj.errorMsg}}</div>
+			</div>
+		</div>		
+		<div class="lps_Btns pull-right" ng-if="!lps.flatTireErr">				
+			<div class="icon-minus-sign pull-right" ng-click="expandCollapseAllGrp('history',false)" ng-if="!lpsHistoryErr"></div>
+		</div>
+		<div ng-if="!lpsHistoryErr && !lps.flatTireErr">
+		<h5 class="ng-binding">Vehicle's LPS History<span   class="toolcircle" donlytip="" rel="lps_History"></span></h5>
+		<ul id="lps_History" class="tooltipPopUp">
+			<li>&bull; Changes submitted via the Techstream and/or head unit of the vehicle will not be included in the history</li> 
+		</ul>	
+		<accordion close-others="false">
+		<accordion-group is-open="grpHist.open" ng-repeat="grpHist in lpsHistoryObj.lpsHistory.historyObjectList">
+		<accordion-heading>	
+				<span class="lpsHead" ng-class="{'orangeItem': grpHist.failed}">{{grpHist.date}}<b>|</b>{{grpHist.transanction}}<b>|</b>&nbsp;{{grpHist.result}}<i class="pull-right glyphicon icon-plus-sign1" ng-class="{'icon-minus-sign1':grpHist.open}" ng-click="accordionHeader('{{grpHist.customiseId}}',grpHist.open , lpsHistAccindex = $index)"></i></span>
+		</accordion-heading>		
+		<h5 ng-if="grpHist.errorDetails !='N/A'" class="lpsHistoryItem">Error Details: <span class="redTxt">{{grpHist.errorDetails}}</span></h5>
+		<span class="redTxt" style="padding: 10px 20px 0;display: block;" ng-if="!lpsHistoryGrpObj.historyObjectList[lpsHistAccindex].settingsList.length">System has encountered an error in retrieving the details. Please retry/refresh the page</span>
+		<div ng-repeat="itemgrp in lpsHistoryGrpObj.historyObjectList[lpsHistAccindex].settingsList" class="lpsItems" ng-hide="itemgrp.length">			
+			<h5>{{itemgrp.itemName+"("+itemgrp.groupName+")"}}</h5>
+			<P>{{itemgrp.itemDescription}}</P>
+			<P>Before: {{itemgrp.beforeSetKindDescription}} = {{itemgrp.beforeSetKindName}}</P>
+			<P>After: {{itemgrp.setKindDescription}} = {{itemgrp.setKindName}}</P>		 
+		</div>
+		<div class="lpsHistoryItem">
+			<h5>Changed By:</h5>
+			<table ng-table="tableParams" class="table ng-table lpsSection">
+			<thead>
+			<tr>
+			<th class="header">DATE</th><th class="header">USER TYPE</th><th class="header">USER</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="list in lpsHistoryGrpObj.historyObjectList[lpsHistAccindex].changedByList">
+			
+			<td>{{list.changedDate}}</td>
+			<td>{{list.userType}}</td>			
+			<td class="addrPopup">
+				<span ng-if="list.setterId == 04">{{list.customerCareId}}</span>
+				<a ng-if="(list.setterId == 01 || list.setterId == 02) && lpsHistoryObj.lpsHistory.nonLexusUser && list.link" rel="histSubscriber_{{$index}}" pop-swindow data-scode="{{list.subscriberId}}" >{{list.subscriberName}}</a>
+				<span ng-if="(list.setterId == 01 || list.setterId == 02) && lpsHistoryObj.lpsHistory.nonLexusUser && !list.link">{{list.subscriberName}}</span>
+				<a ng-if="(list.setterId == 01 || list.setterId == 02) && !lpsHistoryObj.lpsHistory.nonLexusUser && list.link" rel="histSubscriber_{{$index}}" pop-swindow data-scode="{{list.subscriberId}}" >{{list.subscriberName}}</a>
+				<span ng-if="(list.setterId == 01 || list.setterId == 02) && !lpsHistoryObj.lpsHistory.nonLexusUser && !list.link">{{list.subscriberName}}</span>
+				<div class="shadowpopup subscriber"  id="histSubscriber_{{$index}}" ng-if="list.subscriberId" ng-show="dealPopUp">
+					<h4 class="browncolor"><span ng-hide="subscriperErr || subscriberObj.errorMsg !='N/A'">{{subscriberObj.custDetailsVOJson.displayName}} </span><span class="pull-right close" ng-click="overlayShow()">X</span></h4>
+					<div ng-if="subscriberObj.errorMsg =='N/A'" ng-hide="subscriperErr">
+						<p ng-if="subscriberObj.custDetailsVOJson.addressLine1" class="cusLabel">{{subscriberObj.custDetailsVOJson.addressLine1}}</p>	
+						<p ng-if="subscriberObj.custDetailsVOJson.addressLine2" class="cusLabel">{{subscriberObj.custDetailsVOJson.addressLine2}}</p>	
+						<p ng-if="subscriberObj.custDetailsVOJson.addressLine3" class="cusLabel">{{subscriberObj.custDetailsVOJson.addressLine3}}</p>	
+						<p ng-if="subscriberObj.custDetailsVOJson.primaryPhoneNO" class="customerPhoneIcon">{{subscriberObj.custDetailsVOJson.primaryPhoneNO}}</p>	
+						<p ng-if="subscriberObj.custDetailsVOJson.alternatePhoneNO" class="customerPhoneIcon">{{subscriberObj.custDetailsVOJson.alternatePhoneNO}}</p>	
+						<p ng-if="subscriberObj.custDetailsVOJson.emailAddress" class="customerMailIcon">{{subscriberObj.custDetailsVOJson.emailAddress}}</p>
+					</div>
+					<div ng-if="subscriberObj.errorMsg !='N/A'" class="redTxt" ng-hide="subscriperErr">{{subscriberObj.errorMsg}}</div>
+					<div ng-if="subscriperErr" ng-include="'/serviceLane/pages/asm/mobile/views/flattire.html'"></div>	
+				</div>
+				<a ng-if="list.setterId == 03" pop-window rel="historyDealer_{{$index}}" data-dcode="{{list.dealerCode}}">{{list.userCommonName +" ("+ list.dealerName +"-"+ list.dealerCode +")"}}</a>
+				<div class="shadowpopup" id="historyDealer_{{$index}}" ng-if="list.dealerCode" ng-show="dealPopUp" ng-include="'/serviceLane/pages/asm/mobile/views/dealerPopup.html'"></div>				
+				
+			</td>			
+			</tr>
+			</tbody>
+	</table>
+	</div>
+    </accordion-group>    
+  </accordion>
+  </div>
+	</tab>
+  </tabset>
+    </div>
+
+</div>
+</div>
+<div class="row remLRpad">
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+</div>

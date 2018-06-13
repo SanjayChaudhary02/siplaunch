@@ -1,0 +1,86 @@
+<div class="pagesection col-xs-12 col-md-12 caremiraisection">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 remLRpad">
+	<h4 class="sub-header" ng-show="showCareHeading" >
+		
+		<span class="menu-text" ng-if="vehOneLiner.division=='TOYOTA'">ToyotaCare</span>
+		<span class="menu-text" ng-if="vehOneLiner.division=='SCION'">ScionBoost</span>
+</h4>
+</div>
+<tabset class="col-xs-12 col-md-12 pagesection " >
+<tab heading="{{vehOneLiner.division=='TOYOTA' ? 'ToyotaCare' : (vehOneLiner.division=='SCION' ?'ScionBoost':'Toyota Care')}}"  ng-click="bindtoyotaCareInfo()">
+<div class="addpaddingtop" ng-if="careFlatTire" ng-include="'/serviceLane/pages/asm/mobile/views/flattire.html'"></div>
+
+
+	
+<div class="panel panel-default clearfix adjMargin addmargintop " ng-if="care == true && careObj.errorsMsg" style="clear:both;" >
+		<div class="custPaneHead">
+			<span>{{careObj.errorsMsg}}</span>
+		</div>
+		<div class="panel-body">
+			<div class="info-table-body" style="padding-left: 15px;" ng-repeat="em in careObj.errorReasons track by $index">{{em}}</div>
+		</div>
+</div>	 
+<div class="col-xs-12 col-md-12 pagesection addpaddingtop" ng-if="care == true && !careObj.errorsMsg && !careFlatTire">
+    <div class="container-fluid careHeader">
+		<div class="vindetailhead">
+            <span class="text-muted" style="padding-left: 3px !important"> Eligible VIN</span>
+            <br/><span class="label">{{careObj.eligibleVin}}</span></div>
+        <span class="line"></span>
+        <div class="vindetailhead"><span class="text-muted">Oil Type</span>
+            <br/><span class="label">{{careObj.oilType}}</span></div>
+        <span class="line"></span>
+        <div class="vindetailhead"><span class="text-muted">Effective Date</span>
+            <br/><span class="label">{{careObj.effectiveDate}}</span></div>
+        <span class="line"></span>
+        <div class="vindetailhead"><span class="text-muted">Expiration Mileage</span>
+            <br/><span class="label">{{careObj.expirationDate}}</span></div>
+        <span class="line"></span>
+        <div class="vindetailhead" id="last"><span class="text-muted">Expiration Mileage</span>
+            <br/><span class="label">{{careObj.expirationMileage}}</span></div>
+    </div>
+    <ul class="careDetail">
+        <li class="col-xs-12 col-md-12" ng-repeat="care in careObj.vehicleServiceHistoryDetails" ng-class="{opened: (care.status | lowercase) ==  'open', completed: (care.status | lowercase)=='completed', closed: (care.status | lowercase)=='closed'} ">
+		
+		<div class="col-xs-2 col-md-2 firstTab firstElt">{{care.status}}</div>
+            <div class="col-xs-8 col-md-9 col-lg-10 rmpad" ng-class="{'col-md-7': (care.status | lowercase) == 'completed','col-lg-8': (care.status | lowercase) == 'completed'}">
+				<p class="col-xs-6 col-md-6 careServiceDes rmPad" dtip rel="{{care.serviceDescription}}">{{care.serviceDescription}}</p>
+				<dealer-popup  ng-if="(care.status | lowercase) =='completed' && care.servicingDealer != null" stop-event dcode="{{care.servicingDealer}}" dname="{{care.servicingDealerName}}" ng-hide="care.servicingDealerName == null && care.servicingDealer == null">
+				</dealer-popup>
+				<span ng-if="(care.status | lowercase) =='completed' && care.servicingDealer == null && care.servicingDealerName == null" >N/A</span>
+				<span ng-if="(care.status | lowercase) =='completed' && care.servicingDealer == null && care.servicingDealerName != null" >{{care.servicingDealerName}} (N/A)</span>
+				<span class="col-xs-4 col-md-4 pull-right rmPad pLable lDate" ng-if="(care.status | lowercase) =='completed'">
+				<span class="mutedTxt">Date</span>{{care.dateServiced}}
+                <span ng-if="care.dateServiced==null" class="noinfo">{{notAvailable}}</span></span>
+            </div>
+            <!--div class="col-xs-1 col-md-1"></div-->
+            <div class="col-xs-8 col-md-2 col-lg-2 pull-right rmPad adjSecondLabel servicehistorypage" ng-if="(care.status | lowercase) =='completed'" >
+                <p><span class="mutedTxt">Op Code</span>{{care.opCode}}<span ng-if="care.opCode==null" class="noinfo">{{notAvailable}}</span></p>
+                <p class="rmPad pLable"><span class="mutedTxt">Mileage</span>{{care.mileage}}<span ng-if="care.mileage==null" class="noinfo">{{notAvailable}}</span></p>
+            </div>
+        </li>
+
+    </ul>
+
+    <p class="careFooter">The ToyotaCare / Scion Service Boost history is based on information currently available to Toyota. The actual ToyotaCare / Scion Service Boost history may be different.</p>
+	
+</div>
+
+</tab>
+
+<tab heading="Mirai Swap" ng-click="bindMiraiSwapInfo()"  >
+<div   ng-include="'/serviceLane/pages/asm/mobile/views/miraiSwap.html'"></div>
+	
+
+</tab>
+
+</tabset>
+
+
+
+
+</div>
+<div class="row remLRpad">
+	<div></div>
+	<div></div>
+	<div></div>
+</div>

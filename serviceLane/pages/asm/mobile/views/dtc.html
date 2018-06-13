@@ -1,0 +1,220 @@
+<div class="pagesection" ng-if="!DTCRmLog.show" id="dtcpage">	
+	<div>
+		<h4 class="sub-header dtch1">DTC History
+			<span class="circlevehiclespec dtccircle" dtip rel="<ul><li>&ldquo;Remote Data Request&rdquo; immediately pulls unsent maintenance/MIL ON data (that a vehicle should normally transmits within two 10 minute key cycles) after &ldquo;OK&rdquo; is pushed on head unit pop up.  Please note ignition has to be on to receive Remote Data Pull request. If ignition is OFF, head unit confirmation is not received or there is no maintenance/MIL ON data then no data will be received.</li><li>&ldquo;Remote Health Check&rdquo; similar to Techstream health-check  pings onboard ECUs and returns any available DTCs and related freeze frame data.  Requires up to two 10 minute key cycles for the data to appear. Please note if ignition is OFF or there are no DTC(s) then no data will be received.</li>" donly="true" ng-if="dtcObj.data.helpText">
+			</span>
+		</h4>
+	</div>
+	<div  ng-if="!dtcObj.flattire" class="row removeD">
+		<span ng-if="dtcObj.data.display.length">Display&nbsp;&nbsp;
+			<select ng-model="dtcObj.data.defDisplayOp" class="seldtc" 
+					ng-options="dis for dis in dtcObj.data.display" 
+					ng-change="changedValue('dtcsource',dtcObj.data.defDisplayOp)">
+			</select>				
+			<!--select id="rowstoDisplay" class="seldtc" ng-model="dtcObj.rowsPerPage" ng-options="x for x in dtcObj.displayRows" ng-change="changedValue(dtcObj.rowsPerPage)"></select-->
+		</span>
+		<span id="dtcLogIcon" class="pull-right" ng-click="showRmDataLog()" ng-if="dtcObj.data.rmRmtLog">&nbsp;</span>
+		<button id="healthCheck" class="pull-right btnDefault btn btn-default margL10" ng-if="dtcObj.data.rmHealthchk" 
+				ng-click="remReqChk('healthCheck')" ng-class="{'notApp': dtcObj.data.isRmHealthchkNotApp}">
+			Remote Health Check
+		</button>
+		<button id="dataRequest" class="pull-right btnDefault btn btn-default" ng-if="dtcObj.data.rmDataReq" 
+				ng-click="remReqChk('dataRequest')" ng-class="{'notApp': dtcObj.data.isRmDataReqNotApp}">
+			Remote Data Request
+		</button>
+			
+	</div>
+	<div  class="panel panel-default addmargintopkc remotedata" ng-if="dtcObj.rmtReportData.message != 'N/A' && dtcObj.rmtReportShow">
+		<p ng-class="{'redTxt' : (dtcObj.rmtReportData.status | lowercase) == 'failure','campCompleted' : (dtcObj.rmtReportData.status | lowercase) == 'success'}">{{dtcObj.rmtReportData.message}}</p>		
+	</div>
+	<div  class="panel panel-default addmargintopkc remotedata" ng-if="dtcObj.disabledDataReqErrMsg && dtcObj.data.rmDataReqMsg !='N/A'">		
+		<p class="redTxt">{{dtcObj.data.rmDataReqMsg}}</p>
+	</div>
+	<div  class="panel panel-default addmargintopkc remotedata" ng-if="dtcObj.disabledHealthErrMsg && dtcObj.data.rmHealthchkMsg !='N/A'">		
+		<p class="redTxt">{{dtcObj.data.rmHealthchkMsg}}</p>		
+	</div>
+	<div class="panel panel-default clearfix adjMargin" ng-if="!dtcObj.flattire && dtcObj.data.errorMsg != 'N/A'">
+		<div class="custPaneHead">&nbsp;</div>
+			<div class="panel-body">
+				<div class="info-table-body">{{dtcObj.data.errorMsg}}</div>
+			</div>
+	</div>
+	<div ng-if="dtcObj.flattire" class="pull-left" ng-include="'/serviceLane/pages/asm/mobile/views/flattire.html'"></div>
+	<div ng-if="!dtcObj.flattire && dtcObj.data.errorMsg == 'N/A'">
+		<!--div class="reProg1" ng-if="!reprogrammingHistory">Reprogramming History</div-->		
+		
+		<span class="reProg1" ng-click="showReprogramming()" ng-if="dtcObj.data.reprogrammingHistory"><a>Reprogramming History</a></span>
+			<div class="row removeD1" style="vertical-align: middle" ng-if="dtcObj.pageSize > 0">
+			<div class="resutls col-lg-4 col-md-3 col-sm-6 col-xs-4  bord" style="white-space:nowrap;">{{dtcObj.data.totalCount}} Results Found, displaying {{dtcObj.data.startIndex}} to {{dtcObj.data.endIndex}}</div> 
+			<div class="col-lg-7 col-md-7 col-sm-10 col-xs-10 bord colmd7-dtc">			
+				<ul class="userControls float-right">
+					<li><button ng-disabled="(dtcObj.data.startIndex && dtcObj.data.startIndex == '1')" ng-click="dtcObj.pagnCtrl('first')" class="glyphicon glyphicon-backward"  ng-class="{'active': (dtcObj.data.startIndex && dtcObj.data.startIndex != '1')}"></button></li>
+					<li><button ng-disabled="(dtcObj.data.startIndex && dtcObj.data.startIndex == '1')" ng-click="dtcObj.pagnCtrl('prev')" class="glyphicon glyphicon-chevron-left"  ng-class="{'active': (dtcObj.data.startIndex && dtcObj.data.startIndex != '1')}"></button></li>
+					<li class="pgText">Pages</li>
+					<li class="pan">{{dtcObj.currentPage + 1}}</li> <li class="slash">/</li> <li class="pan">{{numberOfPages()}}</li>
+					<li><button ng-click="dtcObj.pagnCtrl('next')" class="glyphicon glyphicon-chevron-right" ng-class="{'active': (dtcObj.data.serviceNext || dtcObj.data.techNext) }" ng-disabled="(!dtcObj.data.serviceNext && !dtcObj.data.techNext)"></button></li>
+					<li>
+					<button  ng-click="dtcObj.pagnCtrl('last')" class="glyphicon glyphicon-forward" ng-class="{'active': (dtcObj.data.serviceNext || dtcObj.data.techNext)}" ng-disabled="(!dtcObj.data.serviceNext && !dtcObj.data.techNext)" ></button>
+					</li>
+				</ul>
+			</div>
+			<div class="col-lg-1 col-sm-2 col-md-2 col-xs-2 removeD paging  bord pull-right">
+				<span class="pull-right glyphicon acc_minus collapsed"  ng-click="dtcObj.toggleDtcAccordion(false)">&nbsp;</span>
+				<span class="pull-right glyphicon acc_minus"  ng-click="dtcObj.toggleDtcAccordion(true)">&nbsp;</span>
+			</div>
+		</div>
+		<div class="row removeD1">
+			<div class="col-lg-8 col-md-8 col-sm-7 col-xs-6 dtcScrnNote">
+			<div class="" style="padding:4px 5px;"></div>
+				<span class="scrnNote"><strong>P</strong> - Powertrain System | <strong>B</strong> - Body System | <strong>C</strong> - Chassis System | <strong>HC</strong> - Heath Check</span>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-5 col-xs-6 dtcAdjDD">
+				<span class="pull-right">Rows displayed:&nbsp;&nbsp;{{rowSelected}}
+					<select id="rowstoDisplay" class="seldtc" ng-model="dtcObj.rowsPerPage" ng-options="x for x in dtcObj.displayRows" ng-change="changedValue('dtcrows',dtcObj.rowsPerPage)"></select>
+				</span>
+			</div>
+		</div>
+		
+		<div class="panel-group col-xs-12 col-sm-12 col-md-12 col-lg-12 dtcaccord accOverflow" id="dtcAccordion{{$index}}" ng-repeat="(key,val) in dtcObj.data.DtcList" >
+			<div class="panel panel-default accOverflow" ng-click="val.collapse = !val.collapse">
+				<div class="panel-heading col-xs-12 col-sm-12 col-md-12 col-lg-12 ribbonPostion" id="dtcList" style="margin: 0">
+					<span class="ribbon" 
+							ng-class="{'techstream':(val.dtcType | lowercase ) =='techstream','servicecon':(val.dtcType | lowercase) =='service connect'}">{{val.dtcType}}</span>
+					<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 adjAccord">
+						<div class="dtcnumber">
+							<label>{{dtcObj.data.startIndex + $index}}.</label>
+						</div>
+						<div class="dtcDetails">
+							<div class="col-xs-11 col-sm-11 col-md-6 col-lg-6 ">
+								<div class="row" >
+									<label class="col-lg-4 col-md-4 col-sm-3 col-xs-3">
+										<span open-document data-url="/serviceLane/faces/pages/asm/dtc/connectionDetails.jsp?{{milliseconds}}&vin={{val.vin}}&sessionId={{val.session}}&dealerName={{val.formattedDealer}}&mileage={{val.mileage}}&ConnectionTime={{val.connectionTime}}&source=connectionLink&requestType=asmMobile" ng-if="(val.dtcType| lowercase) == 'techstream'">Connection Time</span>
+										<span open-document data-url="/serviceLane/faces/pages/asm/dtc/dtcDetailsSC.jsp?{{milliseconds}}&source=dtcServConnDetailsLink&requestNumber={{val.requestNumber}}&dtcDetConnTime={{val.connectionTimeSC}}&dtcDetUpldSeqNo={{val.fileUploadSeq}}&requestType=asmMobile" ng-if="(val.dtcType| lowercase) == 'service connect'">Connection Time</span>
+									</label>
+									<div class="col-lg-8 col-md-8 col-sm-9 col-xs-9" >
+										<!--span >{{val.connectionTime}}</span-->
+										<a  class="fsEllipse dtctip" open-document data-url="/serviceLane/faces/pages/asm/dtc/connectionDetails.jsp?{{milliseconds}}&vin={{val.vin}}&sessionId={{val.session}}&dealerName={{val.formattedDealer}}&mileage={{val.mileage}}&ConnectionTime={{val.connectionTime}}&source=connectionLink&requestType=asmMobile" ng-if="(val.dtcType| lowercase) == 'techstream'">{{val.connectionTime}}</a>
+										<a  class="fsEllipse dtctip" open-document data-url="/serviceLane/faces/pages/asm/dtc/dtcDetailsSC.jsp?{{milliseconds}}&source=dtcServConnDetailsLink&requestNumber={{val.requestNumber}}&dtcDetConnTime={{val.connectionTimeSC}}&dtcDetUpldSeqNo={{val.fileUploadSeq}}&requestType=asmMobile" ng-if="(val.dtcType| lowercase) == 'service connect'">{{val.connectionTime}}</a>
+									</div> 
+								</div>
+							</div>
+						
+							<div class="col-xs-11 col-sm-11 col-md-5 col-lg-5">
+								<div class="row">
+									<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3">Dealer</label>
+									<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+										<dealer-popup  ng-if="val.dealerCode != N/A" stop-event dcode="{{val.dealerCode}}" dname="{{val.dealerName}}" class="fsEllipse dtctipp " >
+										</dealer-popup>
+									</div>
+								</div>
+							</div>
+						
+							<div class="col-xs-11 col-sm-11 col-md-6 col-lg-6">
+								<div class="row">
+									<label class="col-lg-4 col-md-4 col-sm-3 col-xs-3">DTCs</label>
+									<div class="col-lg-8 col-md-8 col-sm-9 col-xs-9">
+										<span ng-repeat="d in val.dtcs">
+											<span ng-if="(val.dtcType| lowercase) == 'service connect'">{{d.trucDtcCode}} <span ng-if="d.ecuNameFlag"> {{'('+d.ecuName+')'}}</span></span>
+											<span ng-if="d.isFreezeFrameData =='N'">{{d.trucDtcCode}}</span>
+											<span ng-if="d.isFreezeFrameData =='Y'">
+												<a open-document data-url="/serviceLane/faces/pages/asm/dtc/dtcDetails.jsp?{{milliseconds}}&vin={{val.vin}}&milSessionId={{val.session}}&dtcCode={{d.dtcval}}&milLogType={{d.milLogType}}&ffdType={{d.ffdType}}&source=dtcDetailsLink&requestType=asmMobile" ng-if="(val.dtcType| lowercase) == 'techstream'">{{d.trucDtcCode}}</a>											
+											</span>										
+											<span ng-if="$index+1 != val.dtcs.length">,</span>
+										</span>
+										<span ng-if="val.dtcs.length && val.ffd.length">,</span>
+										<span ng-repeat="ffd in val.ffd">										
+												<a open-document data-url="/serviceLane/faces/pages/asm/dtc/ffdDetailsSC.jsp?{{milliseconds}}&source=ffdServConnDetailsLink&requestNumber=VF0000012264&dtcId={{ffd.trucDtcCode}}&ffdDtcTime={{val.connectionTimeSC}}&ffdECUId={{ffd.ecuId}}&ffdCanId={{ffd.canId}}&ffdNTA={{ffd.NTA}}&ffdUnit={{ffd.Standard}}&requestType=asmMobile" >{{ffd.trucDtcCode}}<span ng-if="ffd.ecuNameFlag"> {{'('+ffd.ecuName+')'}}</span></a>
+												<span ng-if="$index+1 != val.ffd.length">,</span>
+											</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-11 col-sm-11 col-md-5 col-lg-5   ">
+								<div class="row">
+									<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3">Source</label>
+									<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+										<span>{{val.dtcType}}</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+						<i class="pull-right glyphicon acc_minus glyAdjMar" ng-class="{'collapsed': val.collapse}"> </i>
+					</div>
+				</div>
+			<div id="dtcCollapse{{$index}}" class="panel-collapse collapse" ng-class="{'in': !val.collapse}">
+				<div class="panel-body col-xs-12 col-sm-12 col-md-12 col-lg-12 overflowhide tab-color removeD" ng-repeat="(key,v) in val.accordBody">
+				
+				<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 adjAccord">
+					<div class="dtcnumber">							
+					</div>
+					<div class="dtcDetails">
+						<div class="col-xs-11 col-sm-11 col-md-6 col-lg-6">
+							<div class="row">
+								<label class="col-lg-4 col-md-4 col-sm-3 col-xs-3">Version</label>
+								<div class="col-lg-8 col-md-8 col-sm-9 col-xs-9 ">
+									<span>{{v.version}}</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-11 col-sm-11 col-md-5 col-lg-5">
+							<div class="row">
+								<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3">Mileage</label>
+								<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 ">
+									<span >{{v.mileage}}</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-11 col-sm-11 col-md-6 col-lg-6">
+							<div class="row">
+								<label class="col-lg-4 col-md-4 col-sm-3 col-xs-3">Initial HC</label>
+								<div class="col-lg-8 col-md-8 col-sm-9 col-xs-9 ">
+									<span >{{v.initialHC}}</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-11 col-sm-11 col-md-5 col-lg-5 ">
+							<div class="row">
+								<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ">User HC</label>
+								<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 ">
+									<span >{{v.userHC}}</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-11 col-sm-11 col-md-6 col-lg-6">
+							<div class="row">
+								<label class="col-lg-4 col-md-4 col-sm-3 col-xs-3">System DTC</label>
+								<div class="col-lg-8 col-md-8 col-sm-9 col-xs-9 ">
+									<span >{{v.systemDTC}}</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-11 col-sm-11 col-md-5 col-lg-5 ">
+							<div class="row">
+								<label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ">Data List</label>
+								<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 ">
+									<span >{{v.dataList}}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+					<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">&nbsp;</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div> <!--Starting Div -->
+
+<div class="row remLRpad">
+	<div></div>
+	<div></div>
+	<div></div>
+</div>
+
+<!-- Remote Log -->
+<div ng-if="DTCRmLog.show" ng-include="'/serviceLane/pages/asm/mobile/views/rmLog.html'"></div>
+	
+</div>

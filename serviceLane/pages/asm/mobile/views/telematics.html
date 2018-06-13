@@ -1,0 +1,300 @@
+<div class="pagesection col-xs-12 col-md-12 ">
+	<h4 class="sub-header">Telematics <span class="circletelematics" dtip rel='{{telenote}}' donly="true"></span>
+	</h4>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 colmd51 remLRpad  ">
+		<div class="row">
+			<label class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> <span>Vehicle Capability</span></label>			
+		</div>
+	</div>
+	<div ng-if="telematicsObj.vehicleCapableTable">
+		<ul class="teleProdDetail">			
+			<li class="col-xs-12 col-md-12 tab-color removemargintopli" ng-repeat="vehCap in telematicsObj.vehicleCapableTable track by $index">			
+				<div class="col-lg-6 col-md-4 col-xs-7 remLRpad">
+					<div class="row">
+						<div class="col-lg-4 col-md-6 col-xs-6">App Suite Capable</div>
+						<label class="col-lg-8 col-md-6 col-xs-6 careServiceDes appsuite" rel="{{vehCap.appSuite}}" dtip>{{vehCap.appSuite}}</label>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-4 col-xs-5 remLRpad">
+					<div class="row">
+						<div class="col-lg-8 col-md-8 col-xs-8 ">Navigation</div>
+						<label class="col-lg-4 col-md-4 col-xs-4 ">{{vehCap.navigation}}</label>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-4 col-xs-7 remLRpad">
+					<div class="row">
+						<div class="col-lg-8 col-md-8 col-xs-6  ">Dynamic Commute</div>
+						<label class="col-lg-4 col-md-4 col-xs-6 ">{{vehCap.dynCommute}}</label>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-4 col-xs-5 remLRpad">
+					<div class="row">
+						<div class="col-lg-4 col-md-6 col-xs-8">Safety Capable</div>
+						<label class="col-lg-8 col-md-6 col-xs-4 ">{{vehCap.safety}}</label>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-4 col-xs-7 remLRpad">
+					<div class="row">
+						<div class="col-lg-8 col-md-8 col-xs-6   ">Destination Assist</div>
+						<label class="col-lg-4 col-md-4 col-xs-6 ">{{vehCap.destAssist}}</label>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-4 col-xs-5 remLRpad">
+					<div class="row">
+						<div class="col-lg-8 col-md-8 col-xs-8   ">Dynamic Map/Route</div>
+						<label class="col-lg-4 col-md-4  col-xs-4 ">{{vehCap.dynMap}}</label>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-4 col-xs-7 remLRpad">
+					<div class="row">
+						<div class="col-lg-4  col-md-6 col-xs-6   ">Wifi Capable</div>
+						<label class="col-lg-8 col-md-6 col-xs-6 ">{{vehCap.wifi}}</label>
+					</div>
+				</div>	
+				
+				<div class="col-lg-3 col-md-4 col-xs-5 remLRpad">
+					<div class="row">
+						<div class="col-lg-8 col-md-8 col-xs-8   ">Dynamic POI Search</div>
+						<label class="col-lg-4 col-md-4 col-xs-4 ">{{vehCap.dynPOISear}}</label>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-4 col-xs-7 remLRpad">
+					<div class="row">
+						<div class="col-lg-8 col-md-8 col-xs-6 scoutGPS">Scout GPS Link Capable</div>
+						<label class="col-lg-4 col-md-4  col-xs-6 ">{{vehCap.scoutGPS}}</label>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 colmd51 remLRpad">
+		<div class="row">
+			<label class="col-lg-6 col-md-6 col-sm-5 col-xs-5   "> <span>Telematics	Products</span>
+			</label> <label class="col-lg-6 col-md-6 col-sm-7 col-xs-7 "
+				ng-if="telematicsObj.telematicSubscriptionVO.data.displayLexusSettingsLink && !telematicsObj.toyotaDealer">
+			<span class="pull-right"><a
+				ng-click="redirectPage('/lps', 'lps')">Lexus Personalized Settings</a></span>
+			</label>
+		</div>
+	</div>
+	<div class="panel panel-default clearfix adjMargin warningmessage  remLRpad col-xs-12" ng-if="telematicsProdErr">
+		<div class="custPaneHead">&nbsp;</div>
+		<div class="panel-body">
+			<div class="info-table-body">{{telematicsObj.telematicSubscriptionVO.errorMsg}}</div>
+		</div>
+	</div>
+	<div ng-if="!telematicsProdErr">
+		<ul class="teleProdDetail" id="teleproductList">
+			<li class="col-xs-12 col-md-12 remLRpad"
+				ng-repeat="(eachKeyIneachProduct,eachProduct) in telematicsObj.telematicSubscriptionVO.data.telematicSystemList"
+				ng-class="{'greenproduct': ((eachProduct.status | lowercase) == 'enrolled' || (eachProduct.status | lowercase) == 'active' || (eachProduct.status | lowercase) == 'linked'),'redproduct': ((eachProduct.status | lowercase ) == 'inactive' ||  (eachProduct.status | lowercase ) == 'not linked' || (eachProduct.status | lowercase ) == 'not enrolled') ,'greyproduct': (eachProduct.status | lowercase) == 'future','removemargintopli':$first}">
+				<div class="col-xs-4 col-md-3 col-lg-2  iconcenter">
+					<span class="statustext"> <span class="statusicon"></span> <span class="prodstatus">{{eachProduct.status}}</span>
+					</span>
+				</div>
+				<div class="col-xs-8 col-md-9 col-lg-10 tab-color">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 colmd51 remLRpad  ">
+						<div class="row">
+							<label class="col-lg-12 col-md-12 col-sm-12 col-xs-12   ">
+							<span dtip rel="{{eachProduct.productName}}" donly="true">{{eachProduct.telematicSystem}}
+							</span> <span ng-if="personDetailsForFeedback.dealerCode != 'N/A'"> | {{eachProduct.maskedContractId}}</span>
+							<span ng-if="personDetailsForFeedback.dealerCode == 'N/A'"> | {{eachProduct.contractId}}</span>
+							</label>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 colmd51 remLRpad  ">
+						<div class="row">
+							<div class="col-lg-3 col-xs-4   ">
+								<span>Subscriber </span>
+							</div>
+							<label class="col-lg-9 col-xs-8 ">
+								<div  class="subscribername"  ng-if="eachProduct.subscriber != 'N/A'">
+									<a class="overflowellipse" ng-click="showTelematicsAccountDetails($event,eachProduct.custID,eachProduct.contractId,eachProduct.telematicSystem)">{{eachProduct.subscriber}}</a>
+								</div>
+								<div ng-if="eachProduct.subscriber == 'N/A'">{{eachProduct.subscriber}}</div>
+							</label>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 colmd51 remLRpad  " >
+						<div class="row">
+							<div class="col-lg-4 col-md-5 col-xs-4    ">
+								<span>Role</span>
+							</div>
+							<label class="col-lg-8 col-md-7 col-xs-8  remLRpadhoriz"> <span>{{eachProduct.role}}</span>
+							</label>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 colmd51 remLRpad  ">
+						<div class="row">
+							<div class="col-lg-3 col-xs-4   remRpad">
+								<span>Effective Date</span>
+							</div>
+							<label class="col-lg-9 col-xs-8 "> <span>{{eachProduct.effectiveDt}}</span>
+							</label>
+						</div>
+					</div>
+					<div
+						class="col-xs-12 col-sm-12 col-md-6 col-lg-6 colmd51 remLRpad  ">
+						<div class="row">
+							<div class="col-lg-4 col-md-5   col-xs-4    ">
+								<span>Expiration Date</span>
+							</div>
+							<label class="col-lg-8 col-md-7 col-xs-8  remLRpadhoriz"> <span>{{eachProduct.expDt}}</span>
+							</label>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 colmd51 remLRpad  ">
+		<div class="row">
+			<label class="col-lg-4 col-md-4 col-sm-4 col-xs-4   "> <span>SiriusXM Satellite Radio</span>
+			</label>
+			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 " ng-if="!XMSubscriptionVOErr">
+				<span>Program Code </span> &nbsp;&nbsp; <label>{{telematicsObj.XMSubscriptionVO.data.programeCode}}</label>
+				<span>&nbsp;&nbsp;| &nbsp;&nbsp; Auto pay &nbsp;&nbsp;</span><label>{{telematicsObj.XMSubscriptionVO.data.autoPay}}</label>
+			</div>
+		</div>
+	</div>
+	<div class="panel panel-default clearfix adjMargin warningmessage  remLRpad col-xs-12"	ng-if="XMSubscriptionVOErr">
+		<div class="custPaneHead">&nbsp;</div>
+		<div class="panel-body">
+			<div class="info-table-body">{{telematicsObj.XMSubscriptionVO.errorMsg}}</div>
+		</div>
+	</div>
+	<div ng-if="!XMSubscriptionVOErr">
+		<ul class="teleProdDetail" id="teleproductList">
+			<li class="col-xs-12 col-md-12 remLRpad"
+				ng-repeat="(eachKeyInEachXmService,eachXmService) in telematicsObj.XMSubscriptionVO.data.xmServiceVOList"
+				ng-class="{'greenproduct': (eachXmService.status | lowercase) == 'active','redproduct': (eachXmService.status | lowercase ) == 'inactive','greyproduct': (eachXmService.status | lowercase) == 'n/a','removemargintopli':$first}">
+				<div class="col-xs-4 col-md-3 col-lg-2  iconcenter">
+					<span class="statustext  statusTextPortrait"> <span
+						class="statusicon"></span> <span class="prodstatus">{{eachXmService.status}}</span>
+					</span>
+				</div>
+				<div class="col-xs-8 col-md-9 col-lg-10 tab-color">
+					<div
+						class="col-xs-12 col-sm-12 col-md-12 col-lg-12 colmd51 remLRpad  ">
+						<div class="row">
+							<label class="col-lg-12 col-md-12 col-sm-12 col-xs-12   ">
+							<span dtip rel="{{eachXmService.serviceToolTip}}" donly="true">{{eachXmService.service}}					</span> <span>| {{eachXmService.subscriptionType}}</span>
+							</label>
+						</div>
+					</div>
+					<div
+						class="col-xs-12 col-sm-12 col-md-6 col-lg-6 colmd51 remLRpad  ">
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-5 col-xs-5   ">
+								<span>Vehicle Capable</span>
+							</div>
+							<label class="col-lg-6 col-md-6 col-sm-7 col-xs-7 "> <span>{{eachXmService.vehicleCapable}}</span>
+							</label>
+						</div>
+					</div>
+					<div
+						class="col-xs-12 col-sm-12 col-md-6 col-lg-6 colmd51 remLRpad  ">
+						<div class="row">
+							<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5   ">
+								<span>Effective Date</span>
+							</div>
+							<label class="col-lg-7 col-md-7 col-sm-7 col-xs-7 "> <span>{{eachXmService.effectiveDate}}</span>
+							</label>
+						</div>
+					</div>
+					<div
+						class="col-xs-12 col-sm-12 col-md-6 col-lg-6 colmd51 remLRpad  ">
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-5 col-xs-5   ">
+								<span>Expiration Date</span>
+							</div>
+							<label class="col-lg-6 col-md-6 col-sm-7 col-xs-7 "> <span>{{eachXmService.expirationDate}}</span>
+							</label>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 remLRpad">
+		<div class="row">
+			<label class="col-lg-6 col-md-6 col-sm-5 col-xs-5   "> <span style="font-size:18px;">DCM Replacement Log</span>
+			</label> 
+		</div>
+	</div>
+	<div class="panel panel-default clearfix adjMargin warningmessage  remLRpad col-xs-12" style="margin-bottom:0px;" ng-if="dcmErr">
+		<div class="custPaneHead">&nbsp;</div>
+		<div class="panel-body">
+			<div class="info-table-body">{{telematicsObj.DCMlog.errorMsg}}</div>
+		</div>
+	</div>
+	<div ng-if="!dcmErr">
+		<ul class="teleProdDetail" id="dcmList">
+			<li class="col-xs-12 col-md-12 remLRpad flexbox"
+				ng-repeat="(eachKeyInEachdcmService,eachDcmService) in telematicsObj.DCMlog.data.dcmList"
+				ng-class="{'greensurvey': (eachDcmService.status | lowercase) == 'active','redsurvey': (eachDcmService.status | lowercase ) == 'failed' || (eachDcmService.status | lowercase ) == 'timed out','greysurvey': (eachDcmService.status | lowercase) == 'pending' || (eachDcmService.status | lowercase) == 'n/a','removemargintopli':$first}">
+				<div class="col-xs-4 col-md-3 col-lg-2 iconcenter">
+					<span class="statustext">
+						<span class="statusicon"></span> 
+						<span class="">{{eachDcmService.status}}</span>
+					</span>	
+					
+				</div>
+				<div class="col-xs-8 col-md-9 col-lg-10 tab-color">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 colmd51 remLRpad  ">
+						<div class="row">
+							<label class="col-lg-12 col-md-12 col-sm-12 col-xs-12   ">
+							<span ng-if="eachDcmService.dcmType!='null'">{{eachDcmService.dcmType}} | </span> <span> {{eachDcmService.gtsVersion}}</span> | <span> {{eachDcmService.meid}}</span>
+							</label>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 colmd51 remLRpad  ">
+						<div class="row">
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4   ">
+								<span>Request Time</span>
+							</div>
+							<label class="col-lg-8 col-md-8 col-sm-8 col-xs-8 "> <span>{{eachDcmService.reqTime}}</span>
+							</label>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 colmd51 remLRpad  ">
+						<div class="row">
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4   ">
+								<span>SXM Ack Time</span>
+							</div>
+							<label class="col-lg-8 col-md-8 col-sm-8 col-xs-8 "> <span>{{eachDcmService.sxmTime}}</span>
+							</label>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 colmd51 remLRpad  ">
+						<div class="row">
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4  ">
+								<span>Response Time</span>
+							</div>
+							<label class="col-lg-8 col-md-8 col-sm-8 col-xs-8"> <span>{{eachDcmService.responseTime}}</span>
+							</label>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 colmd51 remLRpad  ">
+						<div class="row">
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+								<span>Response</span>
+							</div>
+							<label class="col-lg-8 col-md-8 col-sm-8 col-xs-8 careServiceDes" rel="{{eachDcmService.response}}" dtip> 
+								<span >{{eachDcmService.response}}</span>
+							</label>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<p class="clearAll errorMsg">
+		Note: If the Status is ‘Timed Out’, please raise a TAS case &#60;TBD&#62;. 									
+	</p>	
+</div>
+<div class="row remLRpad">
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+</div>

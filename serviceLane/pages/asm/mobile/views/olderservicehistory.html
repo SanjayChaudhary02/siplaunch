@@ -1,0 +1,1008 @@
+<div class="pagesection col-xs-12 col-md-12">
+
+<h4 class="sub-header">Service History</h4>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 servicehistorypage ">
+
+<div class="tabbable " id="serviceHistoryTab"  ng-if="serviceHistoryObj">
+<div class="tabandolderconainer">
+<div class="col-xs-8 col-sm-8 col-md-7 col-lg-7 mymaintab ">
+    <ul class="nav nav-pills maintabhistory">
+        <li class="active">
+        
+        <a  ng-if="nshError" href="/#tab1"  ng-click="showOrRemoveNshErrorBox(1)" data-toggle="pill">All <span>({{serviceHistoryObj.allHistoryArrayCount}})</span> </a>
+        <a  ng-if="!nshError" href="/#tab1"   data-toggle="pill">All <span>({{serviceHistoryObj.allHistoryArrayCount}})</span> </a>
+        
+        </li>
+         
+        <li>
+        <a   ng-if="nshError"  href="/#tab2"  ng-click="showOrRemoveNshErrorBox(1)" data-toggle="pill">NSH <span>({{serviceHistoryObj.nshArrayCount}})</span> </a>
+        <a   ng-if="!nshError"  href="/#tab2"   data-toggle="pill">NSH <span>({{serviceHistoryObj.nshArrayCount}})</span> </a>
+       
+        </li>
+        
+		 <li>
+		 <a ng-if="nshError" class="increasewidthforwarranty"   href="/#tab3"  ng-click="showOrRemoveNshErrorBox(0)" data-toggle="pill">Warranty <span>({{serviceHistoryObj.warrantyArrayCount}})</span> </a>
+		 <a ng-if="!nshError" class="increasewidthforwarranty"   href="/#tab3"   data-toggle="pill">Warranty <span>({{serviceHistoryObj.warrantyArrayCount}})</span> </a>
+		
+		 </li>
+    </ul>
+    
+
+     
+</div>
+<div class="col-xs-4 col-sm-4 col-md-5 col-lg-5 older-right-align">
+<a  ng-if="serviceHistoryObj.nshArchivedAvailable"  id="olderDataLink"  ng-click="redirectPage('/servicehistory', 'servicehistory')">Hide Older Data</a>
+</div>
+</div>
+
+<div class="container-fluid careHeader">
+		<div class="vindetailhead">
+            <span class="text-muted" style="padding-left: 3px !important"> Total Amount</span>
+            <br/><span class="label">{{serviceHistoryObj.paymentSummary.totalPay}}</span></div>
+        <span class="line"></span>
+        <div class="vindetailhead"><span class="text-muted">Customer Pay</span>
+            <br/><span class="label">{{serviceHistoryObj.paymentSummary.customerPay}}</span></div>
+        <span class="line"></span>
+        <div class="vindetailhead"><span class="text-muted">Warranty Pay</span>
+            <br/><span class="label">{{serviceHistoryObj.paymentSummary.warrantyPay}}</span></div>
+        <span class="line"></span>
+        <div class="vindetailhead"><span class="text-muted">Internal (Dealer) Pay</span>
+            <br/><span class="label">{{serviceHistoryObj.paymentSummary.dealerPay}}</span></div>
+        <span class="line"></span>
+        <div class="vindetailhead" id="last"><span class="text-muted">Goodwill</span>
+            <br/><span class="label">{{serviceHistoryObj.paymentSummary.goodwillPay}}</span></div>
+    </div>
+    
+ <div id="serviceerrormessage" ng-if="nshError" class="panel panel-default tab-content myservicetabcontent col-xs-12 col-sm-12 col-md-12 col-lg-12 serviceerrormessage">
+					   <div class="custPaneHead">
+							<span >&nbsp;</span>
+					  </div>
+					  
+					 <div class="panel-body ng-scope" >
+						<div class="info-table-body ng-binding" style="padding-left: 15px;">Message from NSH: {{serviceHistoryObj.nshErrorDesc}}</div>
+					  </div>
+					</div>	
+    
+    <div class="panel panel-default tab-content myservicetabcontent col-xs-12 col-sm-12 col-md-12 col-lg-12 warningmessage" ng-if="nodataError" >
+					   <div class="custPaneHead">
+							<span >&nbsp;</span>
+					  </div>
+					  
+					 <div class="panel-body ng-scope" >
+						<div class="info-table-body ng-binding">Service history Information is not available for vehicle : {{inputValue}}</div>
+					  </div>
+					</div>
+					
+
+
+   
+    <div class="tab-content myservicetabcontent col-xs-12 col-sm-12 col-md-12 col-lg-12"  ng-if="!nodataError" >
+        <div class="tab-pane active" id="tab1">
+        <div class="tabandolderconainer">
+        
+       
+        <div class="tabandolderconainericon">
+          <div id="tab1accordion11minus" class="overallminus" ng-click="expandOrCollapseAll(false,'all')"></div>
+<div id="tab1accordion11plus" class="overallplus" ng-click="expandOrCollapseAll(true,'all')"></div>
+  
+     </div>
+       
+        
+        </div>
+       
+ 
+
+
+        <accordion close-others="false"> 
+         
+         
+     <accordion-group class="eachaccordiangroup {{eachInAll.sourceType |lowercase}}" is-open="eachInAll.open"
+			 ng-repeat="(eachKeyInAll,eachInAll) in serviceHistoryObj.allHistoryArray">    
+         <accordion-heading>
+    
+               
+                      {{eachInAll.repairCloseDate}} <span id="headingsperator">|</span>   {{eachInAll.mileage}} miles<span id="headingsperator">|</span>   
+                     
+					<dealer-popup   stop-event class="mypad" dname="{{eachInAll.dealerName}}" dcode="{{eachInAll.dealerCode}}">
+						</dealer-popup>
+						 <br> RO# {{eachInAll.roNumber}} <span id="headingsperator">|</span> 
+                     <span ng-if="eachInAll.sourceType == 'WARRANTY'">Amount {{eachInAll.totalClaimAmountFormatted}} </span>
+                       
+                    
+                    
+                    <span ng-if="eachInAll.sourceType  == 'NSH'">RO Total {{eachInAll.totalCost}} <span id="headingsperator">|</span> <span ng-if="(eachInAll.serviceAdvisorName.firstName != 'N/A') && (eachInAll.serviceAdvisorName.lastName != 'N/A')">Service Advisor &nbsp;{{eachInAll.serviceAdvisorName.firstName}} &nbsp;{{eachInAll.serviceAdvisorName.lastName}}</span> 
+                     
+                     <span ng-if="(eachInAll.serviceAdvisorName.firstName == 'N/A') && (eachInAll.serviceAdvisorName.lastName == 'N/A')">Service Advisor &nbsp;{{eachInAll.serviceAdvisorName.firstName}}</span>
+                      <span ng-if="(eachInAll.serviceAdvisorName.firstName == 'N/A') && (eachInAll.serviceAdvisorName.lastName != 'N/A')">Service Advisor &nbsp;{{eachInAll.serviceAdvisorName.lastName}}</span>
+                      <span ng-if="(eachInAll.serviceAdvisorName.firstName != 'N/A') && (eachInAll.serviceAdvisorName.lastName == 'N/A')">Service Advisor &nbsp;{{eachInAll.serviceAdvisorName.firstName}}</span>
+                     </span>
+                    
+                    
+                    
+                 <i class="pull-right glyphicon icon-plus-sign-service" ng-class="{'icon-minus-sign-service':eachInAll.open}"></i>    
+                    
+                     
+                   
+               </accordion-heading>
+               
+                  
+                    
+                  
+  
+     
+                         
+                    
+                    
+                  
+                    <div ng-repeat="(eachKeyInAllNshCondition,eachInAllNshConditionsList) in eachInAll.repairConditionsList"  ng-if="eachInAll.sourceType == 'NSH'">
+                     <div  class="row">
+                         <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                    Condition: {{eachInAllNshConditionsList.position}}-Op code
+                    </div>
+                    <div class="col-xs-6 col-sm-9 col-md-9 col-lg-9">
+                    {{eachInAllNshConditionsList.operation.opCodeNumber == null ? 'N/A' : eachInAllNshConditionsList.operation.opCodeNumber}}
+                    </div>
+                      </div> 
+                      
+                                           <div  class="row">
+                         <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                    Op Code Desc
+                    </div>
+                    <div class="col-xs-6 col-sm-9 col-md-9 col-lg-9">
+                    
+                    
+	                    <p class="careServiceDes rmPad" dtip rel="{{eachInAllNshConditionsList.operation.opCodeDescription}}">{{eachInAllNshConditionsList.operation.opCodeDescription == null ? 'N/A' : eachInAllNshConditionsList.operation.opCodeDescription}}</p>
+						
+                    </div>
+                      </div> 
+                      
+                                         
+                     <div class="row">
+                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                    Pay Type
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                    {{eachInAllNshConditionsList.labourCodeDescription}}
+                    </div>
+                    
+                    <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
+                   Claim # 
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                      {{eachInAllNshConditionsList.claimNumber}}
+                    </div>
+                    </div>
+                    
+                    <div ng-if="eachInAllNshConditionsList.partInfoFlag" ng-repeat="(eachKeyInAllNshConditionpartInfo,eachInAllNshConditionsListpartInfo) in eachInAllNshConditionsList.partInfo" >
+                    
+                                         <div class="row">
+                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                    Part #(Qty)
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                    
+                           <p class="careServiceDes rmPad" dtip rel="{{eachInAllNshConditionsListpartInfo.partNumber}} (   {{eachInAllNshConditionsListpartInfo.partQuantity}} )"> {{eachInAllNshConditionsListpartInfo.partNumber}} (   {{eachInAllNshConditionsListpartInfo.partQuantity}} )</p>
+						
+   
+                    </div>
+                    
+                                        <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
+                  Part Desc
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                      
+                      
+                       <p class="careServiceDes rmPad" dtip rel="{{eachInAllNshConditionsListpartInfo.partDescription}}">{{eachInAllNshConditionsListpartInfo.partDescription}}</p>
+						
+   
+                    </div>
+                    </div>
+                    
+                   </div>
+                                       
+                    <div ng-if="!eachInAllNshConditionsList.partInfoFlag">
+                    
+                                         <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  itemBold centeraligning">
+                    No Parts Info Available
+                    </div>
+
+                    </div>
+                    
+                   </div>
+                   
+                   
+                    </div>
+                                      
+                    
+                    
+                    
+                               
+                  
+      <!--  differnt divs for nsh and warranty -->            
+                  
+                  
+                          
+                  
+                    
+                    
+                    
+                     <div class="row"  ng-if="eachInAll.sourceType == 'WARRANTY'">
+                    <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Goodwill
+                    </div>
+                    <div class="col-xs-7 col-sm-3 col-md-4 col-lg-4 itemBold">
+                     {{eachInAll.goodwillIndicator == 'N' ? 'No':'Yes'}} 
+                    </div>
+                    
+                                        <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Pay Type
+                    </div>
+                    <div class="col-xs-7 col-sm-3 col-md-4 col-lg-4  itemBold partdescrightpad">
+                     {{eachInAll.payType}}
+                    </div>
+                    </div>
+                    
+                                        <div class="row">
+                    <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Op Code
+                    </div>
+                    <div class="col-xs-7 col-sm-3 col-md-4 col-lg-4 itemBold">
+                    {{eachInAll.opCodeNumber}} 
+                    </div>
+                    
+                                        <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Repair
+                    </div>
+                    <div class="col-xs-7 col-sm-3 col-md-4 col-lg-4 itemBold partdescrightpad">
+                       
+                      
+                      
+                                             
+                         <p class="careServiceDes rmPad" dtip rel="{{eachInAll.opCodeDescription}} ">{{eachInAll.opCodeDescription}} </p>
+						
+                      
+                    </div>
+                    </div>
+                    
+                                        <div class="row">
+                    <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Claim#
+                    </div>
+                    <div class="col-xs-7 col-sm-3 col-md-4 col-lg-4 itemBold">
+                      {{eachInAll.claimNumber}} 
+                    </div>
+                    
+                                        <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Part#
+                    </div>
+                    <div class="col-xs-7 col-sm-3 col-md-4 col-lg-4 itemBold">
+                       {{eachInAll.partNumber}} 
+                    </div>
+                    </div>
+                    
+                                        <div class="row">
+                    <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Part Description
+                    </div>
+                    <div class="col-xs-7 col-sm-3 col-md-4 col-lg-4 itemBold">
+                       
+                              <p class="careServiceDes rmPad" dtip rel="{{eachInAll.partDescription}} "   >  {{eachInAll.partDescription}}  </p>
+						
+      
+                    </div>
+                    
+                                        <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Replaced Part
+                    </div>
+                    <div class="col-xs-7 col-sm-3 col-md-4 col-lg-4 itemBold">
+                      
+                       {{eachInAll.replacedPart}} 
+                 
+                    </div>
+                    </div>
+                    
+                      <div class="row">
+                    <div class="col-xs-2 col-sm-3 col-md-2 col-lg-2">
+                    T1
+                    </div>
+                    <div class="col-xs-3 col-sm-2 col-md-2 col-lg-2 itemBold">
+                   <span id="eachInAllToneSpan_{{$index}}"  stop-event  class="" ng-if="eachInAll.troubleCode1 != 'N/A'" pop-trouble rel="eachInAllToneRel_{{$index}}" data-tcode="t1" data-tvalue="{{eachInAll.troubleCode1}}">
+							  {{eachInAll.troubleCode1}} 
+							<div class="shadowpopup" id="eachInAllToneRel_{{$index}}" ng-if="eachInAll.troubleCode1" ng-show="dealPopUp">					
+								  <h4 class="model-title">
+								  <span class=" closebutton  " ng-click="overlayShow(false);$event.stopPropagation();" my-touchstart="hidePopupAndOverlay();">X</span>
+								  <label ng-if="troubleD.troubleCodeJson!=null">{{troubleD.troubleCodeJson}}</label>
+								  </h4>
+
+							</div>
+						</span>
+						<span ng-if="eachInAll.troubleCode1 == 'N/A'"> {{ eachInAll.troubleCode1}} </span>
+                    </div>
+                    
+                     <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1">
+                    T2
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 itemBold removingpaddingservice">
+                   <span id="eachInAllTtwoSpan_{{$index}}"  stop-event  class="" ng-if="eachInAll.troubleCode2 != 'N/A'" pop-trouble rel="eachInAllTtwoRel_{{$index}}" data-tcode="t2" data-tvalue="{{eachInAll.troubleCode2}}">
+							{{eachInAll.troubleCode2}} 
+							<div class="shadowpopup" id="eachInAllTtwoRel_{{$index}}" ng-if="eachInAll.troubleCode2" ng-show="dealPopUp">					
+								  <h4 class="model-title"><span class=" closebutton  " ng-click="overlayShow(false);$event.stopPropagation();" my-touchstart="hidePopupAndOverlay();">X</span>
+								  <label ng-if="troubleD.troubleCodeJson!=null">{{troubleD.troubleCodeJson}}</label>
+								  </h4>
+
+							</div>
+						</span>
+						<span ng-if="eachInAll.troubleCode2 == 'N/A'"> {{ eachInAll.troubleCode2}} </span>
+                    </div>
+					
+					<div class="col-xs-1 col-sm-2 col-md-2 col-lg-2">
+                    T3
+                    </div>
+                    <div class="col-xs-1 col-sm-2 col-md-2 col-lg-2 itemBold">
+                                      <span id="eachInAllTthreeSpan_{{$index}}"  stop-event  class="" ng-if="eachInAll.troubleCode3 != 'N/A'" pop-trouble rel="eachInAllTthreeRel_{{$index}}" data-tcode="t3" data-tvalue="{{eachInAll.troubleCode3}}">
+							  {{eachInAll.troubleCode3}}
+							<div class="shadowpopup" id="eachInAllTthreeRel_{{$index}}" ng-if="eachInAll.troubleCode3" ng-show="dealPopUp">					
+								  <h4 class="model-title"><span class=" closebutton  " ng-click="overlayShow(false);$event.stopPropagation();" my-touchstart="hidePopupAndOverlay();">X</span>
+								  <label ng-if="troubleD.troubleCodeJson!=null">{{troubleD.troubleCodeJson}}</label>
+								  </h4>
+
+							</div>
+						</span>
+						 <span ng-if="eachInAll.troubleCode3 == 'N/A'"> {{ eachInAll.troubleCode3}} </span>
+                    </div>
+                    </div>
+                    
+                    
+                    
+                    
+                    
+                    
+                           
+                      <div class="row">
+                    <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Condition
+                    </div>
+                    <div class="col-xs-7 col-sm-9 col-md-10 col-lg-10 itemBold">
+                      
+                       
+                       
+                       
+                         <p class="careServiceDes rmPad" dtip rel="{{eachInAll.conditionDescription}}"> {{eachInAll.conditionDescription}} </p>
+						
+           
+                    </div>
+                    
+
+                    </div>             
+                    
+                                <div class="row">
+                    <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Cause
+                    </div>
+                    <div class="col-xs-7 col-sm-9 col-md-10 col-lg-10 itemBold">
+                      
+                                            <p class="careServiceDes rmPad" dtip rel="{{eachInAll.causeDescription}}"> {{eachInAll.causeDescription}}</p>
+						
+  
+                    </div>
+                    
+
+                    </div>  
+                                <div class="row">
+                    <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Remedy
+                    </div>
+                    <div class="col-xs-7 col-sm-9 col-md-10 col-lg-10 itemBold">
+                 
+                                             <p class="careServiceDes rmPad" dtip rel="{{eachInAll.remedyDescription}}"> {{eachInAll.remedyDescription}}</p>
+						
+  
+                    </div>
+                    
+
+                    </div> 
+                    
+                    
+                    
+                    
+                    
+                 
+              
+             </accordion-group> 
+           
+         <!-- /.panel-group --></accordion>
+
+
+<!-- nested -->
+         </div>
+        <div class="tab-pane" id="tab2">
+           <div ng-if="noNshDataError" class="panel panel-default tab-content myservicetabcontent col-xs-12 col-sm-12 col-md-12 col-lg-12 warningmessage">
+					   <div class="custPaneHead">
+							<span >&nbsp;</span>
+					  </div>
+					  
+					 <div class="panel-body ng-scope" >
+						<div class="info-table-body ng-binding" style="padding-left: 15px;">No records are available for the selected criteria</div>
+					  </div>
+					</div>
+        <div class="tabandolderconainer"  ng-if="!noNshDataError">
+        
+                <div class="tabandolderconainericon" ng-show="serviceHistoryObj.nshAvailable">
+                  <div id="tab2accordion21minus"  class="overallminus" ng-click="expandOrCollapseAll(false,'nsh')"></div>
+<div id="tab2accordion21plus" class="overallplus" ng-click="expandOrCollapseAll(true,'nsh')"></div>
+                       </div>
+        
+</div>
+
+                    <!-- nested -->
+
+<accordion close-others="false"  ng-if="!noNshDataError"> 
+       <accordion-group class="eachaccordiangroup  {{eachInNsh.sourceType|lowercase}}" is-open="eachInNsh.open"
+			 ng-repeat="(eachKeyInNsh,eachInNsh) in serviceHistoryObj.nshArray">
+            
+<accordion-heading>                     {{eachInNsh.repairCloseDate}} <span id="headingsperator">|</span>   {{eachInNsh.mileage}} miles<span id="headingsperator">|</span> 
+                     
+                     <dealer-popup class="mypad" stop-event dname="{{eachInNsh.dealerName}}" dcode="{{eachInNsh.dealerCode}}">
+				</dealer-popup>
+                     <br> RO# {{eachInNsh.roNumber}} <span id="headingsperator">|</span>  RO Total 
+                     <span ng-if="eachInNsh.sourceType  == 'NSH'">{{eachInNsh.totalCost}} <span id="headingsperator">|</span> <span ng-if="eachInNsh.serviceAdvisorName.firstName != 'N/A' && eachInNsh.serviceAdvisorName.lastName != 'N/A'">Service Advisor &nbsp;{{eachInNsh.serviceAdvisorName.firstName}} &nbsp;{{eachInNsh.serviceAdvisorName.lastName}}</span> 
+                     
+                     <span ng-if="eachInNsh.serviceAdvisorName.firstName == 'N/A' && eachInNsh.serviceAdvisorName.lastName == 'N/A'">Service Advisor &nbsp;{{eachInNsh.serviceAdvisorName.firstName}}</span>
+                      <span ng-if="eachInNsh.serviceAdvisorName.firstName == 'N/A' && eachInNsh.serviceAdvisorName.lastName != 'N/A'">Service Advisor &nbsp;{{eachInNsh.serviceAdvisorName.lastName}}</span>
+                      <span ng-if="eachInNsh.serviceAdvisorName.firstName != 'N/A' && eachInNsh.serviceAdvisorName.lastName == 'N/A'">Service Advisor &nbsp;{{eachInNsh.serviceAdvisorName.firstName}}</span>
+                     
+                     </span>
+                     <i class="pull-right glyphicon icon-plus-sign" ng-class="{'icon-minus-sign':eachInNsh.open}"></i> 
+                    </accordion-heading>  
+                      
+               
+     
+                         
+                    
+                    
+                   
+                    <div ng-repeat="(eachKeyInNshCondition,eachInNshConditionsList) in eachInNsh.repairConditionsList">
+                     <div  class="row">
+                         <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                    Condition: {{eachInNshConditionsList.position}}-Op code
+                    </div>
+                    <div class="col-xs-6 col-sm-9 col-md-9 col-lg-9">
+                    {{eachInNshConditionsList.operation.opCodeNumber == null ? 'N/A' : eachInNshConditionsList.operation.opCodeNumber }}
+                    </div>
+                      </div> 
+                      
+                                           <div  class="row">
+                         <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                    Op Code Desc
+                    </div>
+                    <div class="col-xs-6 col-sm-9 col-md-9 col-lg-9">
+                    
+                    	<p class="careServiceDes rmPad" dtip rel="{{eachInNshConditionsList.operation.opCodeDescription}}">{{eachInNshConditionsList.operation.opCodeDescription == null  ? 'N/A' : eachInNshConditionsList.operation.opCodeDescription}}</p>
+						
+                    
+                    </div>
+                      </div> 
+                      
+                                         
+                     <div class="row">
+                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                    Pay Type
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                   {{eachInNshConditionsList.labourCodeDescription}}
+                    </div>
+                    
+                                        <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
+                   Claim #  
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                      {{eachInNshConditionsList.claimNumber}}
+                    </div>
+                    </div>
+                    
+                    <div  ng-if="eachInNshConditionsList.partInfoFlag"  ng-repeat="(eachKeyInNshConditionPartInfo,eachInNshConditionsListPartInfo) in eachInNshConditionsList.partInfo">
+                    
+	                     <div class="row">
+	                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+	                    Part #(Qty)
+	                    </div>
+	                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+	                    
+	                    <p class="careServiceDes rmPad" dtip rel="{{eachInNshConditionsListPartInfo.partNumber}} ( {{eachInNshConditionsListPartInfo.partQuantity}} )">{{eachInNshConditionsListPartInfo.partNumber}} ( {{eachInNshConditionsListPartInfo.partQuantity}} )</p>
+						
+   
+	                     
+	                    </div>
+	                    
+	                                        <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
+	                  Part Desc
+	                    </div>
+	                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+	                      
+	                                          <p class="careServiceDes rmPad" dtip rel="{{eachInNshConditionsListPartInfo.partDescription}}">{{eachInNshConditionsListPartInfo.partDescription}}</p>
+						
+   
+	
+	                    </div>
+	                    </div>
+                    </div>
+                    
+                                                           
+                    <div ng-if="!eachInNshConditionsList.partInfoFlag">
+                    
+                                         <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  itemBold centeraligning">
+                    No Parts Info Available
+                    </div>
+
+                    </div>
+                    
+                   </div>
+                    </div>
+                                      
+                    
+                    
+                    
+                 </accordion-group>
+              
+         
+
+</accordion>
+<!-- nested -->
+ 
+         </div>
+		
+		<div class="tab-pane" id="tab3">
+		            <div class="panel panel-default tab-content myservicetabcontent col-xs-12 col-sm-12 col-md-12 col-lg-12 warningmessage"  ng-if="noWarrantyDataError" >
+					   <div class="custPaneHead">
+							<span >&nbsp;</span>
+					  </div>
+					  
+					 <div class="panel-body ng-scope" >
+						<div class="info-table-body ng-binding" style="padding-left: 15px;">No records are available for the selected criteria</div>
+					  </div>
+					</div>
+ 
+          <div class="tabbable" ng-if="!noWarrantyDataError">
+           <div class="row removepadandmarginservicehis addpad">
+                <ul class="nav nav-tabs   col-xs-11 col-sm-11 col-md-11 col-lg-11">
+                    <li class="active current" id="serviceHistorytab31">
+                   
+                    <a href="/#tab31"  ng-click="removeOverAllMinusPlus('visible',serviceHistoryObj.goodWillArrayCount,'warranty')" data-toggle="tab">Warranty (Including Goodwill) <span>({{serviceHistoryObj.warrantyArrayCount}})</span></a>
+                    </li>
+                    <li id="serviceHistorytab32">
+                    
+                     <a href="/#tab32"  ng-click="removeOverAllMinusPlus('hidden',serviceHistoryObj.goodWillArrayCount,'goodwill')" data-toggle="tab">Goodwill Only <span>({{serviceHistoryObj.goodWillArrayCount}})</span></a>
+                    </li>
+                </ul>
+                <div id="goodwilshowornot" class="tabandolderconainericon" ng-show="serviceHistoryObj.warrantyAvailable">
+					 <div id="tab32accordion32minus" class="overallminus" ng-click="expandOrCollapseAll(false,warrantyAllAcordian)"></div>
+					<div id="tab32accordion32plus" class="overallplus" ng-click="expandOrCollapseAll(true,warrantyAllAcordian)"></div>
+				</div>
+            </div>    
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab31">
+                        
+
+<accordion close-others="false"> 
+        <accordion-group class="eachaccordiangroup  {{eachInWarranty.sourceType |lowercase}}" is-open="eachInWarranty.open"
+			 ng-repeat="(eachKeyInWarranty,eachInWarranty) in serviceHistoryObj.warrantyArray">
+         <accordion-heading>
+            
+           
+                      {{eachInWarranty.repairCloseDate}} <span id="headingsperator">|</span>   {{eachInWarranty.mileage}} miles<span id="headingsperator">|</span> 
+                     
+                     	<dealer-popup  class="mypad" stop-event dcode="{{eachInWarranty.dealerCode}}" dname="{{eachInWarranty.dealerName}}">
+						</dealer-popup>
+                     <br> RO# {{eachInWarranty.roNumber}}  <span id="headingsperator">|</span>  Amount
+                      {{eachInWarranty.totalClaimAmountFormatted}} 
+<i class="pull-right glyphicon icon-plus-sign" ng-class="{'icon-minus-sign':eachInWarranty.open}"></i> 
+               </accordion-heading>
+     
+                    
+                    
+                    
+                     <div class="row">
+                    <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Goodwill
+                    </div>
+                    <div class="col-xs-7 col-sm-3 col-md-4 col-lg-4">
+                     {{eachInWarranty.goodwillIndicator == 'N' ? 'No':'Yes'}} 
+                    </div>
+                    
+                                        <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Pay Type
+                    </div>
+                    <div class="col-xs-7 col-sm-3 col-md-4 col-lg-4 partdescrightpad">
+                     {{eachInWarranty.payType}}
+                    </div>
+                    </div>
+                    
+                                        <div class="row">
+                    <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Op Code
+                    </div>
+                    <div class="col-xs-7 col-sm-3 col-md-4 col-lg-4">
+                    {{eachInWarranty.opCodeNumber}} 
+                    </div>
+                    
+                                        <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Repair
+                    </div>
+                    <div class="col-xs-7 col-sm-3 col-md-4 col-lg-4 partdescrightpad">
+                       
+                                                   
+                         <p class="careServiceDes rmPad" dtip rel="{{eachInWarranty.opCodeDescription}}">{{eachInWarranty.opCodeDescription}} </p>
+						
+                 
+                    </div>
+                    </div>
+                    
+                                        <div class="row">
+                    <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Claim#
+                    </div>
+                    <div class="col-xs-7 col-sm-3 col-md-4 col-lg-4">
+                      {{eachInWarranty.claimNumber}} 
+                    </div>
+                    
+                                        <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Part#
+                    </div>
+                    <div class="col-xs-7 col-sm-3 col-md-4 col-lg-4">
+                       {{eachInWarranty.partNumber}} 
+                    </div>
+                    </div>
+                    
+                                        <div class="row">
+                    <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Part Description
+                    </div>
+                    <div class="col-xs-7 col-sm-3 col-md-4 col-lg-4">
+                       
+                            <p class="careServiceDes rmPad" dtip rel="{{eachInWarranty.partDescription}}">  {{eachInWarranty.partDescription}}  </p>
+						
+   
+                    </div>
+                    
+                                        <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Replaced Part
+                    </div>
+                    <div class="col-xs-7 col-sm-3 col-md-4 col-lg-4">
+                       {{eachInWarranty.replacedPart}}
+                       
+                    </div>
+                    </div>
+                    
+                      <div class="row">
+                    <div class="col-xs-2 col-sm-3 col-md-2 col-lg-2">
+                    T1
+                    </div>
+                    <div class="col-xs-3 col-sm-2 col-md-2 col-lg-2 itemBold">
+                   <span id="eachInWarrantyToneSpan_{{$index}}"  stop-event  class="" ng-if="eachInWarranty.troubleCode1 != 'N/A'" pop-trouble rel="eachInWarrantyToneRel_{{$index}}" data-tcode="t1" data-tvalue="{{eachInWarranty.troubleCode1}}">
+							  {{eachInWarranty.troubleCode1}} 
+							<div class="shadowpopup" id="eachInWarrantyToneRel_{{$index}}" ng-if="eachInWarranty.troubleCode1" ng-show="dealPopUp">					
+								  <h4 class="model-title"><span class=" closebutton  " ng-click="overlayShow(false);$event.stopPropagation();" my-touchstart="hidePopupAndOverlay();">X</span>
+								  <label ng-if="troubleD.troubleCodeJson!=null">{{troubleD.troubleCodeJson}}</label>
+								  </h4>
+
+							</div>
+						</span>
+						<span ng-if="eachInWarranty.troubleCode1 == 'N/A'"> {{ eachInWarranty.troubleCode1}} </span>
+                    </div>
+                    
+                   <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1">
+                    T2
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 itemBold removingpaddingservice">
+                   <span id="eachInWarrantyTtwoSpan_{{$index}}"  stop-event  class="" ng-if="eachInWarranty.troubleCode2 != 'N/A'" pop-trouble rel="eachInWarrantyTtwoRel_{{$index}}" data-tcode="t2" data-tvalue="{{eachInWarranty.troubleCode2}}">
+							{{eachInWarranty.troubleCode2}} 
+							<div class="shadowpopup" id="eachInWarrantyTtwoRel_{{$index}}" ng-if="eachInWarranty.troubleCode2" ng-show="dealPopUp">					
+								  <h4 class="model-title"><span class=" closebutton  " ng-click="overlayShow(false);$event.stopPropagation();" my-touchstart="hidePopupAndOverlay();">X</span>
+								  <label ng-if="troubleD.troubleCodeJson!=null">{{troubleD.troubleCodeJson}}</label>
+								  </h4>
+
+							</div>
+						</span>
+						<span ng-if="eachInWarranty.troubleCode2 == 'N/A'"> {{ eachInWarranty.troubleCode2}} </span>
+                    </div>
+					
+					<div class="col-xs-1 col-sm-2 col-md-2 col-lg-2">
+                    T3
+                    </div>
+                    <div class="col-xs-1 col-sm-2 col-md-2 col-lg-2 itemBold">
+                                      <span id="eachInWarrantyTthreeSpan_{{$index}}"  stop-event  class="" ng-if="eachInWarranty.troubleCode3 != 'N/A'" pop-trouble rel="eachInWarrantyTthreeRel_{{$index}}" data-tcode="t3" data-tvalue="{{eachInWarranty.troubleCode3}}">
+							  {{eachInWarranty.troubleCode3}}
+							<div class="shadowpopup" id="eachInWarrantyTthreeRel_{{$index}}" ng-if="eachInWarranty.troubleCode3" ng-show="dealPopUp">					
+								  <h4 class="model-title"><span class=" closebutton  " ng-click="overlayShow(false);$event.stopPropagation();" my-touchstart="hidePopupAndOverlay();">X</span>
+								  <label ng-if="troubleD.troubleCodeJson!=null">{{troubleD.troubleCodeJson}}</label>
+								  </h4>
+
+							</div>
+						</span>
+						 <span ng-if="eachInWarranty.troubleCode3 == 'N/A'"> {{ eachInWarranty.troubleCode3}} </span>
+                    </div>
+                    </div>
+                    
+                    
+                    
+                    
+                    
+                    
+                           
+                      <div class="row">
+                    <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Condition
+                    </div>
+                    <div class="col-xs-7 col-sm-9 col-md-10 col-lg-10">
+                      
+                               	<p class="careServiceDes rmPad" dtip rel="{{eachInWarranty.conditionDescription}}"> {{eachInWarranty.conditionDescription}} </p>
+						
+           
+                    </div>
+                    
+
+                    </div>             
+                    
+                                <div class="row">
+                    <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Cause
+                    </div>
+                    <div class="col-xs-7 col-sm-9 col-md-10 col-lg-10">
+                     
+                              	<p class="careServiceDes rmPad" dtip rel="{{eachInWarranty.causeDescription}}"> {{eachInWarranty.causeDescription}} </p>
+						
+           
+                    </div>
+                    
+
+                    </div>  
+                                <div class="row">
+                    <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Remedy
+                    </div>
+                    <div class="col-xs-7 col-sm-9 col-md-10 col-lg-10">
+                      
+                        <p class="careServiceDes rmPad" dtip rel="{{eachInWarranty.remedyDescription}}"> {{eachInWarranty.remedyDescription}} </p>
+						
+           
+                    </div>
+                    
+
+                    </div> 
+                    
+  
+            
+            
+            
+          </accordion-group>  
+       
+</accordion>
+
+<!-- nested -->
+              
+                    </div>
+                   <div class="tab-pane" id="tab32">
+              		 <div class="panel panel-default tab-content myservicetabcontent col-xs-12 col-sm-12 col-md-12 col-lg-12 warningmessage " ng-if="noGoodwillDataError" >
+					   <div class="custPaneHead">
+							<span >&nbsp;</span>
+					  </div>
+					  
+					 <div class="panel-body ng-scope" >
+						<div class="info-table-body ng-binding" style="padding-left: 15px;">No records are available for the selected criteria</div>
+					  </div>
+					</div>          
+
+                    <!-- nested -->
+<accordion close-others="false"  ng-if="!noGoodwillDataError" >
+
+        <accordion-group class="eachaccordiangroup  {{eachInGoodWill.sourceType |lowercase}}" is-open="eachInGoodWill.open"
+			 ng-repeat="(eachKeyInGoodWill,eachInGoodWill) in serviceHistoryObj.goodWillArray">
+         
+            <accordion-heading>
+           
+                                    {{eachInGoodWill.repairCloseDate}}  <span id="headingsperator">|</span>   {{eachInGoodWill.mileage}} miles  <span id="headingsperator">|</span>  
+						<dealer-popup  class="mypad" stop-event dcode="{{eachInGoodWill.dealerCode}}" dname="{{eachInGoodWill.dealerName}}">
+						</dealer-popup>
+						
+                     <br> RO# {{eachInGoodWill.roNumber}}  <span id="headingsperator">|</span>  Amount
+                      {{eachInGoodWill.totalClaimAmountFormatted}} 
+
+<i class="pull-right glyphicon icon-plus-sign" ng-class="{'icon-minus-sign':eachInGoodWill.open}"></i> 
+
+</accordion-heading>
+
+
+                    
+                    
+                    
+                     <div class="row">
+                    <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Goodwill
+                    </div>
+                    <div class="col-xs-7 col-sm-3 col-md-4 col-lg-4">
+                     {{eachInGoodWill.goodwillIndicator == 'N' ? 'No':'Yes'}} 
+                    </div>
+                    
+                    <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Pay Type
+                    </div>
+                    <div class="col-xs-7 col-sm-3 col-md-4 col-lg-4 partdescrightpad">
+                     {{eachInGoodWill.payType}}
+                    </div>
+                    </div>
+                    
+                                        <div class="row">
+                    <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Op Code
+                    </div>
+                    <div class="col-xs-7 col-sm-3 col-md-4 col-lg-4">
+                    {{eachInGoodWill.opCodeNumber}} 
+                    </div>
+                    
+                    <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Repair
+                    </div>
+                    <div class="col-xs-7 col-sm-3 col-md-4 col-lg-4 partdescrightpad">
+                     
+                      
+                          <p class="careServiceDes rmPad" dtip rel="{{eachInGoodWill.opCodeDescription}}">{{eachInGoodWill.opCodeDescription}} </p>
+						
+                 
+                    </div>
+                    </div>
+                    
+                                        <div class="row">
+                    <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Claim#
+                    </div>
+                    <div class="col-xs-7 col-sm-3 col-md-4 col-lg-4">
+                      {{eachInGoodWill.claimNumber}} 
+                    </div>
+                    
+                   <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Part#
+                    </div>
+                    <div class="col-xs-7 col-sm-3 col-md-4 col-lg-4">
+                       {{eachInGoodWill.partNumber}} 
+                    </div>
+                    </div>
+                    
+                                        <div class="row">
+                    <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Part Description
+                    </div>
+                    <div class="col-xs-7 col-sm-3 col-md-4 col-lg-4">
+                      
+                              <p class="careServiceDes rmPad" dtip rel="{{eachInGoodWill.partDescription}}">   {{eachInGoodWill.partDescription}}   </p>
+						
+   
+                    </div>
+                    
+                                        <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Replaced Part
+                    </div>
+                    <div class="col-xs-7 col-sm-3 col-md-4 col-lg-4">
+                      
+                     {{eachInGoodWill.replacedPart}}
+                    </div>
+                    </div>
+                    
+                      <div class="row">
+                    <div class="col-xs-2 col-sm-3 col-md-2 col-lg-2">
+                    T1
+                    </div>
+                    <div class="col-xs-3 col-sm-2 col-md-2 col-lg-2 itemBold">
+                   <span id="eachInGoodWillToneSpan_{{$index}}"  stop-event  class="" ng-if="eachInGoodWill.troubleCode1 != 'N/A'" pop-trouble rel="eachInGoodWillToneRel_{{$index}}" data-tcode="t1" data-tvalue="{{eachInGoodWill.troubleCode1}}">
+							  {{eachInGoodWill.troubleCode1}} 
+							<div class="shadowpopup" id="eachInGoodWillToneRel_{{$index}}" ng-if="eachInGoodWill.troubleCode1" ng-show="dealPopUp">					
+								  <h4 class="model-title"><span class=" closebutton  " ng-click="overlayShow(false);$event.stopPropagation();" my-touchstart="hidePopupAndOverlay();">X</span>
+								  <label ng-if="troubleD.troubleCodeJson!=null">{{troubleD.troubleCodeJson}}</label>
+								  </h4>
+
+							</div>
+						</span>
+						<span ng-if="eachInGoodWill.troubleCode1 == 'N/A'"> {{ eachInGoodWill.troubleCode1}} </span>
+                    </div>
+                    
+                   <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1">
+                    T2
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 itemBold removingpaddingservice">
+                   <span id="eachInGoodWillTtwoSpan_{{$index}}"  stop-event  class="" ng-if="eachInGoodWill.troubleCode2 != 'N/A'" pop-trouble rel="eachInGoodWillTtwoRel_{{$index}}" data-tcode="t2" data-tvalue="{{eachInGoodWill.troubleCode2}}">
+							{{eachInGoodWill.troubleCode2}} 
+							<div class="shadowpopup" id="eachInGoodWillTtwoRel_{{$index}}" ng-if="eachInGoodWill.troubleCode2" ng-show="dealPopUp">					
+								  <h4 class="model-title"><span class=" closebutton  " ng-click="overlayShow(false);$event.stopPropagation();" my-touchstart="hidePopupAndOverlay();">X</span>
+								  <label ng-if="troubleD.troubleCodeJson!=null">{{troubleD.troubleCodeJson}}</label>
+								  </h4>
+
+							</div>
+						</span>
+						<span ng-if="eachInGoodWill.troubleCode2 == 'N/A'"> {{ eachInGoodWill.troubleCode2}} </span>
+                    </div>
+					
+					<div class="col-xs-1 col-sm-2 col-md-2 col-lg-2">
+                    T3
+                    </div>
+                    <div class="col-xs-1 col-sm-2 col-md-2 col-lg-2 itemBold">
+                                      <span id="eachInGoodWillTthreeSpan_{{$index}}"  stop-event  class="" ng-if="eachInGoodWill.troubleCode3 != 'N/A'" pop-trouble rel="eachInGoodWillTthreeRel_{{$index}}" data-tcode="t3" data-tvalue="{{eachInGoodWill.troubleCode3}}">
+							  {{eachInGoodWill.troubleCode3}}
+							<div class="shadowpopup" id="eachInGoodWillTthreeRel_{{$index}}" ng-if="eachInGoodWill.troubleCode3" ng-show="dealPopUp">					
+								  <h4 class="model-title"><span class=" closebutton  " ng-click="overlayShow(false);$event.stopPropagation();" my-touchstart="hidePopupAndOverlay();">X</span>
+								  <label ng-if="troubleD.troubleCodeJson!=null">{{troubleD.troubleCodeJson}}</label>
+								  </h4>
+
+							</div>
+						</span>
+						 <span ng-if="eachInGoodWill.troubleCode3 == 'N/A'"> {{ eachInGoodWill.troubleCode3}} </span>
+                    </div>
+                    </div>
+                    
+                    
+                    
+                    
+                    
+                    
+                           
+                      <div class="row">
+                    <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Condition
+                    </div>
+                    <div class="col-xs-7 col-sm-9 col-md-10 col-lg-10">
+                      
+                        <p class="careServiceDes rmPad" dtip rel="{{eachInGoodWill.conditionDescription}}"> {{eachInGoodWill.conditionDescription}}  </p>
+						
+                       
+                    </div>
+                    
+
+                    </div>             
+                    
+                                <div class="row">
+                    <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Cause
+                    </div>
+                    <div class="col-xs-7 col-sm-9 col-md-10 col-lg-10">
+                      
+                        <p class="careServiceDes rmPad" dtip rel="{{eachInGoodWill.causeDescription}}"> {{eachInGoodWill.causeDescription}}  </p>
+						
+                      
+                    </div>
+                    
+
+                    </div>  
+                                <div class="row">
+                    <div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+                    Remedy
+                    </div>
+                    <div class="col-xs-7 col-sm-9 col-md-10 col-lg-10">
+                      
+                        <p class="careServiceDes rmPad" dtip rel="{{eachInGoodWill.remedyDescription}}">  {{eachInGoodWill.remedyDescription}}  </p>
+						
+                       
+                    </div>
+                    
+
+                    </div> 
+                  </accordion-group>  
+                     
+                 </accordion>
+                    </div>
+                </div>
+            </div>
+  
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+
+</div>
+<div class="row remLRpad">
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+</div>

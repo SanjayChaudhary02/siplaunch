@@ -1,0 +1,127 @@
+<div class="pagesection col-xs-12 col-md-12 vhrsection">	
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 remLRpad">
+		<h4 class="sub-header" ng-if="leftMenu.isBrriEnabled==true" ng-hide="flatTireError">Vehicle Reports</h4>
+		<h4 class="sub-header" ng-if="leftMenu.isBrriEnabled==false" ng-hide="flatTireError">Diagnostic Reports</h4>
+	</div>
+	
+	<div class="clearfix">&nbsp;</div>
+	<div ng-if="flatTireError" ng-include="'/serviceLane/pages/asm/mobile/views/flattire.html'"></div>
+	<div class="vhr-reports" id="vhraccord" ng-if="!flatTireError">
+		<tabset ng-if="leftMenu.isBrriEnabled==true">
+			<tab heading="Vehicle Health Reports">
+				<div class="panel panel-default" ng-if="telematicsErr!='N/A'">
+					<div class="custPaneHead">&nbsp;</div>
+					<div class="info-table-body panel-body">
+						{{telematicsErr}}
+					</div>
+				</div>
+				<div class="notrequired">
+					<div class="telematicsSection" ng-if="vhrObj.telematicJSON.errorMsg =='N/A'">
+					</div>
+				</div>
+			<div>
+				<div class="notrequired">
+					<div class="reportSection clearFix">
+						<div class="bord1">
+							<label class="col-xs-3 col-sm-3 col-md-4 col-lg-3" style="padding-left: 0 !important;"><span ng-if="!vhrObj.vhrJSON.noData">Report Type</span>&nbsp;</label>
+								<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">							
+									<select id="reportType" ng-options="op for op in reportTypeOptions" ng-model="reportSelected.type" ng-change="generateOptions(true)" ng-if="!vhrObj.vhrJSON.noData"></select>&nbsp;
+								</div>
+							<div class="col-xs-2 col-sm-2 col-md-2 col-lg-3">&nbsp;</div>
+							<div class="col-xs-5 col-sm-5 col-md-4 col-lg-4 report">
+								<div>
+								<img src="/serviceLane/pages/asm/mobile/images/Tablet/loading1.gif" height="30" width="30" ng-if="showSpinner">&nbsp;&nbsp;<button type="submit" class="btn btn-default btnDefault" ng-click="generateReport()"  ng-show="vhrObj.vhrJSON.showReportIcon"  ng-disabled="!inputValue">Generate Report</button>&nbsp;
+								<span  ng-show="vhrObj.vhrJSON.showMailIcon" class="vhrMail" ng-click="showuserselction('vhr')"></span>
+								</div>&nbsp;
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel-group" ng-if="vhrErrorMessage !='N/A'">
+					<div class="panel panel-default">
+						<div class="custPaneHead">&nbsp;</div>
+						<div class="info-table-body redTxt panel-body">
+							{{vhrErrorMessage}} 
+						</div>
+					</div>
+				</div>
+		<div ng-if="!vhrflatTireError">
+		<div class="uri" ng-repeat="vhr in vhrTabObj" ng-if="!vhrObj.vhrJSON.noData && showVHRData">
+		<span class="my allClip" ng-if="(vhr.vhrType | lowercase)=='all'"><a></a></span>
+		<span class="my milonClip" ng-if="(vhr.vhrType | lowercase)== 'mil on'"><a></a></span>
+		<span class="my generatedClip"  ng-if="(vhr.vhrType | lowercase)=='generated'"><a></a></span>
+		<span class="my maintenanceClip"  ng-if="(vhr.vhrType | lowercase)=='maintenance'"><a></a></span>
+		<span class="my scheduledClip"  ng-if="(vhr.vhrType | lowercase)=='scheduled'"><a></a></span>
+	
+			<div class="panel-group reportrow" ng-if="!vhrObj.vhrJSON.noData && showVHRData">
+				<!--div class="panel panel-default " open-document data-url="{{'/serviceLane/mobile/getVHRPDF?vhrId='+vhr.vhrID}}" stop-event-->
+				<div class="panel panel-default visibleoverflow"   open-document data-dynamicc="true"  data-url="{{'/serviceLane/mobile/getVHRPDF?vhrId='+vhr.vhrID}}">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a>
+								<span ng-if="vhr.vhrGenerationTime!='' && vhr.vhrGenerationTime!=null">{{vhr.vhrGenerationTime}}&nbsp;</span>
+								<span ng-if="vhr.mileage !='' && vhr.mileage !=null">|&nbsp;{{vhr.mileage}}&nbsp;miles&nbsp;</span><span ng-if="vhr.vhrGeneratorType !='' && vhr.vhrGeneratorType !=null">|&nbsp;{{vhr.vhrGeneratorType}}</span></a>
+								
+							</h4>
+						</div>
+						<div class="panel-body">
+							<div class="vhrdata">
+									<div class="row col-xs-12 col-sm-12 col-md-6 col-lg-6 " >
+										<label class="col-xs-6 col-sm-4 col-md-8 col-lg-6">Warning</label>
+										<div class="col-xs-6 col-sm-6 col-md-4 col-lg-6 data" ng-if="vhr.count < 4">{{vhr.warningList}}</div>
+										<div class="col-xs-6 col-sm-6 col-md-4 col-lg-6" ng-if="vhr.count > 3" vhrdtip stop-event rel= "vhrnewcount_{{$index}}">
+											<a class="counter" >{{vhr.count}}</a>
+											<div id="vhrnewcount_{{$index}}" class="shadowpopup" stop-event ng-show="dealPopUp">
+												<span class=" closebutton  " ng-click="overlayShow(false);"  my-touchstart="hidePopupAndOverlay();">X</span>												{{vhr.warningList}}
+											</div>
+										</div>
+									</div>
+									<div class="row col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+										<label class="col-xs-6 col-sm-4 col-md-8 col-lg-6">Smart Key Battery</label>
+										<div class="col-xs-6 col-sm-6 col-md-4 col-lg-6">
+											<span class="vhricon" ng-class="{nodata: (vhr.smartKeyBatIcon |  split:'/') == 'LEX_BRRI_VHR_NoData.gif' || (vhr.smartKeyBatIcon |  split:'/') == 'LEX_BRRI_VHR_vehicle_status_no_data.png'}">
+												<img src="{{vhr.smartKeyBatIcon}}" ng-if="vhr.smartKeyBatIcon !='N/A'">
+											</span>
+										</div>
+									</div>
+									<div class="row col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+										<label class="col-xs-6 col-sm-4 col-md-8 col-lg-6">Engine Oil Quantity</label>
+										<div class="col-xs-6 col-sm-6 col-md-4 col-lg-6">
+											<span class="vhricon" ng-class="{nodata: (vhr.qtyOfEngOilIcon |  split:'/') == 'LEX_BRRI_VHR_NoData.gif' || (vhr.qtyOfEngOilIcon |  split:'/') == 'LEX_BRRI_VHR_vehicle_status_no_data.png'}">
+												<img src="{{vhr.qtyOfEngOilIcon}}" ng-if="vhr.qtyOfEngOilIcon !='N/A'">
+											</span>
+										</div>
+									</div>
+									<div class="row col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+										<label class="col-xs-6 col-sm-4 col-md-8 col-lg-6">Engine Oil Degradation</label>
+										<div class="col-xs-6 col-sm-6 col-md-4 col-lg-6">
+											<span class="vhricon" ng-class="{nodata: (vhr.replaceEngOilIcon |  split:'/') == 'LEX_BRRI_VHR_NoData.gif' || (vhr.replaceEngOilIcon |  split:'/') == 'LEX_BRRI_VHR_vehicle_status_no_data.png'}">
+												<img src="{{vhr.replaceEngOilIcon}}"  ng-if="vhr.replaceEngOilIcon !='N/A'">
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div><!-- end ngRepeat: vhr in vhrObj -->
+					</div>
+				</div>
+				
+			</div>
+			<ul class="screenNote" ng-if="vhrObj.vhrJSON.showMailIcon">
+					<li>Triggering 'Generate Report' button generates a Vehicle Health Report and reloads the page.</li>
+				</ul>
+			</div>
+			<div ng-if="vhrflatTireError" ng-include="'/serviceLane/pages/asm/mobile/views/flattire.html'"></div>
+			</tab>
+			<tab heading="Diagnostic Reports" select="bindDiagnosticInfo()">
+				<div ng-if="leftMenu.isBrriEnabled==true" ng-include="'/serviceLane/pages/asm/mobile/views/diagnnosticreports.html'"></div>
+			</tab>
+		</tabset>
+		<div ng-if="leftMenu.isBrriEnabled==false" ng-include="'/serviceLane/pages/asm/mobile/views/diagnnosticreports.html'"></div>
+	</div>
+</div>
+<div class="row remLRpad">
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+</div>

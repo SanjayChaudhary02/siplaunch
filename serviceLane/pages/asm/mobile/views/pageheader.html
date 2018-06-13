@@ -1,0 +1,36 @@
+<!-- vehicle one view page header -->
+<div class ="row" id="vehicleIconsInfoDiv">
+   <div class="col-xs-4 col-sm-1 col-md-1" style="padding-right:0;padding-left:0;">
+      <a href="" data-toggle="dropdown" class="col-md-1 col-sm-1 threeLinsCls"></a>
+   </div>
+   <div id="vehicleHeader" class="col-xs-8 col-md-3 col-sm-3 vehicleHeader" style="padding-right:0;padding-left:0;">
+      <!-- <a href="" class="threeLinsCls"></a> -->
+      <!--<a href="" data-toggle="dropdown" class="col-md-1 col-sm-1 threeLinsCls"></a>-->
+      <ul class="dropdown-menu">
+         <li role="presentation" class="dropdown-header">Service Lane</li>
+         <li role="presentation" class="divider"></li>
+         <li><a href="#"><span  class="vehicle-icon-left"></span>Vehicle One View</a></li>
+         <li><a href="#"><span  class="white-icon-left"></span>TCMC</a></li>
+         <li role="presentation" class="divider"></li>
+         <li><a href="#"><span  class="white-icon-left"></span>My Accounts</a></li>
+         <li><a href="#"><span  class="logout-icon-left"></span>Logout</a></li>
+      </ul>
+      <span class="title-font">VEHICLE ONE-VIEW </span> 
+      <span ng-show="showMsg"><span class="oneliner">{{vehOneLiner}}</span></span>
+   </div>
+   <div class="col-md-8 col-sm-8 col-xs-12 vehicleIconsInfo">
+      <ul id="vehicleIcons" class="nav nav-tabs pull-right">
+         <li ng-show="alerts"><span class="alert-icon visible-md visible-lg visible-sm visible-xs"></span><span class="hidden-sm hidden-xs">Alerts</span></li>
+         <li ng-show="ssc"><span class="ssc-icon visible-md visible-lg visible-sm visible-xs"></span><span class="hidden-sm hidden-xs">SSC</span></li>
+         <li ng-show="key"><span class="key-icon visible-md visible-lg visible-sm visible-xs"></span><span class="hidden-sm hidden-xs">Key</span></li>
+         <li ng-show="modal"><span class="modal-icon visible-md visible-lg visible-sm visible-xs"></span><span class="hidden-sm hidden-xs">Modal</span></li>
+         <li ng-show="roadside"><span class="roadside-icon visible-md visible-lg visible-sm visible-xs"></span><span class="hidden-sm hidden-xs">RoadSide</span></li>
+         <li ng-show="temp1"><span class="temp-icon visible-md visible-lg visible-sm visible-xs"></span><span class="hidden-sm hidden-xs">Temp1</span></li>
+         <li ng-show="temp2"><span class="temp-icon visible-md visible-lg visible-sm visible-xs"></span><span class="hidden-sm hidden-xs">Temp2</span></li>
+         <li ng-show="temp3"><span class="temp-icon visible-md visible-lg visible-sm visible-xs"></span><span class="hidden-sm hidden-xs">Temp3</span></li>
+         <li ng-show="showMsg"><span class="print-icon visible-md visible-lg visible-sm visible-xs"></span><span class="hidden-sm
+            hidden-xs">Print</span></li>
+      </ul>
+   </div>
+</div>
+<!-- vehicle one view page header -->

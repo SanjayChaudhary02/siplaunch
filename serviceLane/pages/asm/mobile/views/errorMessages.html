@@ -1,0 +1,39 @@
+<div class="show-message">
+  <div ng-show="showInfo">
+    <div class="panel panel-default">
+      <div class="custPaneHead">
+        <span ng-if="defaultMessage==true && isUserBlocked==false">Enter VIN</span>
+        <span ng-if="isUserBlocked==true" ng-hide="vinHthreshold == true">Try again tomorrow</span>
+        <span ng-if="sysError==true">We're sorry... try again</span>
+        <span ng-if="(isServiceCallMade==true && campObj.error==null) && !isUserBlocked" ng-hide="sysError">No Campaign Info</span>
+      </div>
+
+      <div class="panel-body" ng-if="(isServiceCallMade ==true && campObj.error ==null) && !isUserBlocked" ng-hide="sysError">
+        <div class="info-table-body">No Campaign Information found for VIN: {{inputValue}}</div>
+      </div>
+
+      <div class="panel-body" ng-if="defaultMessage==true && isUserBlocked==false">
+        <div class="info-table-body">
+          <div ng-if="DMY.selDMYType == 'VIN' || !DMY.selDMYType">Enter a 17 digit VIN or click
+            <a ng-click="showHistory('/serviceLane/mobile/getVinHistory',1)" style="text-decoration:none;"><img src="/serviceLane/pages/asm/mobile/images/Tablet/Common_VIN_HistoryIcon_iPad@2x.png" width="24" height="24"> </a>to select previously lookup VIN.</div>
+			<div ng-if="DMY.selDMYType != 'VIN' && DMY.selDMYType">Vehicle One View is not applicable for Division/Model/Model Year lookup. Enter a 17 digit VIN or click
+            <a ng-click="showHistory('/serviceLane/mobile/getVinHistory',1)" style="text-decoration:none;"><img src="/serviceLane/pages/asm/mobile/images/Tablet/Common_VIN_HistoryIcon_iPad@2x.png" width="24" height="24"> </a>to select previously lookup VIN.</div>
+        </div>
+      </div>
+      <div class="panel-body" ng-if="isUserBlocked==true" ng-hide="vinHthreshold == true">
+        <div class="info-table-body">
+          <div class=""><span class="info-icon1"></span>You have exceeded the total number of VIN/DMY lookups allowed for a user in a day. Please try again tomorrow.</div>
+        </div>
+      </div>
+      <div class="panel-body" ng-if="sysError==true">
+        <div class="info-table-body">
+          <div class="errorMsg"><span><img src="/serviceLane/pages/asm/mobile/images/Tablet/SLaneError.jpg" style="width: 148px; height: 160px;display:inline; float:left; margin-right: 10px; padding: 0 2px 13px 15px;"></span><span style="padding-right: 5px;"><span style="font-weight:bold;">Uh oh!.. Service Lane has a flat tire.  We apologize for any inconvenience. Please try to load the screen again.</span><span> If you are repeatedly getting this error, TMS Dealers please call 1-877-DL-DAILY, GST Dealers call 1-800-933-3416 and SET Dealers call 1-800-982-6057. Alternatively you may send an email using the Feedback link provided at the bottom of this page.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row remLRpad landingHeight">
+  &nbsp;
+</div>

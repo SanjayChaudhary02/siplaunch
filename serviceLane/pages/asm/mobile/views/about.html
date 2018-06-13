@@ -1,0 +1,15 @@
+<form>
+	<div class="hideBorder">&nbsp;</div>
+	<h5>ABOUT SERVICE LANE</h5>
+	<div ng-hide="aboutErr">
+	<p>Build Version: {{aboutObj.buildVersion}}</p>
+	<p>Release Date: {{aboutObj.releaseDate}}</p>
+	<p><a open-document data-url="/serviceLane/staticcontent/en/slp/mobile/docs/slpmobilenewfeatures.pdf">New Features</a></p>
+	<p><a open-document data-url="/serviceLane/staticcontent/en/slp/mobile/docs/slpmobileknownbugs.pdf">Known Bugs</a></p>
+	<p><a open-document data-url="/serviceLane/staticcontent/en/slp/mobile/docs/slpmobileglossary.pdf">Glossary</a></p>
+	<!--p><a open-document data-url="/t3Portal/staticcontent/en/tis/html/slpmobilenewfeatures.pdf">New Features</a></p-->
+	<!--p><a open-document data-url="/t3Portal/staticcontent/en/tis/html/slpmobileknownbugs.pdf">Known Bugs</a></p-->
+	<p>Service Lane Support: {{aboutObj.serviceLaneSupport}}</p>
+	</div>	
+	<div ng-if="aboutErr" ng-include="'/serviceLane/pages/asm/mobile/views/flattire.html'"></div>
+</form>

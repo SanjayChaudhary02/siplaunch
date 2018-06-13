@@ -1,0 +1,28 @@
+<div class="kcpanelbox panel-default pull-left col-xs-12 addmargintopkc remLRpad">
+	<div class="custPaneHeadkc">
+		<div class="row lsnopadding">
+			<div class="col-xs-12 lsnopadding" ng-class="{'col-xs-6' : lsData.lsNcfErr}">
+				<span><span class="darkfont">New Car Features</span></span>
+				<span ng-if="!lsData.lsNcfFlatTireErr && !lsData.lsNcfErr">: {{lsData.lsNcfInfo.documentCount}} document(s) found.</span>
+			</div>
+			<div class="col-xs-6 lsnopadding pull-right redTxt lstotheright"   ng-bind-html="lsData.lsNcfInfo.errorMsg" ng-if="lsData.lsNcfErr"></div>
+		</div>
+		<!--
+		<span><span class="darkfont">New Car Features</span></span>
+		<span ng-if="!lsData.lsNcfFlatTireErr && !lsData.lsNcfErr">: {{lsData.lsNcfInfo.documentCount}} document(s) found.</span>
+		<span class="pull-right redTxt" ng-if="lsData.lsNcfErr">{{lsData.lsNcfInfo.errorMsg}}</span>
+		-->
+	</div>
+	<div class="tab-color" ng-class="{errorpanelpadding:lsData.lsNcfFlatTireErr,errormesspanelpadding: lsData.lsNcfErr && !lsData.refineSearch}">
+		<ol>
+			<li style="" ng-repeat="(keycamp,eachNcfInfo) in lsData.lsNcfInfo.summary">
+				<div><a open-document data-url="{{eachNcfInfo.documentUrl}}" ng-bind-html="eachNcfInfo.titleText"></a></div>
+				<!--<div newtip class="rmLRPad newthreedot" ng-if="summaryEnabled" ng-bind-html="eachNcfInfo.summaryText"></div>-->
+				<div newtip class="rmLRPad newthreedot" ng-if="eachNcfInfo.summaryText" ng-bind-html="eachNcfInfo.summaryText"></div>
+			</li>
+		</ol>
+		<div ng-if="lsData.lsNcfInfo.displayMore && lsData.tabName=='ncf'" ng-click="lsData.bindLsNcfData('more')"><a>More...</a></div>
+		<div ng-if="lsData.lsNcfInfo.displayMore && lsData.tabName=='summary'" ng-click="lsData.bindLsTabChange('ncf')"><a>More...</a></div>
+		<div ng-if="lsData.lsNcfFlatTireErr" class="pull-left" ng-include="'/serviceLane/pages/asm/mobile/views/flattire.html'"></div>
+	</div>
+</div>

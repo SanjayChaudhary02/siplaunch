@@ -1,0 +1,14 @@
+<form id="mileage">
+	<div class="hideBorder">&nbsp;</div>
+	<h5>Last known Mileage</h5>						
+	<!-- <input type="number"  inputmode="numeric" pattern="[0-9]*" class="mileageForm"  id="mileageFormtext" ng-model="dataMileage.mileage" maxl="6" is-number ng-disabled='!inputValue' >
+	<input type="number" class="mileageForm" inputmode="numeric" id="mileageFormtext" ng-model="dataMileage.mileage" maxl="6" is-number ng-disabled='!inputValue' >-->
+	<input type="number"  inputmode="numeric" pattern="[0-9]*"   onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;if (event.keyCode == 32) {event.returnValue = false;return false;}" class="mileageForm"  id="mileageFormtext"  name="mileageFormtext" ng-model="dataMileage.mileage" maxl="6" is-number ng-disabled="!inputValue"  my-touchstart="scrollTopThePage(3);">
+	
+	<!--input type="text" class="mileageForm" ng-init="mileageInput =''" maxlength="5" size="5" ng-model="mileageInput"-->
+	<label>Miles</label>
+	<!--button type="reset"  name='reset' class="btn btn-primary" ng-click="resetMileage()" ng-disabled='!inputValue'>Clear</button-->
+	<button type="reset" name='reset' class="btn btn-primary"   my-touchstart="resetMileage()"    stop-event  ng-click="resetMileage()" ng-disabled='!inputValue'>Clear</button>
+	<!--button type="submit" class="btn btn-primary" ng-click="mileageSubmit(dataMileage.mileage)" ng-disabled='!inputValue'>Submit</button-->
+	<button type="submit"  class="btn btn-primary" no-touchstart="mileageSubmit(dataMileage.mileage)" ng-click="mileageSubmit(dataMileage.mileage)" stop-event ng-disabled='!inputValue'>Submit</button>
+</form>

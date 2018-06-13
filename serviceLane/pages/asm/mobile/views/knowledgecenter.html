@@ -1,0 +1,95 @@
+<div class="pagesectionSM knowledgecenter col-xs-12 remLRpad">
+	<div class="errorDiv" ng-if="kcData.noInput">
+		<div class="panel panel-default">
+			<div class="custPaneHead"><span>Enter VIN</span></div>
+			<div class="panel-body">
+				<div class="info-table-body">
+					<div>Enter a 17 digit VIN or click
+						<a ng-click="showHistory('/serviceLane/mobile/getVinHistory',1)" style="text-decoration:none;"><img src="/serviceLane/pages/asm/mobile/images/Tablet/Common_VIN_HistoryIcon_iPad@2x.png" width="24" height="24"> </a>to select previously lookup VIN.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ng-if="!kcData.noInput" class="col-xs-12 kcpadding">
+		<div class="kcpanelbox panel-default pull-left col-xs-12 addmargintopkc remLRpad">
+			<div class="custPaneHeadkc">
+				<div class="row lsnopadding">
+					<div class="col-xs-12 lsnopadding" ng-class="{'col-xs-6' : kcData.kcCarInfo.refineSearch}">
+						<span><span class="darkfont">CAR Info</span> (Current Accurate Relevant Information)</span>
+						<span ng-if="!kcData.CarInfoFlatTireErr && !kcData.kcCarInfoErr">: {{kcData.kcCarInfo.documentCount}} document(s) found.</span>
+						<span ng-if="kcData.kcCarInfo.documentCount == 0">: 0 document(s) found.</span>
+					</div>
+					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 lsnopadding pull-right redTxt lstotheright" ng-bind-html="kcData.kcCarInfo.errorMsg" ng-if="kcData.kcCarInfo.refineSearch && kcData.kcCarInfoErr"></div>
+				</div>
+			</div>
+			<div class="tab-color" ng-class="{errorpanelpadding:kcData.CarInfoFlatTireErr}">
+				<span class="redTxt" ng-if="!kcData.kcCarInfo.refineSearch && kcData.kcCarInfoErr">{{kcData.kcCarInfo.errorMsg}}</span>
+				<ol>
+					<li style="" ng-repeat="carInfo in kcData.kcCarInfo.summary">
+						<div><a open-document data-url="{{carInfo.documentUrl}}">{{carInfo.titleText}}</a></div>
+						<div newtip class="rmLRPad newthreedot" ng-if="carInfo.summaryText" ng-bind-html="carInfo.summaryText"></div>
+					</li>
+				</ol>
+				<span ng-if="kcData.kcCarInfo.displayMore"   ng-click="kcData.bindKcCarInfo('more')"><a>More...</a></span>
+				<div ng-if="kcData.CarInfoFlatTireErr" class="pull-left" ng-include="'/serviceLane/pages/asm/mobile/views/flattire.html'"></div>
+			</div>
+		</div>
+		
+		<div class=" kcpanelbox panel-default pull-left col-xs-12 remLRpad">
+			<div class="custPaneHeadkc">
+				<div class="row lsnopadding">
+					<div class="col-xs-12 lsnopadding" ng-class="{'col-xs-6' : kcData.kcInterviewInfo.refineSearch}">
+						<span class="darkfont">Customer Interview Forms</span>
+						<span ng-if="!kcData.interviewFlatTireErr && !kcData.kcInterviewErr">: {{kcData.kcInterviewInfo.documentCount}} document(s) found.</span>
+						<span ng-if="kcData.kcInterviewInfo.documentCount == 0">: 0 document(s) found.</span>
+					</div>
+					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 lsnopadding pull-right redTxt lstotheright" ng-bind-html="kcData.kcInterviewInfo.errorMsg" ng-if="kcData.kcInterviewInfo.refineSearch && kcData.kcInterviewErr"></div>
+				</div>
+			</div>
+			<div class="tab-color" ng-class="{errorpanelpadding:kcData.interviewFlatTireErr}">
+				<span class=" redTxt"  ng-if="!kcData.kcInterviewInfo.refineSearch && kcData.kcInterviewErr" >{{kcData.kcInterviewInfo.errorMsg}}</span>
+				<ol>
+					<li style="" ng-repeat="interviewDoc in kcData.kcInterviewInfo.summary">
+						<div><a open-document data-url="{{interviewDoc.documentUrl}}">{{interviewDoc.titleText}}</a></div>
+						<div newtip class="rmLRPad newthreedot" ng-if="interviewDoc.summaryText" ng-bind-html="interviewDoc.summaryText"></div>
+					</li>
+				</ol>
+				<span ng-if="kcData.kcInterviewInfo.displayMore" ng-click="kcData.bindKcInterviewInfo('more')"><a>More...</a></span>
+				<div ng-if="kcData.interviewFlatTireErr" class="pull-left" ng-include="'/serviceLane/pages/asm/mobile/views/flattire.html'"></div>
+			</div>
+		</div>
+		
+		<div class=" kcpanelbox panel-default pull-left col-xs-12 remLRpad">
+			<div class="custPaneHeadkc">
+				<div class="row lsnopadding">
+					<div class="col-xs-12 lsnopadding" ng-class="{'col-xs-6' : kcData.kcProdEduInfo.refineSearch}">
+						<span class="darkfont">Product Education</span>
+						<span ng-if="!kcData.prodEduFlatTireErr && !kcData.prodEdukcErr">: {{kcData.kcProdEduInfo.documentCount}} document(s) found.</span>
+						<span ng-if="kcData.kcProdEduInfo.documentCount == 0">: 0 document(s) found.</span>
+					</div>
+					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 lsnopadding pull-right redTxt lstotheright" ng-bind-html="kcData.kcProdEduInfo.errorMsg" ng-if="kcData.kcProdEduInfo.refineSearch && kcData.prodEdukcErr"></div>
+				</div>
+			</div>
+			<div class="tab-color" ng-class="{errorpanelpadding:kcData.prodEduFlatTireErr}">
+				<span class="redTxt"  ng-if="!kcData.kcProdEduInfo.refineSearch && kcData.prodEdukcErr" >{{kcData.kcProdEduInfo.errorMsg}}</span>
+				<ol>
+					<li ng-repeat="prodEdu in kcData.kcProdEduInfo.summary">
+						<div><a open-document data-url="{{prodEdu.documentUrl}}">{{prodEdu.titleText}}</a> <span ng-if="prodEdu.videoIcon" class="videoicon"></span></div>
+						<div newtip class="rmLRPad newthreedot" ng-if="prodEdu.summaryText" ng-bind-html="prodEdu.summaryText"></div>
+					</li>
+				</ol>
+				<span ng-if="kcData.kcProdEduInfo.displayMore" ng-click="kcData.bindKcProdEduInfo('more')"><a>More...</a></span>
+				<div ng-if="kcData.prodEduFlatTireErr" class="pull-left" ng-include="'/serviceLane/pages/asm/mobile/views/flattire.html'"></div>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+<div class="row remLRpad col-xs-12">
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+</div>

@@ -1,0 +1,34 @@
+<div>
+	<div style="padding: 30px;">
+		<div ng-if="reprogObj.flatTireErr" ng-include="'/serviceLane/pages/asm/mobile/views/flattire.html'"></div>
+		<div style="min-width: 580; overflow:auto;" ng-if="!reprogObj.flatTireErr">
+			<table ng-table="tableParams" class="table ng-table lpsSection reProgData">
+				<thead>
+					<tr>
+						<th class="header">Timestamp</th>
+						<th class="header">Success</th>
+						<th class="header">Previous Calibration</th>
+						<th class="header">New Calibration</th>
+						<!--th class="header">Calibration Search</th-->
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="list in reprogObj.data.Reprogramming">
+						<td>{{list.timestamp}}</td>
+						<td>{{list.success}}</td>
+						<td>{{list.previousCalibration}}</td>
+						<td>{{list.newCalibration}}</td>
+						<!--td>{{list.calibrationSearch}}</td-->
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="panel panel-default" ng-if="reprogObj.data.reprogErr">
+			<div class="custPaneHead">&nbsp;</div>
+			<div class="info-table-body">
+					{{reprogObj.data.errorMsg}}
+			</div>
+		</div>
+		<button type="button" class="btn btn-primary pull-right" ng-click="overlayShow(false)">Close</button>
+	</div>
+</div>

@@ -1,0 +1,4670 @@
+@import 'brri.css'; 
+body {
+	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.navbar{border: none;margin-bottom: 0;}
+.header .row {margin:0 !important; padding: 0 !important;}
+.header .asmbg{
+    background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_NavigationBar_Bg_iPad@2x.png') 0 0;
+    background-size: auto 76px !important;
+    border-bottom: 2px solid #000;
+	height: 78px;
+}
+.vehicleHeader{font-size: 18px; padding:6px 0 0 0;}
+.oneliner {
+    margin-left: 0px;
+    font-size: 13px;
+	color: #fff;
+	white-space:nowrap !important;
+	height: 51px;
+	}
+.logo-icon {
+	margin: 0px;
+	background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/Toyota_Lexus_Scion_logos_sprite.png');
+    background-repeat: no-repeat;
+	 width: 71px;
+    padding: 15px 10px 20px 0px;
+	image-rendering: -webkit-optimize-contrast;	
+} 
+/* user icon */
+.userLgDet {
+    color: #fff;
+    margin-top: 5px;
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: bold;
+    line-height: 30px;
+	max-width: 274px;
+}
+.userLgDet  i{
+	height: 20px;
+    width: 1px;
+    background: linear-gradient(to bottom, rgb(236, 238, 239) 0%,rgb(142, 140, 140) 50%,rgb(220, 220, 220) 100%);
+    margin: 0;
+    border: 0;
+    float: left;
+    margin-right: 10px;
+    margin-top: 3px;	
+}
+#userIcon {
+    background-image: url(/serviceLane/pages/asm/mobile/images/Tablet/user-icon.png);
+    width: 25px;
+    height: 25px;
+    float: left;
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    margin-right: 10px;
+	    background-size: 100%;
+}
+
+.sub-header {
+	font-family: "Helvetica Neue", Helvetica,Arial,sans-serif;
+	font-weight: 700;
+	border-bottom: 1px solid #eee;
+	font-size: 24px !important;
+	color: #d11d24;
+	padding-bottom: 4px;
+	letter-spacing: -1px;	
+
+}
+.toyota { 
+  /*  background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_ToyotaLogo_iPad@2x.png');*/
+	background-size: 217px 52px;
+    background-position: -6px -7px;
+image-rendering: -webkit-optimize-contrast;
+    
+}
+
+.lexus {
+    /*background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LexusLogo_iPad@2x.png');*/
+	background-size: 220px 52px;
+    background-position: -135px -5px;
+image-rendering: -webkit-optimize-contrast;
+	
+    
+}
+
+.scion {
+    /*background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_ScionLogo_iPad@2x.png');*/
+	background-size: 216px 49px;
+	    background-position: -69px -2px;
+	image-rendering: -webkit-optimize-contrast;
+   
+}
+
+.threelinsAdj {
+	margin: 4px 5px 0px 0px;
+	padding: 0px 0px 24px 0px;
+	width: 59px;
+    background-size: 43px 28px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 30px;
+}
+.threelinsAdj a.threeLinsCls {
+    background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_CollapsedMenu_icon_iPad@2x.png') no-repeat left;
+    padding: 0px 0px 10px 22px;
+    background-size: 26px 20px;
+    margin-left: 8px;
+	height: 30px;
+	image-rendering: -webkit-optimize-contrast;
+}
+.vov-title {
+	font-size: 18px;
+    color: #FFFFFF;
+	padding: 0px 15px 0px 0px;
+    line-height: 20px;
+	white-space: nowrap;
+	width: 180px;
+	}
+.hide-small{color: #fff;}
+.vinfrm {text-align:right; padding-right: 0;width: 57%;margin: 6px 11px 0 0;}
+.btn-default {
+    color: #333;
+    font-weight: bold;
+    border-color: #ccc;
+    padding: 3px 11px 3px 11px;
+    background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_SearchVIN_ButtonBg_iPad@2x.png') 50% 50%;
+}
+#vinno {
+        background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_VIN_MagnifyingGlass_iPad@2x.png') no-repeat 5% 50%;
+        background-size: 12px 12px;
+        background-color: #eee;
+        padding: 6px 4px 7px 26px !important;
+        font-size: 12px !important;
+        height: 27px !important;
+    }
+
+#userForm input {vertical-align: middle;}
+.oneviewcontainer{
+	top:74px;
+	color:#fff;
+	/*background-color:#2f3e4d !important;*/
+	background: linear-gradient(#2E3947, #1D283B);
+	padding: 5px 0 10px 0;
+	box-shadow: 0px 3px 18px #404C58;
+}
+
+
+.dropdown-header {
+    color: #FFFFFF;
+    font-size: 12pt;
+    font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.dropdown-menu {
+    margin: 26px 0 10px -22px;
+	padding: 0;
+    min-width: 301px;
+    color: #FFFFFF;
+    background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_ExpandedMenu_Mainbg_iPad@2x.png') no-repeat 50% 50%;
+    padding: 16px 24px 16px 24px;
+   }
+
+.dropdown-menu li a {
+	color: #fff;
+    padding: 3px 0px 3px 0px;	
+}
+.dropdown-menu li  .collapse {padding-left:25px;}
+.dropdown-menu li a div.navicon {
+    width: 36px;
+   height: 29px; 
+    display: inline-block;
+    padding: 5px 5px 5px 9px;
+    background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/Main_Navigation_icon_sprite.png');
+    background-repeat: no-repeat;
+    background-size: 171px;
+    margin-right: 15px;
+	image-rendering: -webkit-optimize-contrast;
+
+}
+.dropdown-menu li a:hover div.navicon {
+	background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/Main_Navigation_icon_sprite.png');
+}
+.dropdown-menu > li.selected{
+	/*background-color: #B0A9A9 !important;*/
+	background: -webkit-linear-gradient(#242f40, #243445) !important; /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#242f40, #243445) !important; /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#242f40, #243445) !important; /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#242f40, #243445) !important; /* Standard syntax */
+	padding: 0px;
+}
+  .nav>li.selected>a {
+	color: #E3BE6D;	
+}
+.dropdown-menu > li.selected a{
+	color: #E3BE6D;	
+}
+
+
+.dropdown-menu > li.selected a:hover, .dropdown-menu > li a:hover{
+	color: #E3BE6D;
+	/*padding: 3px 0px 3px 0px;*/
+	background: -webkit-linear-gradient(#121b29, #243445) !important; /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#121b29, #243445) !important; /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#121b29, #243445) !important; /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#121b29, #243445) !important; /* Standard syntax */
+}
+
+.dropdown-menu  .vehicle-icon-left{
+	background-position: -34px -44px;
+}
+.dropdown-menu  .sm-icon-left{
+	background-position: -34px -98px;
+}
+.dropdown-menu  .tcmc-icon-left{
+	background-position: -34px -152px;
+}
+.dropdown-menu  .ace-icon-left{
+	background-position: -34px -204px;
+}
+.dropdown-menu  .lib-search-left{
+	background-position: -34px -257px;
+}
+
+.dropdown-menu  .knowCenter-left{
+	background-position: -34px -368px;
+}
+.dropdown-menu  .asg-icon-left{
+	background-position: -34px -418px;
+}
+.dropdown-menu  .performance-icon-left{
+	background-position: -34px -310px;
+}
+
+.dropdown-menu  .logout-icon-left{
+	background-position: -34px -472px;
+}
+.dropdown-menu  .selected  .vehicle-icon-left, .dropdown-menu  a:hover .vehicle-icon-left{
+	background-position: -95px -44px;
+}
+.dropdown-menu  .selected  .sm-icon-left, .dropdown-menu  a:hover .sm-icon-left{
+	background-position: -95px -98px;
+}
+.dropdown-menu  .selected  .tcmc-icon-left, .dropdown-menu  a:hover .tcmc-icon-left{
+	background-position: -95px -152px;
+}
+.dropdown-menu  .selected  .ace-icon-left, .dropdown-menu  a:hover .ace-icon-left{
+	background-position: -95px -204px;
+}
+
+.dropdown-menu  .selected   .lib-search-left, .dropdown-menu  a:hover .lib-search-left{
+	background-position: -95px -257px;
+}
+
+.dropdown-menu  .selected  .knowCenter-left, .dropdown-menu  a:hover .knowCenter-left{
+	background-position: -95px -368px;
+}
+.dropdown-menu  .selected   .performance-icon-left, .dropdown-menu  a:hover .performance-icon-left{
+	background-position: -97px -310px;
+}
+
+.dropdown-menu  .selected  .asg-icon-left, .dropdown-menu  a:hover .asg-icon-left{
+	background-position: -93px -418px;
+}
+.dropdown-menu  .selected  .logout-icon-left, .dropdown-menu  a:hover .logout-icon-left{
+	background-position: -95px -472px;
+}
+
+.dropdown-menu  li.sepa{
+	background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_ExpandedMenu_SingleSeparator_iPad@2x.png');
+    background-position: -5px 7px;
+    background-repeat: no-repeat;
+	background-size: 400px 1px;
+}
+
+
+.bordHR{
+	border-top:1px solid  #000; 
+	margin: 10px 0px 10px 0px;
+}
+.logo-title {
+    font-size: 16px;
+    color: #FFFFFF;
+    padding: 11px 10px 15px 0px;
+    line-height: 20px;
+    white-space: nowrap;
+    width: 110px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.title-font {
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFFFFF;
+	white-space: nowrap;
+}
+.resetbutton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 17px 0px;
+	margin-top: -17px;
+}
+.reset-image{
+	background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/LogoBar_Right_icon_sprite.png');
+	background-repeat: no-repeat;
+	background-position: -28px -4px;
+    background-size: 186px 72px;
+    padding: 17px 10px;
+	border-radius: 5px 5px 0px 0;
+    background-color: transparent;
+    margin: 0px 3px;
+    cursor: pointer;
+}
+.lookup {
+    background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/LogoBar_Right_icon_sprite.png');
+    background-repeat: no-repeat;
+	background-position: -78px -6px;
+    background-size: 207px 72px;
+    padding: 17px 16px;
+	border-radius: 5px 5px 0px 0;
+    background-color: transparent;
+    margin: 0;
+    cursor: pointer;
+	image-rendering: -webkit-optimize-contrast;
+}
+
+.barcode {
+	background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/LogoBar_Right_icon_sprite.png');
+    background-repeat: no-repeat;
+	background-position: -152px -15px;
+    background-size: 206px 72px;
+    padding: 4px 14px;
+    margin: 0px 3px 3px 3px;
+    cursor: pointer;
+   }
+   
+.divider {    
+	background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/LogoBar_Right_icon_sprite.png');
+    background-repeat: no-repeat;
+    background-position: -121px -17px;
+    background-size: 202px 114px;
+    padding: 17px 5px;
+}
+.dropdown-menu span{
+	padding: 10px 15px;
+    margin: 10px 20px 0px 0px;
+}
+
+.info-icon {
+    background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_ErrorMsg_AlertIcon_iPad@2x.png') no-repeat left;
+    padding: 26px 24px;
+    background-size: 36px 24px;
+}
+
+.error-icon {
+    background: url('/serviceLane/pages/asm/mobile/images/Tablet/SLaneError.jpg') no-repeat left;
+    padding: 70px 24px;
+    background-size: 148px 160px;
+}
+
+
+.alert-icon.inActive{
+	background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_Header_Alert_IconInactive_iPad@2x.png') no-repeat center center;
+	 padding: 16px;
+    background-size: 24px 24px;
+}
+.ssc-icon.inActive {
+    background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_Header_SSC_IconInactive_iPad@2x.png') no-repeat center center;
+    padding: 16px;
+    background-size: 28px 28px;
+}
+
+.key-icon.inActive {
+    background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_Header_ToyotaCare_Icon_iPad@2x.png') no-repeat center center;
+    padding: 16px;
+    background-size: 28px 28px;
+}
+
+.scion-icon.inActive {
+    background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_Header_ScionBoostIcon_iPad@2x.png') no-repeat center center;
+    padding: 16px;
+    background-size: 28px 28px;
+}
+
+.modal-icon.inActive {
+    background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_Header_TCUV_IconInactive_iPad@2x.png') no-repeat center center;
+    padding: 16px 30px 16px 30px;
+    background-size: 60px 24px;
+}
+
+.roadside-icon.inActive {
+    background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_Header_TowingVan_IconInavtive_iPad@2x.png') no-repeat center center;
+    padding: 16px 30px 16px 30px;
+    background-size: 60px 23px;
+}
+
+.alert-icon {
+    
+    padding: 16px;
+    background-position: -11px -29px;
+    background-size: 1181px 92px;
+}
+
+.ssc-icon {
+    
+	padding: 16px;
+	background-position: -130px -27px;
+    background-size: 1016px 90px;
+}
+
+.key-icon {
+   
+	padding: 16px;
+	background-position: -229px -33px;
+    background-size: 1164px 92px;
+   }
+.scion-icon {  
+	
+    padding: 16px;
+	background-position: -266px -28px;
+    background-size: 1000px 93px;
+}
+
+.modal-icon {
+    background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_Header_TCUV_Icon_iPad@2x.png') no-repeat center center;
+    padding: 16px 30px 16px 30px;
+    background-size: 60px 24px;
+}
+
+.roadside-icon {
+    
+	padding: 16px;
+	background-position: -821px -25px;
+    background-size: 1000px 88px;
+}
+
+.temp-icon {
+    background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_Header_IconsBg_iPad@2x.png') no-repeat left;
+    padding: 16px;
+    background-size: 32px 32px;
+}
+
+.print-icon {
+   
+    padding: 16px;
+	background-position: -1118px -24px;
+    background-size: 1200px 90px;
+}
+
+.vehicle {    
+	background-position: -8px -16px;
+}
+
+.vehicle.active {    
+	background-position: -85px -16px;
+}
+
+.campaign {    
+	background-position: -8px -85px;
+}
+
+.campaign.active {
+	background-position: -85px -84px;
+}
+
+.service {
+	background-position: -8px -154px;
+}
+.service.active {
+	background-position: -85px -154px
+}
+
+.care {
+	background-position: -4px -224px;
+}
+.scionboost {
+	background-position: -10px -840px;
+}
+
+.care.active {
+	background-position: -80px -224px;
+}
+
+.fsp {
+	background-position: -8px -328px;
+    background-size: 138px !important;
+}
+.fsp.active {
+	background-position: -79px -328px;
+}
+
+.warranty {
+	background-size: 139px !important;
+    background-position: -6px -267px;
+}
+
+.warranty.active {
+	background-position: -77px -267px;
+}
+
+
+.roadside {
+	background-position: -8px -566px;
+}
+.roadside.active {
+	background-position: -85px -566px;
+}
+
+.roadside1 {
+	background-position: -8px -505px;
+}
+.roadside1.active {
+	background-position: -85px -505px;
+}
+.telematics {
+	background-position: -8px -637px;
+}
+.telematics.active {
+	background-position: -85px -637px;
+}
+.diagnostic {
+	background-position: -8px -706px;
+}
+.diagnostic.active {
+	background-position: -85px -707px;
+}
+.vehispec {
+	background-position: -5px -497px;
+}
+.vehispec.active {
+	background-position: -81px -497px;
+}
+
+
+.guest {
+	background-position: -8px -430px;
+}
+.guest.active {
+	background-position: -85px -430px;
+}
+.dtc {
+	background-position: -8px -775px;
+}
+
+
+.dtc.active {
+	background-position: -85px -775px;
+}
+
+
+.adj {
+    padding-left: 30px !important;
+}
+
+.remvrigpad {
+    padding-right: 0 !important;
+}
+
+.remvlefpad {
+    padding: 0 !important;
+}
+
+.rightmenu .guest-right {    
+	background-size: 62px;
+    background-position: -12px 8px;
+}
+.rightmenu .household{
+	background-size: 50px;
+	background-position: -6px -25px;
+}
+
+.mileage {
+	background-size: 58px;
+	background-position: -10px -81px;
+}
+
+.news {
+	background-size: 61px;
+	background-position: -13px -126px;
+}
+
+.quicklink {
+	background-size: 63px;
+	background-position: -12px -175px;
+}
+
+.help {
+	background-size: 63px;
+	background-position: -11px -216px;
+}
+
+
+.vehicleB {
+    /*background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_VehicleInfoIcon_iPad@2x.png') no-repeat 50% 50%;
+    background-size: 30px 20px;*/
+	background-position: -8px -6px;
+    
+}
+.vehicleB.active{
+    /*background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_VehicleInfoIcon_Active_iPad@2x.png') no-repeat 50% 50%;
+    background-size: 30px 20px;*/
+	background-position: -70px -6px;
+    
+}
+.campaignB {
+    /*background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_CampaignIcon_iPad@2x.png') no-repeat 50% 50%;
+    background-size: 24px 24px;*/
+	background-position: -8px -65px;
+    
+}
+.campaignB.active {
+    /*background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_CampaignIcon_Active_iPad@2x.png') no-repeat 50% 50%;
+    background-size: 24px 24px;*/
+	background-position: -70px -65px;
+   
+}
+.serviceB {
+    /*background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_ServiceHistoryIcon_iPad@2x.png') no-repeat 50% 50%;
+    background-size: 24px 24px;*/
+	background-position: -8px -117px;
+    
+}
+.serviceB.active {
+    /*background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_ServiceHistoryIcon_Active_iPad@2x.png') no-repeat 50% 50%;
+    background-size: 24px 24px;*/
+	background-position: -70px -117px;
+   
+}
+.careB {
+    /*background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_ToyotaCareIcon_iPad@2x.png') no-repeat 50% 50%;
+    background-size: 24px 24px;*/
+	background-position: -8px -172px;
+   
+}
+.scionboostB {
+    /*background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_Header_ScionBoostIcon_iPad@2x.png') no-repeat 50% 50%;
+    background-size: 24px 24px;*/
+	background-position: -8px -669px;
+    background-size: 128px;
+}
+.scionboostB.active {
+   	background-position: -70px -669px;
+    background-size: 128px;
+}
+
+.careB.active{
+    /*background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_ToyotaCareIcon_Active_iPad@2x.png') no-repeat 50% 50%;
+    background-size: 24px 24px;*/
+	background-position: -70px -172px;
+    
+	
+}
+.fspB {
+    /*background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_FSProductsIcon_iPad@2x.png') no-repeat 50% 50%;
+    background-size: 24px 24px;*/
+	background-position: -5px -243px;
+    background-size: 104px !important;
+}
+
+.fspB.active {
+    /*background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_FSProductsIcon_Active_iPad@2x.png') no-repeat 50% 50%;
+    background-size: 24px 24px;*/
+	background-position: -60px -243px;
+}
+.warrantyB {
+    /*background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_WarratnyIcon_iPad@2x.png') no-repeat 50% 50%;
+    background-size: 22px 20px;*/
+	background-position: -8px -231px;
+    
+}
+
+.warrantyB.active {
+    /*background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_WarratnyIcon_Active_iPad@2x.png') no-repeat 50% 50%;
+    background-size: 22px 20px;*/
+	background-position: -70px -231px;
+   
+}
+
+.roadsideB {
+    /*background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_TowingIcon_iPad@2x.png') no-repeat 35% 35%;
+    background-size: 30px 20px;*/
+	background-position: -8px -448px;
+}
+.roadsideB.active {
+    /*background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_TowingIcon_Active_iPad@2x.png') no-repeat 35% 35%;
+    background-size: 30px 20px;*/
+    background-position: -70px -448px;
+}
+
+.telematicsB {
+    /*background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_TelematicsIcon_iPad@2x.png') no-repeat 50% 50%;
+    background-size: 30px 20px;*/
+	background-position: -8px -506px;
+}
+.telematicsB.active {
+    /*background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_TelematicsIcon_Active_iPad@2x.png') no-repeat 50% 50%;
+    background-size: 30px 20px;*/
+	background-position: -70px -506px;
+}
+
+.diagnosticB {
+    /*background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_DiagnosticRepoIcon_iPad@2x.png') no-repeat 50% 50%;
+    background-size: 26px 26px;*/
+	background-position: -8px -559px;
+}
+.diagnosticB.active {
+    /*background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_DiagnosticRepoIcon_Active_iPad@2x.png') no-repeat 50% 50%;
+    background-size: 26px 26px;*/
+	background-position: -70px -559px;
+}
+
+.guestB {
+    /*background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_GuestInformationIcon_iPad@2x.png') no-repeat 50% 50%;
+    background-size: 30px 30px;*/
+	background-position: -8px -338px;
+}
+.guestB.active {
+    /*background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_GuestInformationIcon_Active_iPad@2x.png') no-repeat 50% 50%;
+    background-size: 30px 30px;*/
+	background-position: -70px -338px;
+}
+
+.dtcB {
+    background-position: -8px -614px
+}
+.dtcB.active {
+     background-position: -70px -614px;
+}
+
+.vspecB {
+    background-position: -6px -393px;
+}
+.vspecB.active {
+     background-position: -67px -392px;
+}
+.v-icons {padding-right: 12px;}
+
+ul.vehicleIcons {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		text-align:right;
+		float:right;
+	}
+	
+	ul.vehicleIcons li{
+		display: inline;
+		margin-left: 1px;
+	}
+		
+	ul.vehicleIcons li.vh a{
+		padding: 16px 16px;
+		text-align: center;
+		background-color: #404C58;
+	}
+	
+	.vh a span {display:inline-block;}
+	
+ul.vehicleIcons, #printIcon {
+    /*background-color: #404C58;*/
+	border-bottom: none !important;
+}
+ul.vehicleIcons a:hover{text-decoration: none;}
+	.rightNav {
+		right: 0;
+		z-index: 1028;
+    }
+
+    ul.rightmenu {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    ul.rightmenu li {
+        padding: 0 !important;
+        margin-bottom: 10px;
+        margin-right: 0px !important;
+        background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_RightPanel_IconBg_iPad@2x.png') no-repeat 0% 0%;
+        background-size: 67px 60px;
+		position: relative;
+		left: 0;
+		top: 0;
+    }
+	
+    ul.rightmenu li a {
+        position: relative;
+        display: block;
+        padding: 5px 6px 30px 20px;
+    }
+
+    ul.rightmenu li span.icon {
+        padding: 0px 16px 41px 25px;
+        margin-left: -5px !important;
+		display: inline-block;
+		background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/Right_Nav_icon_sprite.png');
+		background-repeat: no-repeat;
+		image-rendering: -webkit-optimize-contrast;
+    }
+	ul.rightmenu li span.icon b {
+		padding: 5px 0 0 0;
+	}
+    /*ul.rightmenu li span.icon {
+    background-size: 50px;
+    }*/
+
+	
+.line {
+	margin: 3px !important;
+}
+
+/*LeftMenu Small Big starts*/
+/*.leftNav {padding-left: 0!important; position:fixed;float:left;}*/
+.leftNav {
+	padding-left: 0!important; 
+	position:relative; 
+	width: 87px; 
+	overflow-y: auto;
+	padding-right: 0;
+	/*background-color:rgb(187,209,247);*/
+	}
+
+.leftmenu {
+    margin: 0; 
+	padding: 0;
+	z-index;
+}
+.leftmenu.overShowMenu{
+	min-height: 500px;
+	}
+.leftmenu .btn{
+	padding: 0px 0px !important;
+	border-radius: 0px !important;
+	border: none;
+}
+
+.leftmenu li {
+    margin-top: 0px !important;
+    background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_IconsBg_iPad@2x.png') no-repeat 50% 0%;
+	image-rendering: -webkit-optimize-contrast;
+}
+.leftmenu li.extend-icon{
+	background: url('/serviceLane/pages/asm/mobile/images/Tablet/Collapsed_Menu_bg.png') no-repeat 0% 0%;
+    background-size: 100% 100%;
+	image-rendering: -webkit-optimize-contrast;
+	border-top: 1px solid #b5b5c3;
+}
+.leftmenu li  span.notification-icon {
+    float: right;
+    background-color: rgba(29, 154, 253, 1);
+    color: #fff;
+    padding: 3px 6px;
+    font: bold 9px Verdana;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    margin-top: 2px;
+    margin-right: 5px;
+}
+.leftmenu li  div.icon{
+    width: 60px;
+	height: 38px;
+	background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/Sprite_image.png');
+	background-size: 150px;
+	margin-left: -7px;
+	image-rendering: -webkit-optimize-contrast;
+}
+.leftmenu li.extend-icon div.icon{
+	background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/Sprite_image_expand_icon.png');
+	background-position: 6px -6px;
+}
+
+.leftmenu > li > a {
+    position: relative !important;
+    display: block !important;
+	padding: 8px 15px 8px 15px !important;
+}
+.line {
+	margin: 3px !important;
+}
+
+.leftMenuBig1 {
+    position: absolute;
+	top: 20px;
+    left: 0px;
+    width: 165px;
+    cursor: pointer;
+    /*box-shadow: 0 1px 10px #999;*/
+    box-shadow: 0 1px 10px #fff;
+    z-index: 1031;
+	margin-top: 20px;
+}
+
+.leftMenuBig1 li  span.notification-icon {
+    background-color: rgba(29, 154, 253, 1);
+    color: #fff;
+    padding: 3px 6px;
+    font: bold 9px Verdana;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    margin-top: 0px;
+}
+
+.leftMenuBig1 ul{
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+
+.leftMenuBig1 li ,.leftMenuBig1 li.extend-icon{
+    margin-top: 0px !important;
+	padding-top: 1px; 
+    background: #fff url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_IconsBg_iPad@2x.png') repeat 25% 0%;
+	width: 165px;
+}
+.leftMenuBig1 li.extend-icon{
+	background: url('/serviceLane/pages/asm/mobile/images/Tablet/Collapsed_Menu_bg_ForExpanded_menu.png') repeat 0 0;
+    background-size: 100% 100%;
+	padding-bottom: 10px;
+	border-top: 1px solid #b5b5c3;
+}
+.leftMenuBig1 li.selected {
+    margin-top: 0px !important;
+    background: #FFF none !important;
+}
+
+.leftMenuBig1 li a {
+    display: block;
+    color: #000;
+    padding: 0px 0px 54px 10px;
+}
+/*
+.leftMenuBig1 li a:hover{ background: white;
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);}*/
+.leftMenuBig1 li span.icon {
+    padding: 25px 0px 11px 0px;
+}
+.leftMenuBig1 .btn{
+	padding: 0px 0px;
+	border-radius: 0px;
+	border: none;
+}
+.leftMenuBig1 .menu-text {
+    font-weight: bold;
+    text-align: left;
+    font-size: 11px;
+}
+
+.col {
+    float: left;
+}
+
+.lIcon {
+    width: 42px;
+    margin-right: 5px;
+    margin-top: 8px;
+	background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/Sprite_image.png');
+	background-repeat: no-repeat;
+	background-size: 120px;
+		image-rendering: -webkit-optimize-contrast;
+}
+.leftMenuBig1 li.extend-icon .lIcon{
+	background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/Sprite_image_expand_icon.png');
+}
+.labelText {
+    width: 75px;
+    margin-right: 5px;
+    padding-top: 15px;
+    padding-left: 5px;
+}
+
+.infoIcon {
+    width: 5%;
+}
+
+.col span {
+    display: block;
+}
+
+.left {
+    text-align: left;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+    margin-left: 4px;
+}
+
+.adjSingle {
+    padding-top: 20px;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none !important;
+    background-color: transparent !important;
+}
+#sidebar li.selected {
+	background-color: #fff !important;
+	background-image: none;
+}  
+
+/*Left Menus Small Big ends*/
+
+/*AMS Footer starts*/
+.footerbg {
+    background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_Footer_Separator_iPad@2x.png');
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% 20px;
+	text-align:center;
+	font-size: 10px;
+	padding-top:10px;
+    z-index: 1000;
+}
+.centertext a {
+    padding: 10px;
+}
+.centertext {
+    text-align: center;
+	font-size: 14px;
+}
+.footer-disclaimer {
+    font-size: 10px;
+    text-align: center;
+}
+
+.footer-disclaimer p {
+    margin: 0;
+}
+/*AMS Footer ends*/
+
+/*Popups & Overlays starts*/
+.vinHistory {
+	width: 80%;	
+	margin: 0 2% 0 0;
+	position: fixed;
+	top: 63px;
+	display: block;
+	border-radius: 10px;
+	background: #e3edfa;
+	z-index: 1100;
+	right: 0px;
+  }
+.vinHistory h2,#vehicleAlertList h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    padding: 20px 10px;
+    color: #393f49;
+}
+
+.vinHistory button {
+    margin: 10px;
+}
+#scrollContainer{
+	width: 100%;
+	overflow-y: auto;
+	overflow-x: scroll;
+   /* -ms-overflow-style: -ms-autohiding-scrollbar;
+	-webkit-overflow-scrolling: touch; */
+	height: 450px;
+	position: relative;
+}
+#tableDes {
+    border: 0;
+	max-height: 400px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+	-webkit-overflow-scrolling: touch;
+	/*display: block;*/
+}
+.rowTd {
+    border: 0 !important;
+}
+
+.rowTd span {
+    white-space: nowrap;
+    min-width: 150px;
+    float: left;
+    color: #191e28;
+}
+#scrollable thead, #scrollable tr{
+	/*display: block;*/
+	/*height: 36px;*/
+}
+
+.ng-table th.sortable div .arrows {
+    position: relative;
+}
+
+.ng-table th.sortable div .arrows:after,
+.ng-table th.sortable div .arrows:before {
+    content: "";
+    visibility: visible;
+    position: absolute;
+    top: 50%;
+    opacity: .3;
+}
+
+.ng-table th.sortable div.sort-desc .arrows:after,
+.ng-table th.sortable div.sort-asc .arrows:after {
+    margin-left: 10px;
+    margin-top: -2px;
+}
+
+.ng-table th.sortable div.sort-desc .arrows:before,
+.ng-table th.sortable div.sort-asc .arrows:before {
+    visibility: hidden;
+}
+
+.ng-table th.sortable div.sort-asc .arrows:after,
+.ng-table th.sortable div.sort-asc .arrows:hover:after {
+    visibility: visible;
+    filter: alpha(opacity=60);
+    -khtml-opacity: 0.6;
+    -moz-opacity: 0.6;
+    opacity: 0.6;
+    border-width: 0 6px 6px;
+    border-style: solid;
+    border-color: #bdc3c6 transparent;
+}
+
+.ng-table th.sortable div.sort-desc .arrows:after {
+    border-bottom: none;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #bdc3c6;
+    visibility: visible;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    filter: alpha(opacity=60);
+    -khtml-opacity: 0.6;
+    -moz-opacity: 0.6;
+    opacity: 0.6;
+}
+
+.ng-table th.filter .input-filter {
+    margin: 0;
+    display: block;
+    width: 100%;
+    min-height: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+th.header,td.header {
+    background: #78808b;
+	text-align: left;
+	color: #fff;
+	font-weight: bold;
+	border-top: 0 !important;
+}
+tr.techRow td {
+    background: #bbb;
+	border-top: 1px solid #8a8a8a !important;
+}
+tr.odd,li.odd ,div.odd{
+    background-color: #c3cfdf;
+}
+
+.vin_btns {
+    border: 1px solid #0052a4;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: 7px 10px;
+    text-decoration: none;
+    display: inline-block;
+    text-shadow: 0px 1px 0 #000;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #1f8cfb;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#1f8cfb), to(#0f6cc9));
+    background-image: -webkit-linear-gradient(top, #1f8cfb, #0f6cc9);
+    background-image: -moz-linear-gradient(top, #1f8cfb, #0f6cc9);
+    background-image: -ms-linear-gradient(top, #1f8cfb, #0f6cc9);
+    background-image: -o-linear-gradient(top, #1f8cfb, #0f6cc9);
+    background-image: linear-gradient(to bottom, #1f8cfb, #0f6cc9);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#1f8cfb', endColorstr='#0f6cc9');
+}
+/*Popups & Overlays ends*/
+
+/*Hedings starts*/
+.panel-default > .panel-heading {
+    color: #000000;
+    font-weight: bold;
+    background: -webkit-linear-gradient(#f6faff, #e3eafa) !important; /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#f6faff, #e3eafa) !important; /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#f6faff, #e3eafa) !important; /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#f6faff, #e3eafa) !important; /* Standard syntax */
+	padding: 0;
+}
+.panel-default > .custPaneHead{
+    color: #000000;
+    font-weight: bold;
+	background-color: #C3DBFF !important;
+	padding: 10px 15px;
+	border-bottom: 1px solid transparent;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+/*Hedings ends*/
+/*
+.errorDiv{border: 1px solid red;} */
+
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn{
+	opacity: 1;
+}
+/* prem changes  for service history*/
+
+/* yellow bar*/
+.vindetailhead {
+    float: left;
+    width: 18.6% !important;
+    text-align: center;
+    color: #333;
+}
+.careHeader{
+	padding:10px 3px 10px 6px !important;
+}
+.careHeader .line {
+	margin: 4px !important;
+}
+.careHeader {
+    background: #fefcea;
+    background: -moz-linear-gradient(top, #fff 30%,#f8f0d6 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#fff), color-stop(100%,#f8f0d6));
+    background: -webkit-linear-gradient(top, #fff 30%,#f8f0d6 100%);
+    background: -o-linear-gradient(top, #fff 30%,#f8f0d6 100%);
+    background: -ms-linear-gradient(top, #fff 30%,#f8f0d6 100%);
+    background: linear-gradient(to bottom, #fff 30%,#f8f0d6 100%)
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefcea', endColorstr='#f1da36',GradientType=0 );
+    padding: 10px 0 10px 0;
+    border-radius: 5px;
+    border: 1px solid #bdbdbd;
+    box-shadow: 0 0 0 #555;
+}
+
+.careHeader ul {
+	margin:0;
+	padding:0;
+	list-style: none;
+}
+.careHeader li {
+	margin:0 10px;
+	padding:0 10px;
+	display: inline;
+	width: 100px;
+}
+.vindetailhead {
+    float: left;
+    width: 19.2%;
+    text-align: center;
+    color: #333;
+}
+.vindetailhead span {
+    color: #666;
+}
+
+.line {
+    border: 0;
+    height: 40px;
+    width: 1px;
+    background-image: -webkit-linear-gradient(top,#eee,#777,#eee);
+    background-image: -moz-linear-gradient(top,#eee,#777,#eee);
+    background-image: -ms-linear-gradient(top,#eee,#777,#eee);
+    background-image: -o-linear-gradient(top,#eee,#777,#eee);
+    margin: 0;
+    float: left;
+}
+span#dcare_0,span.rmPad{
+	line-height: 32px;
+}
+/* yellow bar ends*/
+.nav-tabs li {
+    padding: 10px;
+}
+
+  .servicehistorypage .warningmessage{border-radius: 5px;border: 1px solid #bdbdbd;background:#C6DEFF;margin-top:10px;}
+  .servicehistorypage .serviceerrormessage{border-radius: 5px;border: 1px solid #bdbdbd;background:#C6DEFF;margin-top:10px;color:#ff0000;}
+ .servicehistorypage div.row .desc span { font-weight:normal; }
+  .panel-default > .panel-body, .panel-default > .panel-footer {
+    background-color: #ECF5F8;
+}
+/* to remove important tag fix start*/
+
+.servicehistorypage #tab3 .tabandolderconainericon{float:right;margin-top:10px;width:8.3%;border-bottom:1px solid #ddd;padding-bottom:6px;}
+
+  .servicehistorypage ul.maintabhistory li a{
+	
+	padding: 5px 10px;
+	text-align:center;
+}
+  .servicehistorypage ul.maintabhistory li {
+	
+	width: 135px;
+	
+}
+
+
+.servicehistorypage  .older-right-align {
+text-align: right;
+padding: 5px 0px 5px 10px;
+}
+
+.servicehistorypage  .older-right-align a{
+background: url('/serviceLane/pages/asm/mobile/images/Tablet/service_history_Image_Sprite.png') no-repeat;
+background-size: 70px 155px;
+background-position: 3px 4px;
+padding: 9px 0px 9px 35px;
+text-decoration: none;
+}
+
+.servicehistorypage .panel-group .panel-heading a:before {
+content: 'Warranty';
+position: absolute;
+background: url('/serviceLane/pages/asm/mobile/images/Tablet/service_history_Image_Sprite.png') no-repeat; 
+top: -7px;
+width:106px;
+height: 36px;
+left: 81%;
+padding: 4px 20px 3px 3px;
+text-align: center;
+color:#fff;
+background-size: 90px 180px;
+background-position:1px -125px;
+font-size: 11px;
+}
+/*.servicehistorypage .panel-group .warranty .panel-heading a:before {
+content: 'Warranty';
+}*/
+
+.servicehistorypage .panel-group .nsh .panel-heading a:before {
+content: 'NSH';
+padding:4px 50px 3px 32px;
+background: url('/serviceLane/pages/asm/mobile/images/Tablet/service_history_Image_Sprite.png') no-repeat; 
+background-size: 90px 180px;
+background-position:1px -160px;
+}
+
+/* to remove important tag fix end*/
+
+.servicehistorypage .tabandolderconainer{margin-bottom:30px;overflow:hidden;}
+.servicehistorypage .tabandolderconainericon{float:right;margin-top:10px;}
+/* Sprite image for service history page starts */
+.servicehistorypage .tabandolderconainericon .overallminus{background: url('/serviceLane/pages/asm/mobile/images/Tablet/service_history_Image_Sprite.png') no-repeat;
+//background:url('/serviceLane/pages/asm/mobile/images/Tablet/minus_single.png');
+ background-size:70px 166px;
+ background-position:16px -41px;
+ width:40px;
+ height:25px;
+ float:left;
+ cursor:pointer;
+ }
+.servicehistorypage .tabandolderconainericon .overallplus {background:url('/serviceLane/pages/asm/mobile/images/Tablet/service_history_Image_Sprite.png') no-repeat;
+//background:url('/serviceLane/pages/asm/mobile/images/Tablet/plus_single.png');
+ background-size:70px 166px;
+ background-position:16px -79px;
+ width:41px;
+ height:25px;
+ float:right;
+ margin-left:0px;
+ cursor:pointer;
+  }
+ /* Sprite image for service history page ends */
+ 
+.tabandolderconainericon .overallminus{background:url('/serviceLane/pages/asm/mobile/images/Tablet/minus_single.png'); background-size:24px 24px;
+ width:24px;
+ height:24px;
+ float:left;
+ cursor:pointer;
+ }
+.tabandolderconainericon .overallplus {background:url('/serviceLane/pages/asm/mobile/images/Tablet/plus_single.png');
+ background-size:24px 24px;
+ width:24px;
+ height:24px;
+ float:right;
+ margin-left:16px;
+ cursor:pointer;
+ 
+ }
+
+.servicehistorypage .panel-group .panel-heading + .panel-collapse > .panel-body {
+  border: 1px solid #EAF0F8;
+}
+.servicehistorypage .panel-group,
+.servicehistorypage .panel-group .panel,
+.servicehistorypage .panel-group .panel-body,
+.servicehistorypage .panel-group .panel-group .panel-heading + .panel-collapse > .panel-body,
+.servicehistorypage .collapse  {
+  border-radius: 5px !important;
+  
+}
+
+.servicehistorypage .panel-group .panel-heading,
+.servicehistorypage .panel-group .panel-heading a,
+.servicehistorypage .panel-group .panel-title,
+.servicehistorypage .panel-group .panel-title a
+{
+	  border-radius: 5px 5px 0px 0px;
+	
+}
+
+.servicehistorypage .panel-group .panel-heading {
+  padding: 0;
+}
+.servicehistorypage .panel-group .panel-heading a {
+  display: block;
+  /* background: #668bb1; */
+  color: #333333;
+  padding: 4px 15px 15px 15px;
+  text-decoration: none;
+  position: relative;
+  font-size:15px;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight:700;
+  text-decoration:none;
+}
+.servicehistorypage .panel-group .panel-heading a.collapsed {
+    /* background: #668bb1; */
+
+  /* color: inherit; */
+}
+.servicehistorypage {padding-left: 0;padding-right: 0;}
+.servicehistorypage .glyphicon {margin-top:-14px;}
+
+.servicehistorypage .panel-group .panel-collapse {
+ /* margin-top: 5px !important;*/
+}
+.servicehistorypage .panel-group .panel-body {
+  background: #F5F9FF;
+  padding: 15px;
+}
+.servicehistorypage .panel-group .panel {
+  background-color: transparent;
+}
+.panel-group .panel-body p:last-child,
+.panel-group .panel-body ul:last-child,
+.panel-group .panel-body ol:last-child ,.careServiceDes.rmMrgnBtm,
+.servicehistorypage p.careServiceDes {
+  margin-bottom: 0;
+}
+   .servicehistorypage .tab-content .panel-body div.row:last-child {
+  /* margin-bottom:18px; */
+  }
+
+.servicehistorypage .nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus{
+	background: -webkit-linear-gradient(#182F53, #8199BC) !important; /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#182F53, #8199BC) !important; /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#182F53, #8199BC) !important; /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#182F53, #8199BC) !important; /* Standard syntax */
+color:#ffffff !important;border:1px solid #7d7f85;}
+.servicehistorypage .nav-pills>li>a, .nav-pills>li>a:hover, .nav-pills>li>a:focus{background: -webkit-linear-gradient(#E7F1FF, #9cB4E3) !important; /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#E7F1FF, #9cB4E3) !important; /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#E7F1FF, #9cB4E3) !important; /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#E7F1FF, #9cB4E3) !important; /* Standard syntax */
+	color:#5b667a !important;border:1px solid #7d7f85;}
+.servicehistorypage .nav-pills>li.active>a span, .nav-pills>li.active>a:hover span, .nav-pills>li.active>a:focus span{color:#ffd800 !important;}
+.servicehistorypage .nav-pills>li>a span, .nav-pills>li>a:hover span, .nav-pills>li>a:focus span{color:#736100;}
+   .myservicetabcontent .nav-tabs > li  > a span, .nav-tabs > li  > a:hover span, .nav-tabs > li  > a:focus span{color:#736100;}
+  
+  
+  .servicehistorypage .nav-pills>li:first-child.active>a, .nav-pills>li:first-child.active>a:hover, .nav-pills>li:first-child.active>a:focus{border-radius:10px 0 0 10px;border-right:0px;}
+.servicehistorypage .nav-pills>li:first-child>a, .nav-pills>li:first-child>a:hover, .nav-pills>li:first-child>a:focus{border-radius:10px 0 0 10px;border-right:0px;}
+
+ .servicehistorypage .nav-pills>li:last-child.active>a, .nav-pills>li:last-child.active>a:hover, .nav-pills>li:last-child.active>a:focus{border-radius:0 10px 10px 0;border-left:0px;}
+.servicehistorypage .nav-pills>li:last-child>a, .nav-pills>li:last-child>a:hover, .nav-pills>li:last-child>a:focus{border-radius:0 10px 10px 0;border-left:0px;}
+
+/*
+.servicehistorypage .nav-pills > li{border:1px solid #7d7f85;}
+.servicehistorypage .nav-pills > li:first-child{border:1px solid #7d7f85;border-radius:10px 0 0 10px;}
+.servicehistorypage .nav-pills > li:last-child{border:1px solid #7d7f85;border-radius:0 10px 10px 0;} */
+.nav-pills>li+li{margin-left:0px;}
+.nav-pills>li>a{border-radius:0px;}
+.col20{width:19.9%;float:left;height:60px;text-align:center;height:60px;padding-top:9px;}
+.colborder{border-right:1px solid #666666;float:left;height:28px;margin-top:16px;text-align:center;}
+.secondlinespan{padding-left:5px;}
+.mymaintab ,.myservicetabcontent{padding-left:0px;padding-right:0px; }
+
+  .servicehistorypanel{  border:1px solid #EAF0F8; }
+ .myservicetabcontent .nav-tabs {margin-bottom:16px;}
+  .myservicetabcontent .nav-tabs li{padding-bottom:0px;}
+  .dealernameclass{color:#428bca;}
+  
+.servicehistorypage .tab-content .panel-body .row div:nth-child(even) {font-weight:bold;color:#333333;}
+.servicehistorypage .tab-content .panel-body .row div:nth-child(odd) {color:#666666;}
+.servicehistorypage .panel-default > .panel-heading{ color: #000000;
+    font-weight: bold;
+    background: -webkit-linear-gradient(#f6faff, #e3eafa) !important; /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#f6faff, #e3eafa) !important; /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#f6faff, #e3eafa) !important; /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#f6faff, #e3eafa) !important; /* Standard syntax */
+  }
+  
+  .servicehistorypage .tab-content .panel-body div.row:nth-child(5) div:nth-child(even) span {
+  background: -webkit-linear-gradient(#E4ECFB, #C9D8F6); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#E4ECFB, #C9D8F6); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#E4ECFB, #C9D8F6); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#E4ECFB, #C9D8F6);
+ /* border:1px solid #535B67;*/
+    border:1px solid #ddd;
+  border-radius: 2px;
+  padding:5px;
+  }
+  
+   .servicehistorypage .tab-content .panel-body div.row {
+  margin-top:10px;
+  }
+
+/*testing SH*/
+
+
+.servicehistorypage  .panel.panel-default{border:1px solid #d2d8e4;overflow:visible;}
+#headingsperator{margin:0px 7px;color:#666666;}
+.removingpaddingservice{padding:0 !important;}
+.servicehistorypage .tab-content .panel-body .row div:nth-child(even).tooltipPopUp{color:#fff;}
+.servicehistorypage .tab-content .panel-body .row div:nth-child(odd).tooltipPopUp{color:#fff;}
+
+
+.panel-group .panel + .panel{margin:20px 0px;}
+.row.removepadandmarginservicehis{margin-left: 0px;
+margin-right: 0px;}
+/* prem changes ends for service history tooltip starts*/
+p.careServiceDes{width: 100%;}
+.careServiceDes {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.balloonstyle,.tooltipPopUp,.tooltipPopUpBottomLine,.tooltipPopUpCSPBottomline{
+	position:absolute;
+	top: 0px;
+	left: 0;
+	padding: 5px;
+	visibility: hidden;
+	z-index: 1100;
+	background: #000;	
+	color: #fff;
+	min-width: 100px;
+	-webkit-transform: translate3d(0,0,0); 
+	-webkit-transform:translateZ(0);
+		-ms-transform: translate3d(0,0,0); 
+	-ms-transform:translateZ(0);
+}
+.tooltipPopUp{
+	white-space:normal; 
+	left:0 !important;
+	z-index: 1100;
+}
+.tooltipPopUpBottomLine{
+	white-space:nowrap; 
+	top:-39px !important;
+}
+.balloonstyle{
+	min-width: 280px;
+}
+.document.balloonstyle{
+line-height : 20px;
+left:0px !important;
+white-space: normal;
+}
+.document.balloonstyle:after{left:91%;}
+.balloonstyle:after,.tooltipPopUp:after,.tooltipPopUpUpdated:after{
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(136, 183, 213, 0);
+	border-bottom-color: #000;
+	border-width: 10px;
+	left: 5%;	
+	margin-left: 0px;
+	bottom: 100%;
+	
+}
+.tooltipPopUpBottomLine:after{
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(136, 183, 213, 0);
+	border-top-color: #000;
+	border-width: 10px;
+	left: 5%;	
+	margin-left: 0px;
+	bottom: 100%;
+	top:27px;
+	
+}
+.ng-modal-overlay {
+  /* A dark translucent div that covers the whole screen */
+  position:fixed;
+  z-index:9999;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.5);
+  opacity: 0.8;
+}
+.ng-modal-dialog {
+  /* A centered div above the overlay with a box shadow. */
+  z-index:10000;
+  position: fixed;
+  width: 47%; /* Default */
+  border-radius:10px;
+  /* Center the dialog */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  background: #e3edfa;
+ color:#666;
+}
+.ng-modal-dialog .row{margin-left:0px;padding:8px 0;line-height:normal;margin-top:0px !important;margin-bottom:0px !important;}
+.ng-modal{display:inline;}
+.ng-modal-dialog-content {
+  padding:10px 20px 10px 10px;
+  text-align: left;
+}
+.sub-header  .ng-modal-dialog-content , .roadsidetitlepaddingtop .ng-modal-dialog-content{letter-spacing:0;font-weight:normal;font-size:15px;line-height:1.42857143;}
+.sub-header  .ng-modal-close,.assisthistory .ng-modal-close,.vehiclespecification .ng-modal-close{font-size:14px;}
+.ng-modal-close {
+  float:right;
+  top: 3px;
+  right: 5px;
+  padding: 12px 9px 9px 5px;
+  cursor: pointer;
+  font-size: 120%;
+  display: inline-block;
+  font-weight: bold;
+  font-family: 'arial', 'sans-serif';
+  color: #000 !important;
+}
+/* For service history page dealer pop up */
+.mypad{ line-height:32px;}
+/* .balloonstyle:after {	
+	left: 50%;	
+	margin-left: -50px; 
+} */
+.overlayContent h4{
+	padding-left: 2px;
+	color:#fff; 
+	font-size:16px; 
+	font-weight:bold;
+}
+/* prem changes ends for service history tooltip ends*/
+ .servicehistorypage .tab-content .panel-body .row div.centeraligning{text-align:center;font-weight:bold;color:#000;}
+/* prem changes ends for service history*/
+
+/*campaign page start here*/
+.pagesection{padding: 0;}
+.campaignContainer .camprec{margin: 9px 0;}
+.camview {
+    width: 25px;
+    height: 30px;
+    background: url('/serviceLane/pages/asm/mobile/images/Tablet/campaign_document.png') no-repeat;
+    float: right;
+    margin-left: 5px;
+}
+
+.frmIcon {
+	width: 20px;
+    height: 20px;
+    background: url(/serviceLane/pages/asm/mobile/images/Tablet/magnifyingGlass_icon.png) no-repeat;
+    background-size: 22px 22px;
+    float: right;
+    margin:0 0 3px 5px;
+}
+
+ul.careDetail, ul.cspDetail ,ul.teleProdDetail,ul.teleXmServiceDetail{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+	display: block !important;
+}
+.careDetail li,#fsproductList {
+    margin: 20px 0 0 0;
+    padding: 0;
+    border: 1px solid #d9dbdd;
+    border-radius: 5px;
+    box-shadow: 0 0 1px #555;
+    list-style: none;
+}
+.cspDetail li{
+margin: 0px;
+padding: 10px 0px 0px 0px  !important;
+list-style: none;
+}
+
+li:last-child .sectionBorder{border-bottom: 0px dotted #9AA8C1;}
+li div.sectionBorder{
+	margin: 0 15px;
+	border-bottom: 1px dotted #9AA8C1;
+}
+
+.removeD{
+margin: 0 !important;
+padding: 0 !important;
+}
+.careDetail p {
+    margin: 0;
+    padding: 0;
+    color: #333;
+	width: 100%;
+	line-height: 32px;
+}
+
+.paddingTop{
+	padding: 10px 0;
+}
+
+.mutedTxt {
+    color: #666;
+	padding-left: 10px;
+	/*width: 80px; */
+    padding-right: 10px;
+	float: left;
+}
+.lDate{width: 185px;}
+.completed {
+    padding: 5px 0;
+}
+.completed .rmpad {
+  padding-right: 0;
+}
+.closed ,.completed {
+    background: #f6faff;
+}
+
+.completed .firstElt {
+    background: url("/serviceLane/pages/asm/mobile/images/Tablet/asmmobile_landscape_toyotacare_checkbox_ipad2x.png") no-repeat 18px center;
+    line-height: 44px;
+}
+
+.completed .firstTab,.closed .firstTab,#campaignList li  .firstTab{
+    background-color: #98b3d7 !important;
+    border-radius: 4px 0 0 4px;
+	padding: 0px 15px;
+}
+.completed .firstTab,.closed .firstTab{
+    background-color: #98b3d7 !important;
+    border-radius: 4px 0 0 5px;
+    text-indent: 44px;
+	min-width: 160px;
+	padding: 10px 10px;
+}
+
+.opened {
+    background: rgba(0, 255, 0, 0.5);
+    min-height: 30px;
+}
+
+.closed p {
+    line-height: 38px;
+}
+
+.closed .firstElt{
+    background: url("/serviceLane/pages/asm/mobile/images/Tablet/asmmobile_landscape_toyotacare_expired_ipad2x.png") no-repeat 20px center;
+    line-height: 20px;
+}
+
+.care_service {
+    color: #1470c7;
+	margin: 0px;
+}
+
+.opened .firstElt {
+    color: #fff;
+    background: green;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 5px 0 0 5px;
+	min-width: 160px;
+}
+/*campaign page end here*/
+
+/* overlay screen start here */
+.overLay{
+    width: 100%;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    height: 100%;
+    z-index: 1033;
+    overflow-y: hidden;
+}
+.overlay1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1031;
+    background-color: rgba(0,0,0,0);
+}
+
+/* overlay screen end here */
+/* care page screen start here */
+.careFooter {
+    padding: 10px;
+    border: 1px solid #b6bbc1;
+    background: #f0f1f2;
+    color: #2b3646;
+	clear:both !important;
+	margin-top: 20px !important;
+	float: left;
+}
+/* care page screen end here */
+li:last-child .sectionBorder{border-bottom: 0px dotted #9AA8C1;}
+li div.sectionBorder{
+	margin: 0 15px;
+	border-bottom: 1px dotted #9AA8C1;
+}
+
+ #fsproductList{
+ font-weight: normal;
+ }
+
+#fsproductList p{
+    margin: 0;
+    padding: 5px 0;
+    color: #222;
+	width: 100%;
+	line-height: 20px;
+	
+}
+
+span[id^=dcare],span.rmPad{
+	line-height: 32px;
+	min-width: 135px;	
+	display: inline-block;
+	white-space: nowrap;
+}
+.paddingTop{
+	padding: 10px 0;
+}
+#cspList p.careServiceDes {
+	margin: 0;
+	line-height: 32px;
+}
+p.careServiceDes {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+	
+}
+.completed {
+    padding: 5px 0;
+}
+
+.closed ,.completed {
+    background: #f6faff;
+}
+
+.completed .firstElt {
+    background: url("/serviceLane/pages/asm/mobile/images/Tablet/asmmobile_landscape_toyotacare_checkbox_ipad2x.png") no-repeat 18px center;
+    line-height: 44px;
+}
+
+.completed .firstTab,.closed .firstTab,#campaignList li  .firstTab{
+    background-color: #98b3d7 !important;
+    border-radius: 4px 0 0 4px;
+	padding: 10px 10px;
+}
+
+.opened {
+    background: rgba(0, 255, 0, 0.5);
+    min-height: 30px;
+}
+
+.closed p {
+    line-height: 38px;
+}
+
+.closed .firstElt{
+    background: url("/serviceLane/pages/asm/mobile/images/Tablet/asmmobile_landscape_toyotacare_expired_ipad2x.png") no-repeat 20px center;
+    line-height: 28px;
+}
+
+/*campaign page end here*/
+
+/* care page screen start here */
+.careFooter {
+    padding: 10px;
+    border: 1px solid #b6bbc1;
+    background: #f0f1f2;
+    color: #2b3646;
+	clear:both !important;
+	margin-top: 20px !important;
+	float: left;
+}
+/* care page screen end here */
+
+/*Mileag popup*/
+
+#lastKnowVal{
+position: absolute;
+left: 17px;
+top: 34px;
+width: 44px;
+text-align: center;
+font-size: 12px;
+color: #192640;
+}
+
+#mileageMenu form {
+    
+    width: 300px;
+    left: -302px;
+   
+	}
+#mileage h5{
+	margin: 0 0 10px 0;
+	color: #192640;
+	font-weight: bold;
+}
+#mileage input:focus{
+	outline: none;
+}
+#mileage input {
+ width: 70%;
+    border-radius: 8px;
+    padding-left: 10px;
+    border: 1px solid rgba(0,0,0,0.3);
+    color: #333;
+    box-shadow: 1px 1px 4px #e3e2e2;
+}
+
+#mileage label {
+    font-weight: normal;
+    margin-left: 10px;
+	color: #192640;
+}
+
+#mileage button.btn.btn-primary {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+ul.rightmenu li.active{
+		background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_RightPanel_IconBgActive_iPad@2x.png') no-repeat 0% 0%;
+		background-size: 67px 60px;
+		  box-shadow: 0 0 0 #000;
+	}
+	span.square {
+	background: rgb(14, 102, 176);
+	width: 5px;
+	height: 5px;
+	float: left;
+	margin: 8px 10px 0px 0px;
+}
+.hideBorder {
+	float: right;
+	background: #DEE9FF;
+	position: absolute;
+	height: 58px;
+	right: -3px;
+	top: -1px;
+	border-bottom: 1px solid rgba(0,0,0,0.3);
+	width: 3px;
+	border-top: 1px solid rgba(0,0,0,0.3);
+	box-shadow: 0 1px rgba(0,0,0,0.3);
+}
+.state select {
+	margin-right: 100px;
+}
+.state select {
+	border: 2px solid #A8A3A3;
+	border-radius: 8px;
+	padding: 2px 9px;
+	}
+.icon-plus-sign{
+	background: url('/serviceLane/pages/asm/mobile/images/Tablet/plus_single.png') no-repeat;
+	background-size: 24px 24px;
+ padding: 12px 12px 12px 13px;
+ }
+.icon-minus-sign{
+	background: url('/serviceLane/pages/asm/mobile/images/Tablet/minus_single.png') no-repeat;
+	background-size: 24px 24px;
+ padding: 12px 12px 12px 13px;
+}
+/* Sprite image  for service history page starts */
+.icon-plus-sign-service{
+	//background: url('/serviceLane/pages/asm/mobile/images/Tablet/plus_single.png') no-repeat;
+	background: url('/serviceLane/pages/asm/mobile/images/Tablet/service_history_Image_Sprite.png') no-repeat;
+	background-size: 70px 166px;
+	width:41px;
+	height:25px;
+	background-position:16px -78px;
+ 	padding: 12px 12px 12px 13px;
+ }
+.icon-minus-sign-service{
+	//background: url('/serviceLane/pages/asm/mobile/images/Tablet/minus_single.png') no-repeat;
+	background: url('/serviceLane/pages/asm/mobile/images/Tablet/service_history_Image_Sprite.png') no-repeat;
+	background-size: 70px 166px;
+	background-position:16px -41px;
+	width:41px;
+	height:25px;
+ 	padding: 12px 12px 12px 13px;
+}
+/* Sprite image  for service history page ends */
+
+/*Mileag popup*/
+/*.div {border: 1px solid orange;}
+html, body, .adjPortrait {
+	height:100%;
+} */
+.adjPortrait{overflow-x: auto; overflow-y:hidden; z-index:8;}
+.remLRpad{
+	padding-left: 0; 
+	padding-right: 0; 
+}
+.adjPanel {
+    padding-left: 0 !important;
+}
+
+.adjPanelRow {
+    padding: 5px 0;
+    margin: 5px 0;
+}
+
+
+/*Warranty Page CSS*/
+.acc-mycontainer .disclaimer p {
+	text-align:left;
+	font-size: 12px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	color: #666666;
+	margin-top: 6px;
+	margin-bottom:20px;
+}
+.acc-mycontainer .glyphicon{
+	margin-top: -5px;
+}
+.csp{position:relative;}
+.csp_count {
+width: 100px;
+right: 57px;
+position: absolute;
+top: 0px;
+font-weight: bold;
+color: #333333;
+}
+.state {padding-bottom: 10px; padding-left: 15px;}
+.state select {
+	margin-right: 100px;
+}
+.state select {
+	border: 2px solid #A8A3A3;
+	border-radius: 8px;
+	padding: 2px 9px;
+	}
+	
+	
+	   .warr .glyphicon-chevron-right:before{
+        content: "+";
+    }
+    .warr .glyphicon-chevron-down:before{
+        content: "-";
+    }
+    .warr .panel-heading{
+        padding: 0;
+    }
+    .warr .panel-title>a{
+        padding: 10px 15px;
+        display: block;
+    }
+    .warr .panel-group .panel {
+      margin: 0 auto;
+      width: 100%;
+    }
+    .warr .acc-mycontainer{margin-top: 10px;}
+    .warr .panel-default > .panel-heading {
+      height: 45px;
+      width: 100%;
+      cursor: pointer;
+    }
+    .warr .panel-body {
+      background-color: #f5f9ff;
+    }
+    .warr .panel-title {
+      font-weight: bold;
+      line-height: 25px;
+	  border:1px solid red;
+    }
+    .warr .panel-default {
+      border-color: #c9d2e1;
+    }
+    .warr .glyphicon {
+      font-size: 30px;
+      font-weight: bold;
+      line-height: 19px;
+    }
+    .warr .panel-collapse.collapse.in {
+      border-top: 1px solid #c9d2e1;
+    }
+    .clr{clear: both;}
+    .warr-pagewrap {
+    width: 100%;
+    display: inline-block;
+    }
+    .pad-lf-25px{padding-left: 25px;}
+    .fl{float: left}
+	.fr{float: right}
+.disclaimer {border-top: 1px solid #9AA8C1;padding: 0 15px;}
+.disclaimer ul{margin: 0;padding: 0 13px;}
+.disclaimer ul li {
+    margin: 5px 5px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: bold;
+    color: #7B7C7D;
+}
+.disclaimer ul li div{
+position: relative;
+left: 0px;
+}
+.disclaimer ul li div span{
+position: absolute;
+top: 0px;
+left: -15px;
+padding: 0;
+margin: 0;
+}
+.disclaimer h4 {
+color: #333333;
+text-align: left;
+font: bold 14px "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.warrantyHy-icon {
+    /*background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/Warranty_toyotaHybrid.png');  
+	padding: 16px 45px;
+    background-size: 72px 28px;
+	background-repeat: no-repeat;
+	background-position: center center;*/
+	background-position: -414px -28px;
+    background-size: 900px 88px;
+}
+.warrantyNonHy-icon {
+    /*background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/Warranty_toyota.png');
+	padding: 16px 45px;
+    background-size: 72px 23px;
+	background-repeat: no-repeat;
+	background-position: center center;*/
+	background-position: -323px -28px;
+    background-size: 900px 88px;
+}
+.warrrantyScion-icon {
+    /*background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/Warranty_Scion.png');
+	padding: 16px 45px;
+    background-size: 72px 28px;
+	background-repeat: no-repeat;
+	background-position: center center;*/
+	background-position: -324px -28px;
+    background-size: 576px 88px;
+}
+.warrrantyLexus-icon{
+    /*background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/Warranty_Lexus.png');
+	padding: 16px 45px;
+    background-size: 85px 28px;
+	background-repeat: no-repeat;
+	background-position: center center;*/
+	background-position: -560px -24px;
+    background-size: 800px 88px;
+}
+
+.firstColl {
+    padding-top: 20px;
+    font-weight: bold;
+	width: 45%;
+	float: left;
+  }
+.barPadding, .childbarPadding {
+    padding: 2px 0px;
+    margin: 0px 0 3px 0;
+    min-height: 25px;
+    color: #666;
+    font-weight: normal;
+    clear: both;
+}
+.childbarPadding:first-child {
+    background: green;
+}
+
+.redcross,.greentick {
+    background-repeat: no-repeat;
+    background-size: 17px 17px;
+    background-position: center center;
+}
+
+.redcross {
+    background-image: url("/serviceLane/pages/asm/mobile/images/Tablet/red_circle_cross.png");	
+}
+
+.greentick {
+    background-image: url("/serviceLane/pages/asm/mobile/images/Tablet/green_circle_check.png");	
+	padding: 20px 20px;
+}
+.thirdCol {
+	min-width: 86px;
+	float: left;
+	text-align: center;
+}
+.errorData{margin-top: 0;margin-bottom:0; margin-right:15px !important;margin-left:15px !important;}
+.headerDiv {
+    display: block;
+    padding: 10px 0px 25px 0px;
+    background-color: #81868e;
+    color: #eee;
+    font-weight: bold;
+	font-family: Arial;
+}
+.fl {
+    float: left !important;
+}
+
+.cl {
+    clear: both;
+}
+
+.pgHead {
+    background-color: gray;
+    padding: 10px;
+    min-height: 30px;
+}
+
+.leftMenu {
+    width: 8%;
+    height: 100%;
+    min-width: 70px;
+    min-height: 800px;
+    float: left;
+    white-space: nowrap;
+}
+
+.vehicleWarranty {
+    width: 100%;
+    float: left;
+	background-color: rgba(245,249,255,1);
+}
+
+.vehicleWarranty .label {
+    color: #000;
+    text-align: left;
+}
+.acc-mycontainer .panel-default > .panel-heading + .panel-collapse .panel-body{
+	background-color: rgba(245,249,255,1);
+	padding: 10px 0;
+}
+div.description
+	 {
+		display:inline-block;
+		white-space: nowrap;
+		overflow:hidden !important;
+		text-overflow: ellipsis;
+		padding-left: 16px;
+		padding-right: 16px;
+		width: 273px;
+	}
+div.description.mTop{
+	line-height: 28px;
+}
+.covr-pwr {
+margin-bottom: 15px;
+float: left;
+width: 100%;
+}
+.covr-by-cat{
+	margin-left:15px;
+	background-image: url("/serviceLane/pages/asm/mobile/images/Tablet/LimitedWarranty_icon.png");
+	background-repeat: no-repeat;
+	background-size: 20px 24px;
+	
+}
+.pwr-part-list{
+	margin-right:15px;
+	background-image: url("/serviceLane/pages/asm/mobile/images/Tablet/PDF_icon_red.png");
+	background-repeat: no-repeat;
+	/*background-size: 20px 24px;*/
+	background-size: 25px 27px;
+}
+.covr-by-cat,.pwr-part-list{
+	font-size: 16px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	color: #1470c7;
+	font-weight: 700;
+	padding: 2px  0 0 10px;
+	margin-top: 10px;
+}
+.covr-by-cat a,.pwr-part-list a,.frmLink{margin-left:25px;}
+.panel-group .panel + .panel{margin:20px 0px;}
+.panel-title > a {
+	font-size: 17px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	color: #333333;
+	font-weight: 700;
+	text-decoration: none;
+	padding: 10px 15px;
+	display: block;
+	position: relative;
+}
+.monthBold{font-weight: bold}
+.memoDoc{
+padding: 0;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+width: 80%;
+float: left;
+line-height: 30px;
+margin-left: -10px;
+}
+.barchart{width:55%; float:left;}
+.rmPad.detailMemo{
+	color: red;
+	font-weight: bold;
+}
+.memodetails{
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;	
+	float: left;
+	line-height: 30px;
+}
+.memodetail{
+	
+	width: 80%;
+}
+#csp{
+/*padding-bottom: 20px;*/
+}
+/*Warranty Page CSS*/
+
+.remLRpad .row{margin-top: 10px; margin-bottom: 10px;}
+
+/*Vin Error Box
+ .bubble {
+		position:absolute;
+		color: #000;
+		z-index: 1099;
+    }
+
+    .bubble:after {
+        width: 0;
+        z-index: 1;
+    }
+
+    .bubble:before {
+        width: 0;
+        z-index: 0;
+    }
+	 .errorbox {
+        background: #FCD2D2 url('/serviceLane/pages/asm/mobile/images/Tablet/Common_ErrorMsg_AlertIcon_iPad@2x.png')  no-repeat 5% 50%;
+        background-size: 17px 16px;
+        font-size: 12px;
+        font-weight: bold;
+	}
+	
+Vin Error Box*/
+ .errorbox {
+        background: #FCD2D2 url('/serviceLane/pages/asm/mobile/images/Tablet/Common_ErrorMsg_AlertIcon_iPad@2x.png')  no-repeat 5% 50%;
+        background-size: 17px 16px;
+        font-size: 12px;
+        font-weight: bold;
+	}
+ .errorMsg {
+    padding: 10px 10px 0 0;
+}
+
+.bubble {
+    position: relative;
+    padding: 6px 14px 7px 35px !important;
+/* background-color: #FFD3EE; */
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: #FF0000 solid 1px;
+    margin-right: 17px;
+	z-index: 1098;
+}
+
+.bubble:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    /*border-width: 6px 0 6px 11px !important;*/
+    border-width: 2px 11px 11px 10px !important;
+    /*border-color: transparent #FCD2D2;*/
+    border-color: transparent transparent #FCD2D2 transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+}
+
+.bubble:before {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    /*border-width: 6px 0 6px 11px !important;*/
+    border-width: 2px 11px 11px 11px !important;
+	
+    /*border-color: transparent #FF0000;*/
+    border-color: transparent transparent #FF0000 transparent;
+    display: block;
+    width: 0;
+    z-index: 0;
+   
+}
+/* vehicle alet start here */
+.alert-icon sup{
+color: #fff;
+background: #d11d24;
+padding: 2px 4px;
+position: relative;
+top: -14px;
+left: 0px;
+font-size: 10px;
+}
+
+.vAlertArrow{
+width: 0;
+height: 0;
+border-left: 12px solid transparent;
+border-right: 12px solid transparent;
+border-bottom: 12px solid #e3edfa;
+position: fixed;
+z-index: 1100;
+top: 125px;
+/*left: 54%;*/
+}
+.redTxt{
+color: #d11d24 !important;
+}
+.vehicleAlert{
+	top: 137px;
+	left: 19.5%;
+	padding-bottom: 20px;
+}
+#vehicleAlertList{
+	max-height: 420px;
+	overflow-y: auto;
+
+}
+#vehicleAlertList,#vehicleAlertList li{
+padding: 0; margin: 0;list-style: none;width: 100%;
+float: left;
+color: #191e24;
+}
+#vehicleAlertList li{padding: 10px 10px 10px 0;}
+#vehicleAlertList h4{margin: 0;padding: 8px 0;}
+.alertIcons{	
+	background-repeat: no-repeat;
+	background-position: 3% center;
+	background-size: 50px;
+}
+.pull-right.close{padding: 17px;color: #222;opacity: 1;}
+.WE_icon{background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_Header_Alert_WarrantyEligibility_icon.png');}
+.CR_icon{background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_Header_Alert_CRCase_icon.png');}
+.TC_icon{background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_Header_Alert_TASCase_icon.png');}
+.RR_icon{background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_Header_Alert_RepeatRepair_icon.png');}
+.BB_icon{background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_Header_Alert_BuyBack_icon.png');}
+.survey_Smile{background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/smiley_green.png');}
+.survey_Sad{background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/smiley_red.png');}
+#vehicleAlertList .alertdesc{width: 85%;float: right;}
+/* vehicle alet end here */
+.nvd3 .nv-y.nv-axis g:nth-of-type(2) g g:nth-of-type(1) line {
+  fill: none;
+  stroke: #77797C;
+  shape-rendering: crispEdges;
+   stroke-opacity: .50;
+}
+/* for tooltip to work properly in warranty page starts */
+.mywarranty .panel-group .panel{overflow:visible;}
+.tooltipPopUpUpdated{
+	position:absolute;
+	top: 0px;
+	left: 0;
+	padding: 5px;
+	visibility: hidden;
+	background: #000;	
+	color: #fff;
+	min-width: 100px;
+	white-space:normal; 
+	z-index: 1028;
+}
+/* for tooltip to work properly in warranty page ends */
+/*  for pop up */
+
+.overlayContent.balloonstyle div.row label {
+white-space: nowrap;
+float: left;
+width: 70px;
+margin: 0;
+padding: 0 7px;
+color: #fff;
+}
+
+.overlayContent.balloonstyle div.row div {
+	float: left;
+    min-width: 180px;
+    width: 70% !important;
+    margin: 0;
+    white-space: normal;
+    word-wrap: break-word;
+    padding:0px 0px 0px 7px;
+}
+
+.overlayContent.balloonstyle div.row {
+margin-left:0px;
+}
+
+.balloonstyle .doc{
+	border-bottom: 1px solid rgb(63, 55, 55);
+	padding: 5px 0;
+}
+.balloonstyle .doc:last-child{
+	border-bottom: 0;
+}
+.balloonstyle .doc a{
+	color: #fff;
+}
+
+/*  for pop up */
+.dealerLable{
+	float: left;
+	width: 80px;
+	margin: 0;
+	padding: 0 7px 0 1px;	
+}
+div.row .desc,.overlayContent.balloonstyle div.row div.desc{
+	float: left;
+	min-width: 180px;
+	width:70% !important;
+	margin: 0;
+	white-space: normal;
+	word-wrap:break-word;
+}
+#dealerPopUp h4{
+	padding-left: 7px !important;
+}
+.mpg-collection {
+    margin-top: 20px;
+	margin-left:10px;
+	padding-right: 33px;
+}
+
+.gas-icon {
+    background: url('/serviceLane/pages/asm/mobile/images/Tablet/VehicleInfo_GasolineIcon_iPad@2x.png') no-repeat 5% 50%;
+    background-size: 16px 21px;
+    padding: 8px;
+    margin: 0 3px;
+}
+.hydrogen-icon {
+    background: url(/serviceLane/pages/asm/mobile/images/Tablet/H2_icon.png) no-repeat 5% 60%;
+    background-size: 28px 28px;
+    padding: 14px;
+    margin: 0 3px;
+}
+.hydrogen-icon-sub {
+   /* background: url('/serviceLane/pages/asm/mobile/images/Tablet/VehicleInfo_GasolineIcon_iPad@2x.png') no-repeat 5% 50%;
+    background-size: 16px 21px;
+    padding: 8px;*/
+    font-size:13px;
+}
+.electric-icon {
+    background: url('/serviceLane/pages/asm/mobile/images/Tablet/VehicleInfo_ElectricityIcon_iPad@2x.png') no-repeat 5% 50%;
+    background-size: 16px 21px;
+    padding: 8px;
+    margin: 0 3px;
+}
+
+.ethonal-gas-icon {
+    background: url('/serviceLane/pages/asm/mobile/images/Tablet/VehicleInfo_GasolineIconWithNumber_iPad@2x.png') no-repeat 5% 50%;
+    background-size: 18px 33px;
+    padding: 8px;
+    margin: 0 3px;
+}
+
+.towing-info-icon {
+    background: url('/serviceLane/pages/asm/mobile/images/Tablet/VehicleInfo_InfoIcon_iPad@2x.png') no-repeat 5% 50%;
+    background-size: 22px 22px;
+    padding: 5px 31px;
+    margin-left: 7px;
+}
+
+.notowing-icon {
+    background: url('/serviceLane/pages/asm/mobile/images/Tablet/TowingCapacity_NO.jpg') no-repeat 5% 50%;
+    background-size: 86px 49px;
+    padding: 23px 27px;
+}
+.towingDisclaimer {
+    white-space: normal !important;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 11px;
+}
+
+.graySolidLine {
+    border-bottom: 1px solid #ccc;
+    padding: 15px 15px !important;
+}
+
+.bord21 {
+    border-bottom: 1px dotted #ccc;
+    margin: 0 auto;
+    width: 97%;
+    padding: 15px 15px !important;
+}
+.adjPanelLabel {
+    padding-left: 0!important;
+}
+.dividerBorder {
+    border-bottom: 1px solid #cccccc;
+	padding: 0 !important;
+}
+
+.info-table-body {
+    padding: 10px 16px;
+    min-height: 48px !important;
+	
+}
+
+.vehicle-inof-body{
+	border-bottom: 1px dotted #ccc;
+	margin: 0 15px;
+	padding: 15px 0;
+	width: 97%;
+}
+.dividerBorder .vehicle-inof-body:last-child{border: 0;}
+.panel-body {
+    padding-bottom: 0;
+}
+
+div#loading ,div#printLoading{
+    display: block;
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background: url('/serviceLane/pages/asm/mobile/images/Tablet/loading.gif') no-repeat center center;
+	background-size: 100px; 
+    text-align: center;
+    padding: 10px;
+    /*border: 1px solid #666;*/
+    border: none !important;
+    margin-left: -50px;
+    margin-top: -50px;
+    z-index: 1150;
+    overflow: auto;
+}
+/* customer survey starts */
+.customersurveypage .balloonstyle{min-width:298px;}
+.customersurveypage .panel.panel-default.blockdisplay{display:block;}
+.customersurveypage .removewhitewrap{white-space:nowrap;text-overflow:ellipsis;overflow:hidden;}
+.customersurveypage div.descriptionsurvey
+	 {
+		white-space: nowrap;
+		overflow:hidden !important;
+		text-overflow: ellipsis;
+		min-width:180px;
+	}
+.customersurveypage .panel-title > a{font-size:16px;padding:0;}
+.customersurveypage .mysmileyarea{text-align:center;}
+.customersurveypage  .mysurveycolor .mysmileyarea{padding-top:43%;}
+.customersurveypage .colorcode{font-size:16px;}
+.customersurveypage #headingsperator{margin:0px;color:#333333;}
+.customersurveypage .tooltipPopUp  #headingsperator{margin:0px;color:#fff;}
+.customersurveypage .greensurvey , #dcmList .greensurvey ,#issueList  .greensurvey {background:#b5e3be;}
+.customersurveypage .redsurvey , #dcmList .redsurvey ,#issueList  .redsurvey  {background:#FFC5C7;}
+.customersurveypage .greysurvey, #dcmList .greysurvey, #issueList  .greysurvey {background:#C3C3C3;}
+
+.customersurveypage .greensurvey .smileyicon{background: url("/serviceLane/pages/asm/mobile/images/Tablet/GreenSmiley_icon.png") no-repeat  center;background-size:29px;}
+.customersurveypage .redsurvey .smileyicon{background: url("/serviceLane/pages/asm/mobile/images/Tablet/RedSmiley_icon.png") no-repeat  center;background-size:29px;}
+.customersurveypage .greysurvey .smileyicon{background: url("/serviceLane/pages/asm/mobile/images/Tablet/GraySmiley_icon.png") no-repeat  center;background-size:29px;}
+.customersurveypage .smileyicon{padding:15px;display:inline-block;}
+.customersurveypage .remLRpad .row{margin-top:9px;margin-bottom:8px;}
+.customersurveypage #tab3 .tabandolderconainericon{float:right;margin-top:10px;width:8.3%;border-bottom:1px solid #ddd;padding-bottom:17px;}
+
+.customersurveypage .tabandolderconainer{margin-bottom:30px;overflow:hidden;}
+.customersurveypage .tabandolderconainericon{float:right;margin-top:10px;}
+.customersurveypage .tabandolderconainericon .overallminus{background:url('/serviceLane/pages/asm/mobile/images/Tablet/minus_single.png');background-size:24px 24px;
+ width:25px;
+ height:25px;
+ float:left;
+ cursor:pointer;
+ }
+.customersurveypage .tabandolderconainericon .overallplus {background:url('/serviceLane/pages/asm/mobile/images/Tablet/plus_single.png');
+ background-size:24px 24px;
+ width:24px;
+ height:25px;
+ float:right;
+ margin-left:29px;
+ cursor:pointer;
+ 
+ }
+.customersurveypage .circle
+    {
+ background: url("/serviceLane/pages/asm/mobile/images/Tablet/Blue_i_icon.png") no-repeat 6px 28px;
+background-size: 21px;
+padding: 20px;
+    }
+    
+.customersurveypage .panel-default > .panel-heading{  filter:alpha(opacity=15); /* IE */
+    -moz-opacity:15; /* Mozilla */
+    opacity: 15; /* CSS3 */
+    
+    background: -webkit-linear-gradient(#F6FBFF, #fff) !important; /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#F6FBFF, #fff) !important; /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#F6FBFF, #fff) !important; /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#F6FBFF, #fff) !important; /* Standard syntax */
+    overflow:auto;
+    display:inline-table;
+    }
+.customersurveypage .ng-modal-dialog .row .desc span {font-weight:normal;}
+.customersurveypage  .itemBold{font-weight:bold;}
+.customersurveypage  .mysurveymidcolumnlabel{color:#666666;}
+.customersurveypage .panel.panel-default{border-radius:4px;border:1px solid #555555;display:inline-block;overflow:visible; }
+.customersurveypage .panel.panel-default.warningmessage{border-radius:4px;border:1px solid #ddd;}
+.customersurveypage .panel.panel-default.servicehistorysystemerror{border-radius:initial;border:initial; }
+ .customersurveypage  .panel-default > .panel-heading + .panel-collapse .panel-body{border-top-color:#B2B1B1;padding-left:1px;}
+/* customer survey ends */
+/* feedback starts  */
+.feedback h2{
+	width: 97%;
+	border-bottom: 1px solid #7b8c92;
+	margin: 0 16px;
+	color:#393F49;
+}
+.feedback p{
+color:#676767;
+}
+.feedback .close{padding: 0}
+.feedbackContainer.ng-scope {
+	overflow-y: auto;
+	float: left;
+	margin: 0 9px;
+	padding:10px;
+	min-height:520px;
+	
+
+}
+.feedbackContainer .circle
+    {
+    width:20px;
+    height:20px;
+    border-radius:250px;
+    font-size:14px;
+    color:#fff;
+    line-height:20px;
+    text-align:center;
+    background:#1B93F0;
+    display: inline-block;
+margin-left: 10px;
+font-weight:bold;
+    }
+.feedbackContainer h5{
+	margin-top: 10px;
+	float: left;
+	width: 100%;
+}
+.feedbackContainer h5  {
+	padding: 0 15px;
+}
+.feedbackContainer input,.feedbackContainer textarea,.feedbackContainer select{background:#E3E2E2;border-top:2.9px solid #818181 ;border-left:2.9px solid #818181;-webkit-border-radius: 12px;-moz-border-radius:12px;border-radius: 12px;resize: none;}
+.feedbackContainer label.lightweight{font-weight:normal;}
+.feedbackContainer div.contactformhorizontal input{display:inline-block;width:61%;background:#E3E2E2;border-top:2.9px solid #818181;border-left:2.9px solid #818181;}
+.feedbackContainer div.contactformhorizontal label{width:38%;}
+.feedbackContainer div.contactformhorizontal span{width:58%;font-weight:bold;}
+.feedbackContainer label{color:#4D4D4D;}
+.feedbackContainer form{padding-top:15px;}
+.vinFeedback {
+	width: 45%;	
+	margin: 0 2% 0 0;
+	position: absolute;
+	top: 70px;
+	display: block;
+	border-radius: 10px;
+	background: #e3edfa;
+	z-index: 1100;
+	right: 0px;
+  }
+  .feedback {	
+	right: 65.5%;
+	margin-right: -40%;
+}
+.vinFeedback h2{
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    padding: 16px 10px 14px 19px;
+    color: #393f49;
+}
+
+.vinFeedback .feedbackContainer h2.innerlinewithmargin{
+	width: 97%;
+	border-top: 1px solid #ccc;
+	margin: 0;
+	color:#393F49;
+	padding: 16px 0px 14px 0px;
+	font-size:16px;
+	border-bottom: 0px solid #ccc;
+	margin-top:31px;
+}
+.vinFeedback button {
+    margin: 10px 10px 10px 0;
+    font-weight:bold;
+}
+.feedbackContainer .horizsep{border-bottom:1px solid #ccc;}
+/* feedback ends */
+
+/* technician starts  */
+.technician h2{
+	width: 97%;
+	border-bottom: 0px solid #7b8c92;
+	margin: 0 16px;
+	color:#393F49;
+}
+.technician p{
+	color:#676767;
+}
+.technician .close{padding: 0}
+.technicianContainer .odd, .technicianContainer .even {border:0px solid #71767d !important;}
+.technicianContainer{
+	overflow-y: auto;
+	margin: 0 9px;
+	padding:10px;
+	width: 650px;
+}
+
+.vinTechnician {
+	width: 45%;	
+	margin: 0 2% 0 0;
+	position: fixed;
+	top: 70px;
+	display: block;
+	border-radius: 10px;
+	background: #e3edfa;
+	z-index: 1100;
+	right: 0px;
+  }
+  .technician {	
+
+	position: fixed;
+    width: 50%;
+    /*height: 50%;*/
+    min-width:500px;
+    min-height:230px;
+    left: 50%;
+    top:50%;
+
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);    	
+}
+.vinTechnician h2{
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    padding: 16px 10px 14px 19px;
+    color: #8E0707;
+}
+
+.vinTechnician .technicianContainer h2.innerlinewithmargin{
+	width: 97%;
+	border-top: 1px solid #ccc;
+	margin: 0;
+	color:#8E0707;
+	padding: 16px 0px 14px 0px;
+	font-size:16px;
+	border-bottom: 0px solid #ccc;
+	margin-top:31px;
+}
+
+/* technician ends */
+
+/* Telematics page and account details starts */
+div.subscribername
+	 {
+		white-space: nowrap;
+		overflow:hidden !important;
+		text-overflow: ellipsis;
+		color:#428bca;
+
+	}
+	.circletelematics    {
+ background: url("/serviceLane/pages/asm/mobile/images/Tablet/Blue_i_icon.png") no-repeat 6px 28px;
+background-size: 21px;
+padding: 20px;
+
+    }
+.remRpad{padding-right:0px;}
+.teleProdDetail li{margin:20px 0 0 0;border-radius: 10px;list-style: none;box-shadow:0 0 1px #555;  border: 1px solid #d9dbdd;}
+.teleProdDetail li.removemargintopli{margin:0;}
+.teleProdDetail .greenproduct{background:#b5e3be;}
+.teleProdDetail .redproduct{background:#ffc5c7; }
+.teleProdDetail .greyproduct{background:#C7D7EB;}
+.iconcenter{text-align:center;}
+.teleProdDetail .statustext{line-height:133px; font-weight:bold;}
+.teleProdDetail .statustext.reduceHeight{line-height:89px;}
+.teleProdDetail .greenproduct .statustext .statusicon ,  #dcmList .greensurvey .statusicon{background: url("/serviceLane/pages/asm/mobile/images/Tablet/ASMMobile_Landscape_fsProduct_active_iPad@2x.png") no-repeat left center;background-size: 25px 25px; padding: 8px 14px 5px 14px; margin-right: 10px;}
+ #dcmList .greysurvey .statusicon{background: url("/serviceLane/pages/asm/mobile/images/Tablet/Pending_icon.png") no-repeat left center;background-size: 25px 25px; padding: 8px 14px 5px 14px; margin-right: 10px;}
+.teleProdDetail .redproduct .statustext .prodstatus , #dcmList .redsurvey .statustext{color:#D41E25;}
+.teleProdDetail .greenproduct .statustext .prodstatus ,#dcmList .greensurvey .statustext{color:#3eb53a;}
+.teleProdDetail .greyproduct .statustext .prodstatus , #dcmList .greysurvey .statustext{color:#667587;}
+.teleProdDetail .redproduct .statustext .statusicon , #dcmList .redsurvey .statusicon {background: url("/serviceLane/pages/asm/mobile/images/Tablet/ASMMobile_Landscape_fsProduct_inActive_iPad@2x.png") no-repeat left center;background-size: 25px 25px; padding: 8px 14px 5px 14px;margin-right: 10px;}
+#teleproductList .tab-color {background: #f6fbff;border-radius:0 10px 10px 0px;}
+.teleaccul{list-style:none;  padding-left: 0; margin-bottom: 0;}
+.nullpadd{padding:0 !important;}
+.teleaccul li {padding:10px 10px 10px 6px;}
+.browncolor{color:#8E0707 !important;font-weight:bold;text-transform:uppercase;}
+.teleaccountContainer .outerdiv{border:1px solid #C0C9D4;}
+.teleaccountContainer .border-right{border-right:1px solid #C0C9D4;}
+.teleaccountContainer .mytable{border:1px solid #71767d !important;}
+.teleaccountContainer .mytable  .myemail{word-break:break-all;}
+.teleaccountContainer .mytable .removeBorder{border:none !important;}
+.teleaccountContainer .table > tbody.mytable  .verticalcenter{vertical-align:middle;}
+.teleaccountContainer .mytable td{width:50%;}
+.teleaccountContainer{overflow-y: auto;padding:10px;}
+.teleaccountContainer td{white-space:normal !important;border-top:none !important;}
+.seperatorclass{border-right:1px solid #a5aab1;}
+.teleaccountContainer .removebordertop{border-top:none;}
+.remLRpad .row.removebottommargin{margin-bottom:0px;}
+.vinteleaccdet {
+  width: 69%/*59%*/;
+  margin: 0 2% 0 0;
+  position: fixed;
+  top: 70px;
+  display: block;
+  border-radius: 10px;
+  background: #e3edfa;
+  z-index: 1100;
+  right: 0px;
+}
+.teleaccdet {
+  right: 54.5%/*61.5%*/;
+  margin-right: -40%;
+}
+.vinteleaccdet h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  padding: 16px 10px 14px 10px;
+  padding-bottom: 0;
+}
+.teleaccdet .close{padding: 0}
+.teleaccdet h2{width: 100%;}
+.teleaccountContainer .greentext{color:green;font-weight:bold;}
+.teleaccountContainer .redtext{color:red;font-weight:bold;}
+.teleaccountContainer tr:nth-child(2n+1){background:#E3EDFA;}
+.teleaccountContainer tr:nth-child(2n){background:#D3DEEC;}
+.headingbackground{background:#8791A0 !important;padding:10px;margin-bottom:0px;text-align:center;color:#ffffff;font-weight:bold;}
+.teleaccountContainer .odd{background:#E3EDFA !important;}
+.teleaccountContainer .even{background:#D3DEEC !important;}
+.margintopteleacc{margin-top:60px;}
+.defaultcopycontainer{
+    opacity: 0;
+    background: #000;
+    color:#fff;
+    border-radius:5px;
+    text-align:center;
+    position:absolute;
+    top: 64px;
+    right: 30px;
+    z-index: 2000;
+    padding:10px;
+    
+    
+}
+
+.fadeincopytext{
+    -webkit-transition: opacity 2s; /* For Safari 3.1 to 6.0 */
+    transition: opacity 2s;
+    opacity: 1;
+}
+
+.fadeoutcopytext{
+    -webkit-transition: opacity 2s; /* For Safari 3.1 to 6.0 */
+    transition: opacity 2s;
+    opacity: 0;
+}
+
+.tele-three-record{height: 520px;}
+/* Telematics page and account details ends */
+/* service connect alert starts */
+.serviceconnectAlert{
+	top: 137px;
+	left: 19.5%;
+	padding-bottom: 20px;
+	/*min-height:52%;
+	height: 30%;*/
+	
+}
+h2.reducetopbottompadding{padding-top:10px;padding-bottom:10px;}
+.serviceConnectAlertContainer{
+	height: 300px;
+	/*border:1px solid red;*/
+	overflow: auto !important;
+	padding: 0;
+}
+.serviceConnectAlertContainer ul{
+	list-style:none;
+	padding: 0;
+}
+
+.serviceConnectAlertContainer ul li{
+	list-style:none;
+	padding: 0;
+}
+
+.serviceConnectAlertContainer li:nth-child(2n+1){
+		background: #e3edfa;
+}
+
+.serviceConnectAlertContainer li:nth-child(2n){
+	background: #c3cfdf;
+}
+
+
+
+
+.headersectionscalert{
+padding: 10px 0px;
+ /* margin-top: 10px;*/
+  background: #c3cfdf;
+}
+.service-connect-alert-icon {
+ 
+/* 
+ margin-left: 13px;
+  padding: 20px 0px;
+  width:53px; */
+  margin-left: 13px;
+  padding: 22px 0px;
+  width: 53px;
+  background-size:36px;
+
+}
+.extrasize{background-size:50px;}
+.copyicon {
+  background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/CopyText_icon_iPad@2x.png');
+  padding: 19px 24px;
+  background-repeat: no-repeat;
+  opacity: 1;
+  margin-top: 7px;
+  background-size: 30px;
+}
+.reduce-box-height{height:auto;}
+
+.one-liner-sc-alert-icon {
+    /*background: url('/serviceLane/pages/asm/mobile/images/Tablet/vehicle-oneliner-headerIcon.png') no-repeat center center;
+    background-size: 24px 24px;*/
+	padding: 16px;
+	background-position: -49px -30px;
+    background-size: 900px 92px;
+}
+
+
+.one-liner-sc-alert-icon sup{
+color: #fff;
+background: #d11d24;
+padding: 2px 4px;
+position: relative;
+top: -14px;
+left: 0px;
+font-size: 10px;
+}
+
+.one-liner-sc-alert-icon.inActive{
+	background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_TelematicsIcon_iPad@2x.png') no-repeat center center;
+	 padding: 16px;
+    background-size: 24px 24px;
+}
+h5{
+font-weight: bold;
+  margin: 0;
+}
+.serviceConnectAlertContainer h5{
+	padding: 10px 10px;
+}
+.serviceConnectAlertContainer ul h5{
+  padding: 5px 0px 5px 0px;
+ }
+ .serviceConnectAlertContainer ul h5.norecord{
+  padding: 10px 10px;
+ }
+.serviceConnectAlertContainer ul p{
+   margin-top: 5px;
+ }
+ul.margintopclass{margin-top:10px;}
+/* service connect alert ends */
+
+/* legal content css start here */
+#legalWrapper{background: rgba(0,0,0,0.5)}
+.legal {		
+	background: #e3edfa;
+	width: 80%;
+	margin: 0 auto;
+	min-width: 815px;
+}
+.legal h2{
+	width: 80%;
+	border-bottom: 1px solid #9aa8c1;
+	margin: 0;
+	position: fixed;
+	background: #e3edfa;
+	font-size: 20px;
+	padding: 10px 15px;
+}
+.legal h2 span{
+	float: right;
+  font-size: 15px;
+  line-height: 22px;
+}
+.legal .close{padding: 0}
+.legalContainer {
+margin-top: 42px;
+float: left;
+background: #e3edfa;
+  padding-top: 10px;
+}
+/*
+.legalContainer h5{
+	margin-top: 10px;
+	float: left;
+	width: 100%;
+}*/
+.legalContainer h5,.legalContainer p  {
+	padding: 0 15px;
+}
+
+.legalContainer .panel{
+	border: 0;
+	border-radius: 0;
+	box-shadow: 0 0 0;
+	margin: 0 !important;
+}
+.legalContainer .panel-body{padding-bottom: 15px;}
+.legalContainer .glyphicon{top: -4px;}
+.legalContainer .panel-body {
+border: 0 !important;
+}
+.legalContainer .panel:nth-child(odd) .panel-heading,.legalContainer .panel:nth-child(odd){background: #c3cfdf !important;border-radius: 0;}
+.legalContainer .panel:nth-child(even) .panel-heading,.legalContainer .panel:nth-child(even){background: #e3edfa !important;}
+.legalDetail p{padding: 0;}
+.legalDetail h6{float: left;margin: 0;font-size: 14px;line-height: 1.42857143;font-style: italic;}
+/* legal content css end here */
+.servicetype span{padding: 0 5px;position: relative}
+.servicetype span:after {
+position: absolute;
+content: "";
+top: 3px;
+border-left: 1px solid #333;
+height: 10px;
+right: 0px;
+}
+.servicetype span:first-child {
+padding-left: 0;
+}
+.servicetype span:last-child:after {
+border: 0;
+}
+#fsproductList .serviceProvider span{margin-top: 5px;color: #2b3646;text-shadow: 0 2px rgba(255, 255, 255, 0.78);}
+#fsproductList .serviceProvider span,#fsproductList .serviceProvider b{text-align: center;
+display: block;}
+.fsproductStatus{display : none}
+.serviceProvider .inactive,.serviceProvider .active{
+line-height: 25px;
+padding: 20px 0 20px;
+margin-bottom: 12px;
+margin: 0 auto;
+font-weight: bold;
+}
+.serviceProvider .inactive{background: url("/serviceLane/pages/asm/mobile/images/Tablet/ASMMobile_Landscape_fsProduct_inActive_iPad@2x.png") no-repeat left center;
+color: #d41e25 !important;
+background-size: 25px 25px;text-shadow: 0 0 0 #fff !important;
+width: 120px;
+
+}
+.serviceProvider .active{background: url("/serviceLane/pages/asm/mobile/images/Tablet/ASMMobile_Landscape_fsProduct_active_iPad@2x.png") no-repeat left center;
+color: #009100 !important;
+width: 110px;
+background-size: 25px 25px;
+text-shadow: 0 0 0 #fff !important;
+}
+#fsproductList li:last-child{margin-bottom: 10px;}
+.firstTabActive,.firstTabInctive{ 
+border-radius: 4px;
+padding: 0px 15px;
+    padding: 0;
+    font-weight: normal;
+	background-color: #b5e3be;
+}
+#fsAccordion.panel-group {
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+#fsproductList .tab-color{background: #f6fbff;padding-right: 0}
+
+.fsbodyActive{    border: 1px solid #b5e3be;
+    border-top: 1px solid #38BB51 !important;}
+
+.firstTabInctive{background-color: #ffc5c7;}
+
+/* fs product css start here */
+.active-font {
+    color: green;
+    font-weight: bold;
+}
+
+.inActive-font {
+    color: red;
+    font-weight: bold;
+}
+
+/*rightMenu pop up*/
+
+.rightMenuPopup b{
+position: absolute;
+left: 17px;
+top: 34px;
+width: 44px;
+text-align: center;
+font-size: 12px;
+color: #192640;
+}
+#custInformation form{width: 400px;left: -402px;padding-top: 9px;padding-bottom: 0;}
+.rightMenuPopup form {
+    position: absolute;
+	background: #DEE9FF;	
+	top: 0px;
+	padding: 20px;
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 6px 0px 6px 6px;
+	z-index: 1034;
+	text-align: left;
+	}
+.rightMenuPopup h5{
+  margin: 0;
+  color: #192640;
+  font-weight: bold;
+  
+}
+#custInformation h5{/*background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_RightPanel_GuestInfo_guestInfoEditIcon.png') top right no-repeat;*/
+  background-size: 40px 36px;
+  padding: 12px 0;}
+#custInformation label{padding: 5px 0 2px;
+	display: block;}
+#custInformation .cusLabelws { white-space:normal; }
+.rightMenuPopup input:focus{
+	outline: none;
+}
+.rightMenuPopup input {
+ width: 70%;
+    border-radius: 8px;
+    padding-left: 10px;
+    border: 1px solid rgba(0,0,0,0.3);
+    color: #333;
+    box-shadow: 1px 1px 4px #e3e2e2;
+}
+
+.rightMenuPopup label {
+    font-weight: normal;
+    margin-left: 10px;
+	color: #192640;	
+}
+
+.rightMenuPopup button.btn.btn-primary {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.rightMenuPopup select {
+	border: 2px solid #A8A3A3;
+	border-radius: 8px;
+	padding: 5px;
+	background-color: #eee;
+	color: #000;
+	margin: 10px 0;
+	width: 308px;
+	font-weight: bold;
+	color: #8E0707;
+}
+
+/* start about page , announcement pop up and quick links pop up*/
+#about form{
+    /*height: 205px;*/
+}
+.announcementspopdiv  p ,.rightMenuPopup p{
+  border-bottom: 1px dotted #000;
+  margin: 0;
+  padding: 5px 0;
+}
+ .rightMenuPopup form p:last-child{border: 0;padding-bottom: 0;}
+ul.rightmenu li .rightMenuPopup form a {
+  padding: 0;
+}
+.rightMenuPopup form h5{ margin-bottom: 5px;}
+.rightMenuPopup .errorData{margin: 0;  height: 160px;overflow-y: scroll;}
+.rightMenuPopup .errorMsg span{float: left;}
+.announcementspopdiv sup,.rightMenuPopup sup{color:#7A0000;}
+.announcementcount {
+    float: right;
+    background-color: red;
+    color: #fff;
+    font-weight: bold;
+    position:absolute;
+    margin-top: 1px;
+    margin-right: 5px;
+    padding: 0px 2px !important;
+    left: 48px;
+    z-index: 1;
+        border-radius: 3px;
+}
+.rightMenuPopup  form{
+  right: 65px;
+  width: 400px;
+  margin-bottom: 20px;
+   
+}
+.rightMenuPopupDiv{overflow-y:auto; max-height: 250px;}
+.rightMenuPopupDiv a.decoratenone,#announcementtempid a.decoratenone {text-decoration:none;}
+.zeropadding{padding:0 !important;}
+.householdviewmore.iconpadding{padding:9px !important; background-position:right;}
+.shadowpopup.householdpop {top:205px;}
+.announcementspopdiv{padding:0px 15px 15px 15px;	overflow: auto !important;	max-height:460px;}
+ .announcementspopdiv a{text-decoration:none;display:block;}
+/* end about page ,announcement page and quick link page*/
+#custInformation option{font-weight: bold !important;}
+.customerPhoneIcon{
+  background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_RightPanel_GuestInfo_callIcon.png') top left no-repeat;
+  background-size: 26px 24px;
+  padding-left: 40px !important;
+}
+.customerMailIcon{
+  background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_RightPanel_GuestInfo_MailIcon.png') top left no-repeat;
+  background-size: 26px 24px;
+  padding-left: 40px !important;
+}
+
+#household{
+  position: absolute;
+  top: 100px;
+  content: "";
+  background: url('/serviceLane/pages/asm/mobile/images/Tablet/GuestInfo_Group_icon.png') top right no-repeat;
+  background-size: 40px 36px;
+  right: 20px;
+  padding: 8px 20px;
+}
+label#lastUpadte {
+  margin: 0px 0 5px 0;
+  float: right;
+  font-size: 10px;
+}
+div#custError,.info-servicedown {
+  padding-bottom: 10px;
+    white-space: normal;
+	  padding-top: 5px;
+}
+span#customerinfo_service{  margin: 0 !important;padding: 0;font-weight:bold;}
+/*rightMenu pop up*/
+
+#goBtn[disabled], .updateBtn[disabled],#dtcpage .btnDefault.notApp{opacity: 0.5 !important;}
+
+.tcmcContainer{
+	margin: 0 auto;
+	padding-top:58px;
+	overflow-y:auto;
+	}
+
+.ifrm {
+	padding-top:145px;
+	margin: 0 auto;
+	height: 100%;
+	width: 100%;
+}
+
+.errtxt{
+	color:#ff0000;
+	display:block !important;
+}
+.tcmcError{position: relative;top: 200px; color: red; padding: 10px;}
+.tooltipPopUpCSPBottomline{  top: -136px !important;white-space: normal;left:0px !important;}
+
+.tooltipPopUpCSPBottomline:after {
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(136, 183, 213, 0);
+  border-top-color: #000;
+  border-width: 10px;
+  left: 5%;
+  margin-left: 0px;
+  bottom: 100%;
+  top: 130px;
+}
+span#vhIcon {
+  background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_VIN_HistoryIcon_iPad@2x.png') no-repeat center center;
+  background-size: 22px 22px;
+  padding: 15px 20px;
+  position: absolute;
+  right: 20px;
+  top: -50px;
+  background-color: #e3edfa;
+  border-radius: 5px 5px 0 0;
+}
+
+.notrequired {
+  clear: none !important;
+  border: 0px solid red;
+  overflow: hidden;
+  margin-top: 3px;
+}
+.vhricon img{
+	width: 20px;
+	height: 20px;
+}
+
+.nodata img{
+	width: 44px;
+	height: 44px;
+}
+.vhricon img, .nodata img{
+	margin-top: -10px;
+}
+.vhrdata .row{
+	padding: 10px 0 10px 0; 
+}
+.btnDefault{
+	padding:5px 10px;
+	background-size: 110% 140%;
+}
+.vhrsection .panel.visibleoverflow{overflow:visible;}
+.reportSection select{
+	font-weight: bold;
+  border: 2px solid #A8A3A3;
+  border-radius: 8px;
+  padding: 5px 12px; 
+  background-color: #eee;
+}
+
+.reportSection {
+	padding-top: 5px;
+	margin-bottom: 15px;
+	overflow:auto;
+}
+
+.telematicsSection {
+	overflow: auto;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #A8A3A3;
+}
+.vhr-reports ul.nav-tabs {
+	padding-left: 20px;	
+	margin-bottom: 20px;
+}
+.telematicsSection .row, .telematicsSection .row label, .reportSection .row, .reportSection .row label{
+	padding: 3px 0px 3px 8px;	
+}
+
+.report {
+	padding-right: 0 !important;
+	text-align: right;
+}
+.vhrMail{
+	padding: 10px 0px 10px 50px;
+	background: url('/serviceLane/pages/asm/mobile/images/Tablet/mail_icon_iPad@2x.png') center right;
+	background-repeat: no-repeat;
+	background-size: 24px 18px;
+}
+.screenNote {
+	margin: 0;
+	padding:16px 33px;
+}
+
+.my{
+  position: absolute;
+  padding: 4px 22px 3px 19px;
+  float: right;
+  right: 6%;
+  margin-top: -8px;
+  text-align: center;
+}
+
+.my a:before{
+	font-size: 13px;
+	text-align:center;
+	font-weight:bold;
+	color: #fff;
+	vertical-align: middle;
+}
+.allClip {
+  background: url('/serviceLane/pages/asm/mobile/images/Tablet/All_clip_bg_iPad@2x.png') center center;
+  background-repeat: no-repeat;
+  background-size: 54px 22px;
+  text-align: center;
+}
+.allClip a:before{
+	content: 'All';
+}
+.milonClip {
+  background: url('/serviceLane/pages/asm/mobile/images/Tablet/MilOn_clip_bg_iPad@2x.png') center center;
+  background-repeat: no-repeat;
+   background-size: 75px 22px;
+}
+.milonClip a:before{
+	content: "MIL ON";
+}
+.generatedClip {
+  background: url('/serviceLane/pages/asm/mobile/images/Tablet/Generated_clip_bg_iPad@2x.png') center center;
+  background-repeat: no-repeat;
+  background-size: 100px 22px;
+}
+.generatedClip a:before{
+	content: 'Generated';
+}
+.maintenanceClip {
+  background: url('/serviceLane/pages/asm/mobile/images/Tablet/Maintenance_clip_bg_iPad@2x.png') center center;
+  background-repeat: no-repeat;
+  background-size: 100px 22px;
+}
+.maintenanceClip a:before{
+	content: 'Maintenance';
+}
+
+.scheduledClip {
+  background: url('/serviceLane/pages/asm/mobile/images/Tablet/scheduled_ClipBg_iPad@2x.png') center center;
+  background-repeat: no-repeat;
+  background-size: 100px 22px;
+}
+
+.scheduledClip a:before{
+	content: 'Scheduled';
+}
+
+
+
+
+/*Popup Starts*/
+
+
+.cusPop {
+	width: 55%;	
+	/*height: 450px;*/
+	margin: 0 auto;
+	position: fixed;
+	display: block;
+	border-radius: 10px;
+	background: #e3edfa;
+	z-index: 1100;
+	top: 20%;
+	left: 25%;
+  }
+.cusPopContainer h2{
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    padding: 16px 10px 14px 20px;
+    color: #393f49;
+}
+
+.cusPopContainer{
+	padding: 10px;
+}
+
+.ppBody{
+	
+	width:100%;
+	overflow-y: auto;
+}
+.hdr{
+	border-bottom: 1px solid #ccc;
+	margin: 0 16px;
+}
+
+.ppBody div.error{
+	padding: 10px 0;
+}
+
+.popupContent {
+  max-height: 430px;
+  overflow-y: scroll;
+  padding: 20px;
+  min-height: 200px;
+	}
+.popupContent div{
+	padding: 5px 0px 10px; 
+	}
+.popupContent div.subbtns{
+	padding: 10px 0;
+	text-align:center;
+}
+
+.popupContent div.errorData{
+	padding: 0 !important;
+	}
+
+
+.counter:active,.counter {
+/*padding: 10px 20px;*/
+text-decoration: none;
+}
+
+.popupusrsel {
+  width: 69%/*59%*/;
+  margin: 0 2% 0 0;
+  position: fixed;
+  top: 70px;
+  display: block;
+  border-radius: 10px;
+  background: #e3edfa;
+  z-index: 2000;
+  right: 0px;
+}
+/*Popup Ends*/
+.vhrdata label, .telematicsSection label, .reportSection label{
+	font-weight: normal;
+	color: #666;
+}
+.vhrdata .data{
+	font-weight: bold;
+	
+	
+}
+.telematicsSection .data{
+	color: #666;
+	font-weight: bold;
+	padding: 3px 0px 3px 8px;
+}
+
+.ppBody div.vhrerror{
+	padding: 18px 15px 10px 15px !important;
+}
+.diagnosticReports td, .diagnosticReports th{
+	padding-left: 20px !important;
+}
+.diagnosticReports td{color: #428bca;}
+
+
+/* house hold starts */
+
+.householdtabs ul{
+	list-style:none;
+	padding: 0;
+}
+
+.householdtabs ul li{
+	list-style:none;
+	padding: 10px 10px 10px 0px;
+}
+
+.currentContainer li:nth-child(2n+1),.disposedContainer li:nth-child(2n+1){
+		background: #e3edfa;
+}
+
+.currentContainer li:nth-child(2n),.disposedContainer li:nth-child(2n){
+	background: #c3cfdf;
+}
+
+
+.householdtabsContainer{
+	
+	padding: 0;
+}
+.householdtabsContainer .houseHoldFlatTire{
+	
+	margin-bottom:16px;
+}
+
+.currentContainer , .disposedContainer{
+	/*height: 300px;
+	border:1px solid red;*/
+	overflow: auto !important;
+	padding: 0;
+	max-height:460px;
+}
+.vinhouseholdinfo {
+  width: 69%/*59%*/;
+  position: fixed;
+  top: 160px;
+  display: block;
+  border-radius: 10px;
+  background: #e3edfa;
+  z-index: 1100;
+    right: 54.5%/*61.5%*/;
+  margin-right: -40%;
+}
+.vinhouseholdinfo h2{
+	  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  padding: 16px 10px 14px 15px;
+ 
+}
+.vinhouseholdinfo .circletelematics{padding:27px;}
+.vinhouseholdinfo .pull-right.close{padding:0;}
+.vinhouseholdinfo ul.nav-tabs {
+  padding-left: 17px;
+  border-bottom: 1px solid #6c6d71;
+}
+.vinhouseholdinfo .nav-tabs > li.active > a,.vinhouseholdinfo  .nav-tabs > li.active > a:hover,.vinhouseholdinfo  .nav-tabs > li.active > a:focus{
+  
+  border: 1px solid #6c6d71;
+  border-bottom:1px solid #fff;
+}
+.vinhouseholdinfo  .nav > li > a:hover,.vinhouseholdinfo   .nav > li > a:focus {
+     border-bottom:0px solid #fff;
+}
+.vinhouseholdinfo .campaign.active{
+    background-position: center;
+    padding: 10px 20px;
+    background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_Header_SSC_Icon_iPad@2x.png');
+    background-repeat: no-repeat;
+    background-size: 27px;
+    margin-left: 5px;
+}
+.bluecolor{color:blue;}
+.houseinguest{
+	background: linear-gradient(#d1e4fd,#abc3f2);
+    padding: 7px 2px 8px 6px !important;
+    border: 1px solid #8993A6;
+    border-radius: 3px;
+	display:inline-block;
+	float:right;
+	}
+
+.householdiconsmall  {
+	display:inline-block;
+   background: url('/serviceLane/pages/asm/mobile/images/Tablet/Guestinfo_icon_RightMenu.png') top right no-repeat;
+    background-size: 22px;
+    padding: 10px 20px !important;
+    background-position: center;
+}
+.addPaddingError{padding:10px 10px 10px 15px;}
+.addPaddingErroricon{padding: 8px 6px 10px 6px;  width: 98px;  text-align: center;}
+.householdicon{background:url('/serviceLane/pages/asm/mobile/images/Tablet/Common_RightPanel_NewsIcon_iPad@2x.png') no-repeat 50% 50%; }
+
+.householdbottompadd{padding-bottom:50px;}
+.householdviewmore{background: url("/serviceLane/pages/asm/mobile/images/Tablet/ViewMore_icon.png") no-repeat 50% 50%;padding: 0px 8px;
+  background-size: 10px;
+  background-position: center;}
+.householdviewless{background: url("/serviceLane/pages/asm/mobile/images/Tablet/ViewLess_icon.png") no-repeat 50% 50%;padding: 0px 8px;
+  background-size: 10px;
+  background-position: center;}
+ .roadsidetitlepaddingtop{padding-top:20px;}
+ .assisthistorylibackground{ background: #f6fbff;}
+/* house hold ends */
+/* road side starts */
+.removepadd {padding-left:0;padding-right:0;}
+.teleProdDetail.roadsideDetails .statustext{line-height:100px;}
+.vertical-middle{float:none;
+    display:inline-block;
+    vertical-align:middle;
+    margin-right:-4px;
+    padding:10px 0px;
+  }
+.householdcoundcolor{color:#6d5900;padding-left:7px;}
+.morelesswidth{padding:0px 5px;}
+
+.teleProdDetail .statustextmiddle{  font-weight:bold;}
+.teleProdDetail .greenproduct .statustextmiddle .statusicon{background: url("/serviceLane/pages/asm/mobile/images/Tablet/ASMMobile_Landscape_fsProduct_active_iPad@2x.png") no-repeat left center;background-size: 25px 25px; padding: 8px 14px 5px 14px; margin-right: 10px;}
+.teleProdDetail .redproduct .statustextmiddle .prodstatus{color:#D41E25;}
+.teleProdDetail .greenproduct .statustextmiddle .prodstatus{color:#3eb53a;}
+.teleProdDetail .greyproduct .statustextmiddle .prodstatus{color:#667587;}
+.teleProdDetail .redproduct .statustextmiddle .statusicon{background: url("/serviceLane/pages/asm/mobile/images/Tablet/ASMMobile_Landscape_fsProduct_inActive_iPad@2x.png") no-repeat left center;background-size: 25px 25px; padding: 8px 14px 5px 14px;margin-right: 10px;}
+.circletelematics.subcircle{padding:25px;}
+.removepaddwithtoppadd{padding:10px 0px}
+.addpaddingbottomdescription{padding-bottom:4px;}
+.subtitlepadd{padding:13px 0 13px 0;}	
+.roadsidesmallicon{  background: url("/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_TowingIcon_iPad@2x.png") no-repeat left center; background-size: 37px 25px; padding: 8px 31px 5px 14px;}
+/* road side ends */
+.smgridTable{
+	margin-bottom: 0 !important;
+}
+#mlgeBox
+{	
+	margin: 1px 5px 0 5px;
+    width: 72px;
+    border: 1px solid #ccc;
+    height: 28px;
+    border-radius: 5px;
+	padding-left:2px;
+}
+.drpdown { top:36px;}
+#smMileage{ margin-bottom:10px;}
+.smgridTable th {border-left: 1px solid #8a8a8a; text-align:center;}
+.smcol {width: 10%; border-left: 1px solid #8a8a8a;padding-bottom: 0 !important;}
+.hidcol {visibility:hidden;}
+
+.tick,.techRow .activated {
+    background-image: url("/serviceLane/pages/asm/mobile/images/Tablet/green_circle_check.png");	
+	padding: 5px;
+	background-size: 20px;
+	background-repeat: no-repeat;
+    background-position: center 0;
+}
+.campaignContainer tbody{border:1px solid #8a8a8a;}
+.techRow .activated{
+	background-position: center center;	
+	background-color:transparent;
+}
+.smColWidth .smbluedot, .issueEntryPage .btn-default{    margin-left: 0;margin-right: 10px;}
+.smbluedot {
+	background-color: #2a6496;
+    border-radius: 6px;
+    height: 6px;
+    float: left;
+    margin: 7px 15px 9px 8px;
+    width: 6px;
+}
+.smGridIndent{ font-weight: normal !important}
+.smColWidth {width: 70% !important;}
+.smScrollContainer{
+	width: 100%;
+	overflow-y: auto;
+   /* -ms-overflow-style: -ms-autohiding-scrollbar;
+	-webkit-overflow-scrolling: touch; */
+	max-height: 450px;
+	overflow-x: hidden;
+	margin-top: 10px;
+}
+.spaninacolor{color:#428bca;}
+    /*prem for mirai start */
+      .mystatusarea{text-align:center;font-weight:bold;}
+    .openstatus{background:#b5e3be;}
+     .openstatus  .statusicon{background: url("/serviceLane/pages/asm/mobile/images/Tablet/MiraiSwap_OpenStatus_icon.png") no-repeat left center;background-size: 25px 25px; padding: 8px 14px 5px 14px; margin-right: 10px;}
+ .openstatus  .prodstatus{color:#3eb53a;}
+ .completedstatus , .closedstatus{background:#C3C3C3;}
+ 
+      .completedstatus  .statusicon{background: url("/serviceLane/pages/asm/mobile/images/Tablet/MiraiSwap_CompletedStatus_icon.png") no-repeat left center;background-size: 25px 25px; padding: 8px 14px 5px 14px; margin-right: 10px;}
+        .closedstatus  .statusicon{background: url("/serviceLane/pages/asm/mobile/images/Tablet/MiraiSwap_CloseStatus_icon.png") no-repeat left center;background-size: 25px 25px; padding: 8px 14px 5px 14px; margin-right: 10px;}
+ .completedstatus  .prodstatus,.closedstatus  .prodstatus{color:#333;}
+ .miraiswap .panel-title > a{padding:0;}
+ .shadedLabel{color:#666;}
+ .miraiswap label{color:#222;}
+   .tabandolderconainericon{float:right;margin-top:20px;}
+  .miraiswap  .tabandolderconainericon{margin-bottom:20px;}  
+   .miraiswap .panel-default > .panel-heading{overflow:auto;} 
+   .removepanelbody .collapse.in{height:0px !important;padding:0px !important;}
+    .removepanelbody .panel-body{padding:0px !important;border-top:0px !important;}
+    .miraiswap td{position:relative;}
+    .miraiswap .panel-body{overflow:auto;}
+    .wrapinside{white-space:normal;}
+     .mystatuscoloricon{padding-top:2%;}
+     .addpaddingtop{padding-top:20px;}
+      .addmargintop{margin-top:20px !important;}
+     .miraiswap .panel-default > .panel-heading {background: #f6fbff !important;border:1px solid #d9dbdd !important;box-shadow:0 0 1px #555;}
+     .miraiswap .panel-title > a{font-size:14px;font-weight:normal;}
+.panel.panel-default.greyBorder {
+    border-color: #C3C3C3;
+	margin-bottom: 0 !important;
+}
+   .verticaliconspace{padding-bottom:15px;}
+   .caremiraisection .nav-tabs{padding-left:20px;}
+    /*prem for mirai end */
+	
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2); 
+} 
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+	height: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+.leftNav::-webkit-scrollbar {
+	 width: 4px !important;
+}
+/* For vehicle specification tool tip */
+.vehiclespecification label .ng-modal-dialog-content{font-weight:normal;}
+ .vSpecTable .header{color:#333;background:#ECF5F8;}
+ .vSpecTable .border-right{border-left:1px solid #ddd;}
+.leftNav::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.2); 	
+}
+.leftNav::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+.miraiswap div.row .dealerLable{color:#666;}
+.tab-color {background: #f6fbff;}
+label .lblTxt { color: #666;}
+bord {border: 1px solid red;}
+/* remote log page starts*/
+.panelHead { padding: 20px 10px 0px 10px !important;}
+.ribbonPostion{ position:relative;}
+	/* Generic ribbon settings */
+.ribbon {
+	width:150px;
+	float: right;
+	right: 6%;
+	margin-top: -8px;
+	border-radius:0 0 8px 8px;
+	-moz-border-radius:0 0 8px 8px;
+	-webkit-border-radius:0 0 8px 8px;
+	text-align:center;
+	padding:2px 0px; 
+	position:absolute;
+	color:#fff;
+	font-weight:normal;
+	}
+.ribbon a {
+	color:#fff; 
+	vertical-align: middle;
+	font-size: 13px;
+	text-decoration:none;
+	}
+.ribbon:before{
+	content:"";
+	display:block; 
+	width:0;
+	height:0; 
+	border-style:solid;
+	border-width:8px 0 0 8px;
+	border-color:transparent transparent transparent #666; 
+	position:absolute; 
+	top:0; 
+	right:-8px;
+	}
+.failed {
+	margin-top:-28px;
+	background:linear-gradient(to bottom,#d16413 0%,#992f09 80%);
+	}
+.received{
+	margin-top:-28px;
+	background:linear-gradient(to bottom,#d1d400 0%,#afb100 70%);
+	}
+.expire{
+	color:#d11d24;
+}
+.pending{
+	margin-top:-28px;
+	background: linear-gradient(to bottom,#737373 10%,#afadad 80%);
+}
+.logtip h4, .dtctipp h4{white-space: normal;}
+.clearAll{clear:both !important;}
+/* remote log page ends*/ 
+#dtcpage .btnDefault{
+	font-size:13px;
+	margin-bottom: 10px;
+}
+.remotedata{
+	padding:10px 15px 0px 10px;
+}
+.dtcnumber{
+	width:20px;
+	float:none;
+	display:table-cell;
+	vertical-align: top;
+}
+.dtcPgDetails{
+	float:none;
+	display:table-cell;
+}
+.panelTable{display:table;width:100%;}
+/*
+.dtcrows{
+	margin-left:11px !important;
+}
+.dtcbottom{
+	padding-left:21px !important;
+}
+*/
+.dtcaccord h4 span{font-weight:bold !important;}
+.dtcaccord div.row .dealerLable,.dtcaccord div.row .dealerLable span{font-weight:bold;}
+.dtcaccord {padding: 0 !important;}
+.dtcaccord label {color: #666; white-space: nowrap; font-weight:normal; padding-left: 0; margin-left: 0;}
+.dtcaccord .panel-body label ,.dtcaccord .panel-heading span {font-weight:normal !important;}
+.dtcaccord .panel-heading a {text-decoration: none; font-weight:normal;}
+.dtcaccord  .glyAdjMar { margin: 21px -3px 9px -3px;}
+.dtcaccord  .adjAccord {margin: 20px 0 8px 0;display: table}
+.dtcaccord  .accadjpad {padding: 0px;}
+.dtccircle{
+	background-position:2px 5px !important;
+}
+#dtcpage ul{
+	padding-left:20px;
+}
+.techstream{
+	width:120px;
+	padding:2px 0px;
+	background:linear-gradient(to bottom,#2d8eed 0%,#0156b8 100%);
+	}
+.servicecon{
+	width:120px;
+	padding:2px 0px;
+	background:linear-gradient(to bottom,#00b2c1 0%,#0f91c0 100%);
+	}
+ul.userControls {list-style:none; margin: 0; padding: 0;}
+ul.userControls li {
+    display: inline;
+    float: left;
+    margin: 6px 3px;
+    padding: 0 5px;
+}
+ul.userControls li a {text-decoration: none;}
+
+ul.userControls input {
+	background:#E3E2E2;
+	border-top:2.9px solid #818181;
+	border-left:2.9px solid #818181;
+	-webkit-border-radius: 12px;
+	-moz-border-radius:12px;
+	border-radius: 12px;
+	resize: none;
+	}
+
+ul.userControls li button {
+	border: none;
+	padding: 5px 5px;
+    font-size: 18px;
+    background: none;
+    margin: 0 0 0 3px;
+	vertical-align: middle;
+	}
+.slash{
+	border: none;
+    font-size: 24px !important;
+    background: none;
+    vertical-align: middle;
+    margin: 6px 0 0 0 !important;
+    padding: 0 !important;
+}
+ul.userControls .pan {
+	background: #E3E2E2;
+    border-top: 2.9px solid #818181;
+    border-left: 2.9px solid #818181;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 7px;
+    resize: none;
+    width: 50px;
+    padding: 3px 2px;
+    margin: 5px 15px;
+	font-weight: bold;
+	text-align: center;
+}
+
+button.glyphicon {color:#666;}
+button.active {color:#428bca;}
+ul.userControls li.pgText {color: #666; font-size:16px;font-weight:bold; margin: 10px 0; }
+.paging .glyphicon, #auditSet .smgridTable{margin-top:4px;}
+
+.reProg{
+font-weight: bold;
+    font-size: 17px;
+    padding: 0;
+    margin: 0 0 3px 16px;
+}
+.reProg a {text-decoration:none;}
+
+.resutls {
+	font-weight: bold;
+    color: #666;
+	padding-top: 10px;
+}
+.scrnNote{
+	font-size: 12px;
+	color: #666;
+	padding: 0;
+}
+h4.dtch {margin: 16px !important;}
+.float-right {float:right;}
+.seldtc {
+	border: 2px solid #A8A3A3;
+	border-radius: 8px;
+	padding: 2px 9px;
+	margin-bottom: 10px;
+	}
+.seldtc select {border: none;}
+
+.paging .glyphicon {margin-top: 8px;}
+ /*Accordian font normal
+.dtcaccord .panel-heading label, .dtcaccord .panel-body label {font-weight:normal; border:1px solid red;}
+.dtcaccord .panel-heading a {text-decoration: none; font-weight:normal;}
+.dtcaccord .panel-heading span {font-weight:normal;}
+*/
+
+.custPopUp {
+	width: 80%;	
+	margin: 0 2% 0 0;
+	position: fixed;
+	top: 315px;
+	display: block;
+	border-radius: 10px;
+	background: #e3edfa;
+	z-index: 1100;
+	right: 0px;
+  }
+.custPopUp h2{
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    padding: 20px 10px;
+    color: #393f49;
+}
+
+.custPopUp button {
+    margin: 10px;
+}
+.reProgData tr.even {background-color:#d3deec;}
+.reProgData td {width:25%; white-space:nowrap;}
+.adjSingleDTC {
+	  padding-top: 14px;
+}
+.form-control {display:inline;}
+/*knowledge center starts*/
+/*.knowledgecenter .noborder{border:none;}*/
+.kcpadding{padding-left:7px;}
+.addmargintopkc{margin-top:10px;}
+.knowledgecenter .tab-color{padding:4px 16px 4px 17px;}
+.knowledgecenter .tab-color.errorpanelpadding{padding:15px 0px;/*max-height:258px;*/}
+.knowledgecenter .tab-color.errormesspanelpadding{padding:15px 15px 0px 17px;/*max-height:258px;*/}
+.knowledgecenter .tab-color{border-radius:0px 0px 5px 5px;/*overflow-y:auto;max-height:168px;max-height:220px;*/}
+.custPaneHeadkc{background:linear-gradient(#f6faff, #e3eafa) !important;padding:10px 15px;border-radius:5px 5px 0px 0px;border-bottom:1px solid #b3bfd4;}
+.kcpanelbox{border-radius:5px;border: 1px solid #b3bfd4;margin-bottom: 15px;}
+.darkfont{color:#000; font-weight:bold;}
+.videoicon{    background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/VideoPlay_icon.png');
+    background-repeat: no-repeat;padding: 0px 0px 0px 25px;
+    background-size: 16px;
+    background-position: 7px 3px;}
+
+.knowledgecenter ol 	{
+	color: #428bca;
+	margin-bottom:0px;
+	list-style-position: outside;
+	padding-left:20px;
+}
+.knowledgecenter ol li	{
+	padding:4px 0px 4px 0px;
+}
+.knowledgecenter ol a{
+	color: #428bca;
+	text-decoration: none;
+}
+  
+/*knowledge center ends */
+/*vehicleIcons1*/
+.vehicleIcons1 {
+	list-style: none;
+	margin: 0;
+	padding: 0;	
+	/*background-color: white;
+	border:1px solid yellow;
+	background-color: #404C58;*/
+	text-align:right;
+}
+
+ul.vehicleIcons1 li {
+	display:inline-block;
+	/*border: 1px solid green;*/
+}
+ul.vehicleIcons1 li  a{
+	display:inline-block;
+	padding: 2px 0px;
+	background-color: #404C58;
+}
+ul.vehicleIcons1 li  a div{
+	width: 50px;
+    display: inline-block;
+    padding: 10px 36px;
+    background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/Vehicle_oneView_icon_sprite.png');
+    background-repeat: no-repeat;
+   }
+.circlevehiclespec
+    {
+        background: url("/serviceLane/pages/asm/mobile/images/Tablet/Blue_i_icon.png") no-repeat 6px 0px;
+    background-size: 21px;
+    padding: 0px 28px 7px 0;
+    }
+    .descriptionerrsuggtow{font-weight:normal;top:161px !important;left:17px !important;}
+    
+ html
+{
+    -ms-content-zooming: none; /* Disables zooming */
+    /*touch-action: none;    Disable any special actions on tap/touch */
+}
+
+/*library search starts */
+
+/*!
+ * bootstrap-vertical-tabs - v1.1.0
+ * https://dbtek.github.io/bootstrap-vertical-tabs
+ * 2014-06-06
+ * Copyright (c) 2014 İsmail Demirbilek
+ * License: MIT
+ */
+.tabs-left  {
+  border-bottom: none;
+  padding-top: 2px;
+}
+.tabs-left {
+  border-right: 1px solid #ddd;
+}
+.tabs-right {
+  border-left: 1px solid #ddd;
+}
+.tabs-left>li  {
+  float: none;
+  /*margin-bottom: 2px;*/
+}
+.tabs-left>li {
+  margin-right: -1px;
+}
+.tabs-right>li {
+  margin-left: -1px;
+}
+.tabs-left>li.active>a,
+.tabs-left>li.active>a:hover,
+.tabs-left>li.active>a:focus {
+  border-bottom-color: #ddd;
+  border-right-color: transparent;
+}
+
+
+.tabs-left>li>a {
+  border-radius: 4px 0 0 4px;
+  margin-right: 0;
+  display:block;
+}
+
+.sheduleContainer1.remLRpad{padding-left:0px !important; padding-right:0px !important;}
+.posmargin{margin-left:8%;}
+.posfix{position: fixed;
+    height: 560px;
+    /*overflow: scroll;*/width:90px !important;z-index:1000 !important;}
+    .newthreedot{position:relative !important;width:100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+    .kcpanelbox li div{color:#333;overflow-wrap:break-word;}
+    .searchHead{padding:15px;border-radius:5px;border:1px solid #b3bfd4;margin-bottom: 8px;background: #fff !important;/*position:relative;*/}
+   .resetbutton.clearing{margin-top:1px;font-weight:bold;/*position:absolute;left:10px;top:10px;;background-image:url('/serviceLane/pages/asm/mobile/images/Tablet/librarySearch_Keyword_Texbox_erase.png')*/}
+    .adjsmPortrait.sheduleContainer1{margin-top:121px;}
+    .leftmenu.lsleftmenu li  div.icon{
+    width: 60px;
+	height: 38px;
+	background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/LibrarySearch_LeftMenu_ImageSprite.png');
+	background-size: 134px;
+	margin-left: -7px;
+	image-rendering: -webkit-optimize-contrast;
+}
+.lsleftmenu .vehicle {
+    /*background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_VehicleInfoIcon_iPad@2x.png') no-repeat 56% 56%;
+    background-size: 42px 25px;*/
+	background-position: -3px -16px;
+}
+.lsleftmenu .vehicle.active {
+    /*background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_LeftPanel_VehicleInfoIcon_Active_iPad@2x.png') no-repeat 50% 50%;*/
+	background-position: -70px -16px;
+}
+.lsleftmenu  .campaign {
+    background-position: 1px -78px;
+}
+.lsleftmenu  .campaign.active {
+    background-position: -66px -78px;
+}
+
+.lsleftmenu  .service {
+    background-position: -3px -139px;
+}
+.lsleftmenu  .service.active {
+    background-position: -70px -139px;
+}
+
+.lsleftmenu .care {
+    background-position: -2px -202px;
+}
+.lsleftmenu .care.active {
+    background-position: -69px -202px;
+}
+.lsleftmenu .warranty {
+    background-size: 110px !important;
+    background-position: 5px -213px;
+}
+.lsleftmenu .warranty.active {
+    background-position: -50px -213px;
+}
+
+.lsleftmenu .fsp {
+    background-position: 0px -326px;
+    background-size: 134px !important;
+}
+
+.lsleftmenu .fsp.active {
+    background-position: -67px -326px;
+}
+.lsleftmenu .guest {
+    background-position: 1px -386px;
+}
+.lsleftmenu .guest.active {
+    background-position: -66px -386px;
+}
+
+.lsleftmenu .roadside1 {
+    background-position: 7px -339px;
+    background-size: 102px !important;
+     
+}
+
+.lsleftmenu .roadside1.active {
+    background-position: -44px -339px;
+}
+
+.lsleftmenu .roadside {
+    background-size: 110px !important;
+    background-position: 7px -420px;
+}
+.lsleftmenu .roadside.active {
+    background-position: -48px -420px;
+}
+.lsleftmenu .telematics {
+    background-position: 0px -579px;
+}
+
+.lsleftmenu .telematics.active {
+    background-position: -68px -579px;
+}
+
+.selectboxclass{margin-right: 14px;height: 29px;border-radius: 9px;padding: 2px 9px;border:1px solid #A8A3A3;}
+.searchParent{position:relative;margin-left:10px;display: inline-block;margin-right: 10px;}
+.searchresetbutton	{
+	position: absolute;
+	/*left: 204px;*/
+	right: 2px;
+	top: 2px;
+	font-size: 20px;
+    padding: 2px 5px;
+	/*background: #fff;*/
+	/*border: 1px solid;*/
+	font-size: 15px;
+}
+.searchinputstyle{    border-radius: 9px;
+    border: 1px solid #9a9a9a;
+    width: 178px;
+    padding-right: 20px;
+    height: 30px;padding-left: 5px;width: 230px;}
+    
+    input[type=text]::-ms-clear {
+    display: none;
+}
+.lsnopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+.lstotheright{ /*this will align the text to the right*/
+  text-align:right !important;
+  word-wrap: break-word;
+}
+.keysuggestion{margin-top:10px;}
+.sugglink{text-decoration:underline;}
+.lserrbottompadding {
+	padding-bottom:15px !important;
+}
+/* library search ends */
+/* tooltip and pop up starts */
+.shadowpopup{
+	top:290px;		
+	right: 65.5%;
+    width: 47%;
+    position: fixed;
+    display: block;
+    border-radius: 10px;
+    background: #e3edfa;
+    z-index: 1100;
+    margin-right: -40%;
+    padding:10px;
+    visibility:hidden;
+    color:#666;
+ }
+.shadowpopup a{color:#666;}
+.blackbackground{color:#fff;background:#000;word-wrap:break-word; right: 67.2%;width: 42%;}
+.closebutton{float:right;z-index:1;color:#000;font-weight:bold;border: none !important;background: none !important;}
+.shadowpopup .doc {
+    border-bottom: 1px solid rgb(63, 55, 55);
+    padding: 5px 0;
+}
+.shadowpopup div.row {
+    margin-left: 0px;
+    padding: 4px 0;
+}
+.dtcaccord .shadowpopup label,.dtcaccord .shadowpopup label span {font-weight:bold;}
+/* tooltip and pop up ends */
+/* For Trouble code Popup in Service History starts*/
+.troublePopup{top:50%;}
+.troubleclose{padding-top:0 !important;}
+/* For Trouble code Popup in Service History ends*/
+#rightCol {
+	position:fixed;
+	right:0px;
+	z-index:1032;
+}
+.headingbackground.internalcolor{color: #524646;border: 1px solid #71767d !important;background:#cbe9ff !important}
+
+/* Flag icons for VIN Destination */
+.flag_vindes {
+	float:left;
+	width:32px;
+	height:27px;
+	background-size:100% !important;
+}
+.flag_vindestxt {
+	padding:2px 0px 0px 5px;
+	float:left;
+}
+#USA {
+	background: url('/serviceLane/pages/asm/mobile/images/Tablet/flagvin_usa.png') no-repeat;
+}
+#CANADA {
+	background: url('/serviceLane/pages/asm/mobile/images/Tablet/flagvin_canada.png') no-repeat;
+}
+#HAWAII {
+	background: url('/serviceLane/pages/asm/mobile/images/Tablet/flagvin_hawaii.png') no-repeat;
+}
+#MEXICO {
+	background: url('/serviceLane/pages/asm/mobile/images/Tablet/flagvin_mexico.png') no-repeat;
+}
+#PUERTORICO {
+	background: url('/serviceLane/pages/asm/mobile/images/Tablet/flagvin_puertorico.png') no-repeat;
+}
+/* ---------Start Warranty Alert Changes-------------- */
+#warrAlrtIcon{
+	background: url('/serviceLane/pages/asm/mobile/images/Tablet/Common_Header_Alert_Icon_iPad@2x.png') no-repeat;
+	float: left;
+    width: 26px;
+    height: 44px;
+    margin-left: 15px;
+    background-size: 88% !important;
+}
+#warrAlrtmsg{
+	padding-bottom: 7px;
+}
+/* ---------End Warranty Alert Changes-------------- */
+
+/* ---------Start Campaign center align Changes-------------- */
+.flexbox{ display: -webkit-flex; display: flex; align-items: center;}
+/* ---------End Campaign center align Changes-------------- */
+#dcmList .tab-color {   background: #fdfde9;border-radius: 0 10px 10px 0px; }
+
+
+/* TEMA Screens */
+
+.auditAssist { width:125px;}
+.auditLeftMenu {min-width:106px;}
+.auditDrop{ width:220px;}
+.auditDropdown :last-child  { font-style: italic;color: #428bca;}
+.menuHeader{font-size:18px; padding:10px 0px !important;}
+.pod_menu_plus{
+	background: url('/serviceLane/pages/asm/mobile/images/Tablet/NormalState_HamburgerMenu_Expand.png') no-repeat;
+	background-size: 24px 24px;
+	padding: 12px 12px 12px 13px;
+}
+.pod_menu_minus{
+	background: url('/serviceLane/pages/asm/mobile/images/Tablet/NormalState_HamburgerMenu_Collapse.png') no-repeat;
+	padding: 12px 12px 12px 13px;
+    background-size: 34px 32px;   
+    background-position: -4px -5px;
+}
+.podleft{
+	width: 36px;
+    height: 29px;
+    display: inline-block;
+    padding: 5px 5px 5px 9px;
+    background-repeat: no-repeat;
+    margin-right: 15px;
+}
+.auditActivity{	
+    background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/auditActivity_icon.png');
+}
+.dropdown-menu  .selected  .auditActivity, .dropdown-menu  a:hover .auditActivity{
+	background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/auditActivity_icon_active.png');
+}
+.auditset{
+	background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/auditSetup_icon.png');
+}
+.dropdown-menu  .selected  .auditset, .dropdown-menu  a:hover .auditset{
+	background-image: url('/serviceLane/pages/asm/mobile/images/Tablet/auditSetup_icon_active.png');
+}
+.podleft-icons{
+	width: 60px;
+	height: 38px;
+}
+.bgProp{
+	background-size: contain !important;
+}
+.issuelist{	
+	background: url('/serviceLane/pages/asm/mobile/images/Tablet/issuelist_icon.png') no-repeat;
+}
+.fontNormal{font-weight:normal;}
+.yellowbg{ background: #FFFF00; border-color:#FFFF00;}
+.orangebg{ background: #FFA500; border-color:#FFA500;}
+.bluebg{ background: #ADD8E6; border-color:#ADD8E6;}
+.issuelist-red{
+	background: url('/serviceLane/pages/asm/mobile/images/Tablet/issuelist_icon_active.png') no-repeat;
+}
+.issueEntry{
+	background: url('/serviceLane/pages/asm/mobile/images/Tablet/issueEntry_icon.png') no-repeat;
+}
+.issueEntry-red{
+	background: url('/serviceLane/pages/asm/mobile/images/Tablet/issueEntry_icon_active.png') no-repeat;
+}
+.pod-scan{
+	background-image: url(/serviceLane/pages/asm/mobile/images/Tablet/pod_barcode.png);
+    background-repeat: no-repeat;
+    margin: 0px;
+    width: 120px;
+    height: 46px;
+    background-size: 50% 70%;
+    background-position: 20px 0;
+    cursor: pointer;
+}
+.entryForm h5{
+	display: inline-block;
+	position: relative;
+	margin-bottom:10px;
+}
+.entryForm h5:after {
+  background: #ddd;
+  content: "";
+  display: block;
+  height: 1px;
+  position: absolute;
+    top: 60%;
+  width: 93%;
+  left: 6%;
+}
+.entryForm .panel-default > .panel-heading ,.entryForm .panel-group .panel-heading+.panel-collapse .panel-body,
+.entryForm .panel-group .panel-heading+.panel-collapse .panel-body
+{
+	background:none !important;
+	background-color: rgba(245,249,255,1) !important;
+	border-top:none !important;
+	padding-top:0px !important;
+}
+.entryForm .panel-title > a { padding: 0 15px !important;font-size:15px;}
+.entryForm .panel-default  a .row { margin:0 -15px !important; padding: 15px 0 !important; }
+.entryForm .glyphicon {
+	position: absolute;
+    top: 18px;
+    right: 5%;
+}
+.edit-drop{
+	background-image: url(/serviceLane/pages/asm/mobile/images/Tablet/edit_icon.png);
+    background-repeat: no-repeat;
+	width:23px;
+	height:23px;
+	display:inline-block;
+	margin-left: 10px;
+	cursor:pointer;
+}
+.findSimilar{
+	background-image: url(/serviceLane/pages/asm/mobile/images/Tablet/findSimilar.png);
+	width: 80px;
+    height: 45px;
+    background-repeat: no-repeat;
+	margin:0 auto;
+	cursor:pointer;
+}
+#similarIssue .issueScroller
+{
+	width: 100%;
+    overflow-y: auto;
+    overflow-x: scroll;
+    height: 200px; 
+}
+#similarIssue .ng-modal-dialog {width : 88%; padding:10px;}
+#similarIssue thead .header  { text-align:center !important;}
+#similarIssue tbody td:last-child {word-wrap:break-word;float:none !important;}
+#auditForm { margin-right:17px; }
+.close_btn{
+	background-image: url(/serviceLane/pages/asm/mobile/images/Tablet/close_icon.png);
+	background-repeat: no-repeat;
+	background-size: 29% 100%;
+	margin:0 auto;
+	cursor:pointer;
+}
+ .row input[type='file'] {
+	visibility: hidden;
+    width: 1px;  
+    height: 1px;
+ }
+
+.uploadImage{
+	background-image: url(/serviceLane/pages/asm/mobile/images/Tablet/camera_icon.png);
+	width: 58px;
+    height: 40px;
+    background-repeat: no-repeat;
+	background-size: 100% 100%;
+	margin:0 auto;
+	cursor:pointer;
+}
+.uploadImagelive{
+	background-image: url(/serviceLane/pages/asm/mobile/images/Tablet/camera_red.png);
+}
+.uploadVideo{
+	background-image: url(/serviceLane/pages/asm/mobile/images/Tablet/video_icon.png);
+}
+.uploadVideolive{
+	background-image: url(/serviceLane/pages/asm/mobile/images/Tablet/video_red.png);
+}
+.pagesection #auditSet , .entryForm{
+	border: 1px solid #CBC8C8;
+	padding-bottom:25px;
+	padding-right: 30px;
+}
+.pagesection  form textarea { resize:none;}
+
+/*audit setup css*/
+.auditCalendar
+{
+	width:auto;
+	margin-top:-1px;
+	padding:5px;
+	border:1px solid #ccc;
+	background-color:#eee;
+	margin-left:5px;
+}
+.angularjs-datetime-picker{
+	z-index:10005;
+	margin-top:5px;
+}
+
+/* Salvage Popup */
+.salvageLoad{
+	width: 64%;		
+    padding: 6px 1px 15px 15px;
+}
+.salvageLoad .tableBorder{
+    margin-bottom: 5px !important;
+}
+.salvage-icon {
+    background-image: url(/serviceLane/pages/asm/mobile/images/Tablet/No_Warranty.png) !important;
+  	background-position: center;   
+    background-size: 32px 30px;
+}
+.autocheck_logo{
+    background-image: url(/serviceLane/pages/asm/mobile/images/Tablet/autocheck.png);   
+    background-repeat: no-repeat;   
+    width: 150px;
+    height: 30px;
+    background-position: 8px 0px;
+    background-size: 140px 30px;   
+    display: inline-block;	   
+}

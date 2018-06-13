@@ -1,0 +1,103 @@
+<div class="cusPopContainer" id="spopupContent">
+	<div class="ppheader">
+		<h2 class="pull-left" ng-if="userSelection">Confirm Changes & Send Authorization Code</h2>
+		<h2 class="pull-left" ng-if="authCodeSelection">Enter Authorization Code</h2>
+		<h2 class="pull-left" ng-if="acknowledgement">Changes Uploaded Successfully</h2>
+		<span class="pull-right close clearfix" ng-click="overlayShow(false)">X</span>
+		<div class="clearfix hdr">&nbsp;</div>
+	</div>	
+	<div class="ppBody" >
+		
+		<div class="popupContent">
+			<div id="breadcrumb">
+			<img src="/serviceLane/pages/asm/mobile/images/Tablet/LpsUserSelection_image.png" ng-if="userSelection">
+			<img src="/serviceLane/pages/asm/mobile/images/Tablet/LpsAuth-Code_image.png" ng-if="authCodeSelection">
+			<img src="/serviceLane/pages/asm/mobile/images/Tablet/LPSAcknowledgement_image.png" ng-if="acknowledgement">
+			</div>
+			<div class="error" ng-if="userSelObj.errorMsg !='N/A' && userSelection">
+			<div class="br2 redTxt" >
+				{{userSelObj.errorMsg}}
+			</div>			
+		</div>
+			<div ng-if="userSelecionErr || authFlatTireErr" ng-include="'/serviceLane/pages/asm/mobile/views/flattire.html'"></div>
+			<div ng-if="userSelObj.errorMsg =='N/A' && userSelection">
+				<div class="redTxt" ng-if="!lpsAuthCodeObj.authCodeGenerated && lpsAuthCodeObj.vhrSendMailError">
+					System has encountered an error in sending the authorization code email. Please retry after some time.
+				</div>
+				<div>
+					<span>You are about to make a change to Lexus Personalized settings on {{userSelObj.modelYear}} {{userSelObj.division}} {{userSelObj.modelName}} {{'('+userSelObj.vinNumber+')'}}. An email will be sent to</span><span> <select ng-options="option.name for option in userSelObj.subscriberListMap" ng-model="userSubscriber.value" ng-change="showuserselction('lps',userSubscriber.value.customerId)"></select>&nbsp;</span><span>({{userSelObj.subscriberRole}}) with a confirmation code that is required to implement these changes.</span>
+				</div>
+				<div>
+					Changes will not be implemented immediately. Several drive cycles will be required before the changes take effect. Please note that changes made with the Techstream Scantool take effect immediately.
+				</div>
+				<div>
+					<span>Are you sure you want to proceed with the changes to Lexus Personalized Settings and send an email to</span><span>{{userSelObj.subscriberNameFormat}} ({{userSelObj.notificationEmail}}) with a confirmation code?</span>
+				</div>
+				<div>
+					<span>Note: Code expires 30 minutes from the time email is triggered to the guest.</span>
+				</div>
+				<div class="subbtns">
+					<button type="button" class="btn btn-primary" ng-click="overlayShow()">No</button><span>&nbsp;&nbsp;&nbsp;</span>					
+					<button type="submit" class="btn btn-primary" ng-click="userSelectionYes(userSubscriber.value.customerId)">Yes</button>
+				</div>
+			</div>
+			<div ng-if="authCodeSelection && !authFlatTireErr">
+				<div class="redTxt" ng-if="!authCodeErr">
+					The code entered is not valid. Please try again. If you are repeatedly getting this error, please contact 1-877-DL-DAILY
+				</div>	
+				<div class="redTxt" ng-if="resendErr">
+					The current code has been invalidated and a new authorization code has been emailed to the guest.
+				</div>				
+				<div>
+					<span>An email has been sent to {{lpsAuthCodeObj.subscriberNameFormat}} {{'('+lpsAuthCodeObj.notificationEmail+')'}} with a confirmation code. Please contact {{lpsAuthCodeObj.subscriberNameFormat}} to obtain the confirmation code.</span>
+				</div>
+				<div>
+					<span ng-if="lpsAuthCodeObj.subscriberNameFormat && lpsAuthCodeObj.subscriberNameFormat != 'N/A'">{{lpsAuthCodeObj.subscriberNameFormat}}</span><br  ng-if="lpsAuthCodeObj.subscriberNameFormat && lpsAuthCodeObj.subscriberNameFormat != 'N/A'"/>
+					<span ng-if="lpsAuthCodeObj.addressLine1 && lpsAuthCodeObj.addressLine1 != 'N/A'">{{lpsAuthCodeObj.addressLine1}}</span><br ng-if="lpsAuthCodeObj.addressLine1 && lpsAuthCodeObj.addressLine1 != 'N/A'"/>
+					<span ng-if="lpsAuthCodeObj.addressLine2 && lpsAuthCodeObj.addressLine2 != 'N/A'">{{lpsAuthCodeObj.addressLine2}}</span><br ng-if="lpsAuthCodeObj.addressLine2 && lpsAuthCodeObj.addressLine2 != 'N/A'"/>
+					<span ng-if="lpsAuthCodeObj.displayAddress3Format && lpsAuthCodeObj.displayAddress3Format != 'N/A'">{{lpsAuthCodeObj.displayAddress3Format}}</span><br ng-if="lpsAuthCodeObj.displayAddress3Format && lpsAuthCodeObj.displayAddress3Format != 'N/A'"/>
+					<span ng-if="lpsAuthCodeObj.displayPrimaryPhFormat && lpsAuthCodeObj.displayPrimaryPhFormat != 'N/A'">{{lpsAuthCodeObj.displayPrimaryPhFormat}}</span><br ng-if="lpsAuthCodeObj.displayPrimaryPhFormat && lpsAuthCodeObj.displayPrimaryPhFormat != 'N/A'"/>
+					<span ng-if="lpsAuthCodeObj.displayAlternatePhFormat && lpsAuthCodeObj.displayAlternatePhFormat != 'N/A'">{{lpsAuthCodeObj.displayAlternatePhFormat}}</span><br ng-if="lpsAuthCodeObj.displayAlternatePhFormat && lpsAuthCodeObj.displayAlternatePhFormat != 'N/A'"/>
+					<span ng-if="lpsAuthCodeObj.notificationEmail && lpsAuthCodeObj.notificationEmail != 'N/A'">{{lpsAuthCodeObj.notificationEmail}}</span>
+				</div>
+				<form name="authCode">
+					<div>
+						<span>Please enter the confirmation code before {{lpsAuthCodeObj.validCodeExpiryDate}}.</span><br/>
+						<span>Confirmation Code <input type="text" ng-model="authcodeVal" name="authcodeValue" is-authcodeval maxl="6" ng-keypress="lpsAuthSubmit($event,authcodeVal)"/></span>
+						<a ng-click="resendAuthCode(userSubscriber.value.customerId)">Resend Code</a>
+						<a ng-click="cancelAuthCode()">Cancel Code</a>
+						
+					</div>
+					<div>
+						<span>Note:  If the guest did not receive the email, please confirm the email address is correct. If the email address is correct, please advise the guest to check their 'Junk'/'Spam' folder for the email with the confirmation code</span>
+					</div>
+					<div>
+						<span>If the email address needs to be updated, please advise the guest to contact Lexus Customer Care (1-800-25-LEXUS) or update their email address in their Lexus Owners account.</span>
+					</div>
+					<div class="subbtns">
+						<button type="button" class="btn btn-primary" ng-click="overlayShow()">Close</button><span>&nbsp;&nbsp;&nbsp;</span>					
+						<button type="submit" class="btn btn-primary" ng-click="authcodeValidation(authcodeVal)">Submit</button>
+					</div>
+				</form>
+			</div>
+			<div ng-if="acknowledgement">
+				<div >
+					Your changes to Lexus Personalized Settings on {{vehOneLiner.modelYear}} {{vehOneLiner.division}} {{vehOneLiner.modelName}} {{'('+inputValue+')'}} has been successfully updated.
+				</div>
+				<div>
+					<span>Please note that the changes will not be implemented immediately. Several drive cycles will be required before the changes take effect. The changes made with the Techstream Scantool take effect immediately.</span>
+				</div>	
+				<div class="subbtns">
+					<button type="button" class="btn btn-primary" ng-click="overlayShow()">Close</button>
+				</div>
+			</div>
+			
+			
+		</div>
+		
+	</div>
+	
+	<!--div class="ppFooter">
+		Footer content here.
+	</div-->
+</div>

@@ -1,0 +1,279 @@
+ <!--div class="leftMenuBig1" ng-animate="animate" ng-show="showActions" ng-swipe-left="showActions = false"-->
+<div class="leftMenuBig1" id="leftMenuBig" ng-class="{pushdown : showVheader==true}" ng-show="menu" ng-animate="animate" ng-swipe-left="toggleMenu($event)">
+   <ul id="leftSidebar">
+		<li class="btn btn_enable" ng-click="callService(inputValue, 'vinInfo')" ng-class="{selected: selectedMenu == 'vinInfo'}">
+			<a href="#">
+				<span class="col left lIcon">
+					<span  class="vehicleB icon" ng-class="{active: selectedMenu == 'vinInfo'}"></span>
+				</span>
+				<span class="col center labelText">
+					<span class="menu-text">VEHICLE<br>INFORMATION</span>
+				</span>
+				<span class="col right">
+					<span class="notification-icon" ng-show="leftMenu.vehicleInfo &&  selectedMenu != 'vinInfo' && showData != true">i</span>
+				</span>
+			</a>
+		</li>
+		<li ng-click="callService(inputValue, 'campaign')" class="btn btn_enable" ng-class="{selected: selectedMenu == 'campaign' }">
+			<a href="#">
+				<span class="col left lIcon" >
+					<span  class="campaignB icon" ng-class="{active: selectedMenu == 'campaign'}"></span>
+				</span>
+				<span class="col center labelText adjSingle">
+					<span class="menu-text">CAMPAIGN</span>
+				</span>
+				<span class="col right">
+					<span class="notification-icon" ng-show="leftMenu.serviceCampaign &&  campaign != true">i</span>
+				</span>
+			</a>
+		</li>
+		<li class="btn btn_enable" ng-disabled="true">
+			<a href="#">
+				<span class="col left lIcon">
+					<span  class="serviceB icon"></span>
+				</span>
+				<span class="col center labelText">
+					<span class="menu-text">SERVICE<br>HISTORY</span>
+				</span>
+				<span class="col right" >
+					<span class="notification-icon" ng-show="false">i</span>
+				</span>
+			</a>
+		</li>
+		<li ng-click="callService(inputValue, 'care')" class="btn btn_enable"  ng-class="{selected: selectedMenu == 'care'}" ng-hide="hideCareTab">
+			<a href="#">
+				<span class="col left lIcon" >
+					<span  class="careB icon" ng-class="{active: selectedMenu == 'care'}" ng-hide="vehOneLiner.division=='SCION'"></span>
+					<span  class="scionboostB icon" ng-class="{active: selectedMenu == 'care'}" ng-if="vehOneLiner.division=='SCION'"></span>
+				</span>
+				<span class="col center labelText">
+					<span class="menu-text" ng-if="vehOneLiner.division!='SCION'">TOYOTA<br>CARE</span>
+					<span class="menu-text" ng-if="vehOneLiner.division=='SCION'">SCION<br>BOOST</span>
+				</span>
+				<span class="col right">
+					<span class="notification-icon" ng-show="leftMenu.toyotaCareInfo &&  care != true">i</span>
+				</span>
+			</a>
+		</li>
+		<li class="btn btn_enable" ng-disabled="true">
+			<a href="#">
+				<span class="col left lIcon">
+					<span  class="fspB icon"></span>
+				</span>
+				<span class="col center labelText">
+					<span class="menu-text">FS<br>PRODUCTS</span>
+				</span>
+				<span class="col right" >
+					<span class="notification-icon" ng-show="false">i</span>
+				</span>
+			</a>
+		</li>
+		<li class="btn btn_enable" ng-disabled="true">
+			<a href="#">
+				<span class="col left lIcon">
+					<span  class="warrantyB icon"></span>
+				</span>
+				<span class="col center labelText adjSingle">
+					<span class="menu-text">WARRANTY</span>
+				</span>
+				<span class="col right" >
+					<span class="notification-icon" ng-show="false">i</span>
+				</span>
+			</a>
+		</li>
+		<li class="btn btn_enable" ng-disabled="true">
+			<a href="#">
+				<span class="col left lIcon">
+					<span  class="roadsideB icon"></span>
+				</span>
+				<span class="col center labelText">
+					<span class="menu-text">ROADSIDE<br>ASSISTANCE</span>
+				</span>
+				<span class="col right" >
+					<span class="notification-icon" ng-show="false">i</span>
+				</span>
+			</a>
+		</li>
+		<li class="btn btn_enable" ng-disabled="true">
+			<a href="#">
+				<span class="col left lIcon">
+					<span  class="telematicsB icon"></span>
+				</span>
+				<span class="col center labelText adjSingle">
+					<span class="menu-text">TELEMATICS</span>
+				</span>
+				<span class="col right" >
+					<span class="notification-icon" ng-show="false">i</span>
+				</span>
+			</a>
+		</li>
+		<li class="btn btn_enable" ng-disabled="true">
+			<a href="#">
+				<span class="col left lIcon">
+					<span  class="diagnosticB icon"></span>
+				</span>
+				<span class="col center labelText">
+					<span class="menu-text">DIAGNOSTIC<br>REPORT</span>
+				</span>
+				<span class="col right" >
+					<span class="notification-icon" ng-show="false">i</span>
+				</span>
+			</a>
+		</li>
+		<li class="btn btn_enable" ng-disabled="true">
+			<a href="#">
+				<span class="col left lIcon">
+					<span  class="guestB icon"></span>
+				</span>
+				<span class="col center labelText">
+					<span class="menu-text">CUSTOMER<br>SURVEY</span>
+				</span>
+				<span class="col right" >
+					<span class="notification-icon" ng-show="false">i</span>
+				</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div id="error"></div>
+<div class="container-fluid marg">
+    <div class="row  " id="swr">
+      <!--div class="" id="leftCol" ng-animate="animate" ng-show="!showActions" ng-swipe-right="showActions = true"-->
+      <div class="" id="leftCol" ng-animate="animate" ng-swipe-right="toggleMenu($event)">
+      <!--div class="" id="leftCol"-->
+	  <ul class="nav nav-stacked leftmenu pull-left" id="sidebar">
+		<li id="menu1" class="btn btn_enable"  ng-click="callService(inputValue, 'vinInfo')" ng-class="{selected: selectedMenu == 'vinInfo'}">
+				<span class="notification-icon" 
+				ng-show="leftMenu.vehicleInfo &&  selectedMenu != 'vinInfo' && showData != true">i</span>
+				<a href="">
+					<span  class="vehicle icon" ng-class="{active: selectedMenu == 'vinInfo'  }"></span>
+				</a>
+			</li>
+			
+            <li id="menu2" ng-click="callService(inputValue, 'campaign')" class="btn btn_enable" ng-class="{selected: selectedMenu == 'campaign' }">
+				<span class="notification-icon" 
+				ng-show="leftMenu.serviceCampaign && campaign != true">i</span>
+				
+				<a href="">
+					<span  class="campaign icon" ng-class="{active: selectedMenu == 'campaign'}"></span>					
+				</a>
+			</li>
+		
+            <li class="btn btn_enable" ng-disabled="true">
+				<span class="notification-icon" ng-show="showFlag">i</span>
+				<a href="">
+					<span  class="service icon"></span>
+				</a>
+			</li>
+			<li id="menu3" ng-click="callService(inputValue, 'care')" class="btn btn_enable"  ng-class="{selected: selectedMenu == 'care'}" ng-hide="hideCareTab">
+			
+				<span class="notification-icon" ng-show="leftMenu.toyotaCareInfo && care != true &&  selectedMenu != 'care'">i</span>
+				<a href="">
+					<span  class="care icon" 
+					ng-class="{active: selectedMenu == 'care'}" 
+					ng-hide="vehOneLiner.division =='SCION'"></span>
+					<span  class="scionboost icon" 
+					ng-class="{active: selectedMenu == 'care'}" 
+					ng-if="vehOneLiner.division=='SCION'"></span>
+				</a>
+			</li>
+
+<li class="btn btn_enable" ng-disabled="true">
+				<span class="notification-icon" ng-show="showFlag">i</span>
+				<a href="">
+					<span  class="fsp icon"></span>
+				</a>
+			</li>
+            <li class="btn btn_enable" ng-disabled="true">
+				<span class="notification-icon" ng-show="showFlag">i</span>
+				<a href="">
+					<span  class="warranty icon"></span>
+				</a>
+			</li>
+            <li class="btn btn_enable" ng-disabled="true">
+				<span class="notification-icon" ng-show="showFlag">i</span>
+				<a href="">
+					<span  class="roadside icon"></span>
+				</a>
+			</li>
+            <li class="btn btn_enable" ng-disabled="true">
+				<span class="notification-icon" ng-show="showFlag">i</span>
+				<a href="">
+					<span  class="telematics icon"></span>
+				</a>
+			</li>
+            <li class="btn btn_enable" ng-disabled="true">
+				<span class="notification-icon" ng-show="showFlag">i</span>
+				<a href="">
+					<span  class="diagnostic icon"></span>
+				</a>
+			</li>
+            <li class="btn btn_enable" ng-disabled="true">
+				<span class="notification-icon" ng-show="showFlag">i</span>
+				<a href="">
+					<span  class="guest icon"></span>
+				</a>
+			</li>
+         </ul>
+	  </div>
+      <div class="col-sm-10 col-md-11 col-lg-11 sm-10">
+	  <div class="row padleftright-empty view-details"  ng-show="selectedMenu=='vinInfo' && selectedStates.hasContent.checkItem('vinInfo')" ng-include=" 'pages/asm/mobile/views/vehicleinformation.html' " ></div>
+	  
+	  <div class="row padleftright-empty view-details" ng-show="selectedMenu=='campaign' && campObj !=null" ng-include=" 'pages/asm/mobile/views/campaign.html' " ></div>
+	  
+	  <div class="row padleftright-empty view-details" ng-show="(selectedMenu=='care'&& careObj != null) && !hideCareTab" ng-include=" 'pages/asm/mobile/views/care.html' " ></div>
+	  <!-- Standard warranty section starts here-->
+	  <div class="row padleftright-empty view-details" ng-show="true" ng-include=" 'pages/asm/mobile/views/standardwarranty.html' " ></div>
+	  <!-- Standard warranty section end here-->
+	  
+	  <div class="show-message">
+			<div ng-show="showInfo" >
+				<div class="panel panel-default">
+				   <div class="panel-heading">
+					  <span ng-if="defaultMessage==true && isUserBlocked==false">Enter VIN</span>
+					  <span ng-if="isUserBlocked==true">Try again tomorrow</span>
+					  <span ng-if="sysError==true">We're sorry... try again</span>
+					  <span ng-if="(isServiceCallMade==true && campObj==null) && !isUserBlocked">No Campaign Info</span>
+					</div>
+					<div class="panel-body" ng-if="(isServiceCallMade==true && campObj ==null) && !isUserBlocked">
+						<div class="info-table-body" style="padding-left: 15px;">No Campaign Information found for VIN: {{inputValue}}</div>
+					</div>	
+
+				   <div class="panel-body" ng-if="defaultMessage==true && isUserBlocked==false">
+					  <div class="info-table-body" style="padding-left: 15px;">
+						 <div class="">Enter a 17 digit VIN or click <a href="#" style="text-decoration:none;"><img src="/serviceLane/pages/asm/mobile/images/Tablet/Common_VIN_HistoryIcon_iPad@2x.png" width="24" height="24"> </a>to select previously lookup VIN.</div>
+						 </div>
+				   </div>
+				   <div class="panel-body" ng-if="isUserBlocked==true">
+					  <div class="info-table-body">
+						 <div class="" style="padding-left:15px;"><span class="info-icon1"></span>You have exceeded the total number of VIN/DMY lookups allowed for a user in a day. Please try again tomorrow.</div>
+					  </div>
+				   </div>
+					<div class="panel-body" ng-if="sysError==true">
+					  <div class="info-table-body">
+						 <div class="errorMsg"><span><img src="/serviceLane/pages/asm/mobile/images/Tablet/SLaneError.jpg" style="width: 148px; height: 160px;display:inline; float:left; margin-right: 10px; padding: 0 2px 13px 15px;"></span><span style="padding-right: 5px;"><span style="font-weight:bold;">Uh oh!.. Service Lane has a flat tire.  We apologize for any inconvenience. Please try to load the screen again.</span><span> If you are repeatedly getting this error, TMS Dealers please call 1-877-DL-DAILY, GST Dealers call 1-800-933-3416 and SET Dealers call 1-800-982-6057. Alternatively you may send an email using the Feedback link provided at the bottom of this page.</span>
+							</div>
+					  </div>
+				   </div>
+				</div>
+			 </div>
+		 </div>
+      </div>
+      <div class="pull-right adjRightMenuDiv1" id="rightCol">
+        <ul class="nav nav-stacked rightmenu">
+            <li><a href=""><span  class="guest-right icon"></span></a></li>
+            <li><a href=""><span  class="mileage icon"></span></a></li>
+            <li><a href=""><span  class="news icon"></span></a></li>
+            <li><a href=""><span  class="quicklink icon"></span></a></li>
+            <li><a href=""><span  class="help icon"></span></a></li>
+         </ul>
+      </div>
+   </div>
+<!-- body Ends here -->
+</div>
+<div id="extendMenu" class="overLay" ng-show="menu" ng-click="hideMenu()"></div>
+<div id="historySection" class="overLay" ng-show="vinErr || history" ng-click="overlayShow()"></div>
+
+<div class="vinHistory" ng-show="vinErr || history" ng-include=" 'pages/asm/mobile/views/vinhistory.html' "></div>
+<div id="campaignOverlaay" class="overLay" ng-show="campaignDoc" ng-click="overlayShow()"></div>
+

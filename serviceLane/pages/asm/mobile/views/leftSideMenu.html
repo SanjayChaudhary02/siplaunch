@@ -1,0 +1,97 @@
+<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 leftNav" id="leftCol" ng-animate="animate" ng-swipe-right="toggleMenu($event)">
+      <!--div class="" id="leftCol"-->
+	  <ul class="nav1 nav-stacked1 leftmenu pull-left1" id="sidebar" ng-class="{'overShowMenu': extendLeftMenu.show,'notoyota': hideCareTab}">
+	 	<li id="menu1" class="btn btn_enable" ng-click="redirectPage('/vehicleInfo', 'vinInfo')" ng-class="{selected: selectedMenu == 'vinInfo'}">
+				<span class="notification-icon"  ng-show="leftMenu.vehicleInfo &&  selectedMenu != 'vinInfo'">i</span>
+				<a>
+				
+					<div  class="vehicle icon" ng-class="{active: selectedMenu == 'vinInfo'  }"></div>
+				</a>
+			</li>
+			
+            <li id="menu2"  class="btn btn_enable" ng-class="{selected: selectedMenu == 'campaign' }" ng-click="redirectPage('/campaign', 'campaign')">			
+				<span class="notification-icon" 
+				ng-show="leftMenu.serviceCampaign && campaign != true">i</span>
+				
+				<a >
+					<div  class="campaign icon" ng-class="{active: selectedMenu == 'campaign'}"></div>					
+				</a>
+			</li>
+		<li id="menu4" class="btn btn_enable"  ng-click="redirectPage('/servicehistory', 'servicehistory')" ng-class="{selected: selectedMenu == 'servicehistory' ||  selectedMenu == 'olderservicehistory'}">
+			<span class="notification-icon" ng-show="leftMenu.ServiceHistory && servicehistoryiconflag != true">i</span>
+				<a href="">
+					<div  class="service icon" ng-class="{active: selectedMenu == 'servicehistory'  }"></div>
+				</a>
+			</li>
+			
+			<li id="menu3"  class="btn btn_enable"  ng-class="{selected: selectedMenu == 'care'}" ng-hide="hideCareTab" ng-click="redirectPage('/care', 'care')">
+			<span class="notification-icon" ng-show="leftMenu.toyotaCareInfo && care != true &&  selectedMenu != 'care'">i</span>
+				<a>
+		<div  class="care icon" ng-class="{active: selectedMenu == 'care'}" ng-show="userDivision =='TOYOTA' && !vehOneLiner.division"></div>
+		<div  class="scionboost icon" ng-class="{active: selectedMenu == 'care'}" ng-show="userDivision =='SCION' && !vehOneLiner.division"></div>
+		
+		<div  class="care icon" ng-class="{active: selectedMenu == 'care'}" ng-show="vehOneLiner.division =='TOYOTA'" ></div>
+		<div  class="scionboost icon" ng-class="{active: selectedMenu == 'care'}" ng-show="vehOneLiner.division=='SCION'"></div>
+				</a>
+			</li>
+
+            <li class="btn btn_enable" ng-click="redirectPage('/warranty', 'warranty')" ng-class="{selected: selectedMenu == 'warranty' }">
+				<span class="notification-icon" ng-show="leftMenu.Warranty &&  selectedMenu != 'warranty' && warrantySecions != true">i</span>
+				
+				<a href="">
+					<div  class="warranty icon" ng-class="{active: selectedMenu == 'warranty' }"></div>
+				</a>
+			</li>
+			<li class="btn btn_enable" ng-click="redirectPage('/product', 'product')" ng-class="{selected: selectedMenu == 'product' }">
+			<!--li class="btn btn_enable" ng-disabled="true"-->
+				<span class="notification-icon" ng-show="leftMenu.fsProductsInfo && !product" >i</span>
+				<!--span class="notification-icon" ng-show="showFlag" >i</span -->
+				<a href="">
+					<div  class="fsp icon" ng-class="{active: selectedMenu == 'product'  }"></div>
+					<!--span  class="fsp icon"></span-->
+				</a>
+			</li>
+			<li id="menu5"  class="btn btn_enable" ng-class="{selected: selectedMenu == 'customersurvey' }" ng-click="redirectPage('/customersurvey', 'customersurvey')">			
+				<span class="notification-icon" 
+				ng-show="leftMenu.customerSurveyInfo && customersurveyiconflag != true">i</span>
+				
+				<a >
+					<div  class="guest icon" ng-class="{active: selectedMenu == 'customersurvey'}"></div>	
+									</a>
+			</li>
+			<li class="btn btn_enable extend-icon" ng-click="extendedMenu()" ng-if="!extendLeftMenu.show">				
+				<a>
+					<div class="icon"></div>
+				</a>
+			</li>
+			<li class="btn btn_enable" ng-click="redirectPage('/roadside', 'roadside')" ng-class="{selected: selectedMenu == 'roadside' }" ng-if="extendLeftMenu.show">
+				<span class="notification-icon" ng-show="extendLeftMenu.data.roadSideAssistanceInfo && roadSideIconflag != true" >i</span>
+				<a>
+					<div  class="roadside icon" ng-class="{active: selectedMenu == 'roadside'  }"></div>
+				</a>
+			</li>
+            <li id="menu6"  class="btn btn_enable" ng-class="{selected: (selectedMenu == 'telematics' || selectedMenu == 'lps') }" ng-click="redirectPage('/telematics', 'telematics')" ng-if="extendLeftMenu.show">			
+				<span class="notification-icon" 
+				ng-show="extendLeftMenu.data.teleMaticsInfo && telematicsIconflag != true">i</span>				
+				<a >
+					<div  class="telematics icon" ng-class="{active: (selectedMenu == 'telematics' || selectedMenu == 'lps')}"></div>	
+				</a>
+			</li>
+            <li class="btn btn_enable" ng-click="redirectPage('/vhr', 'vhr')" ng-class="{selected: selectedMenu == 'vhr' }" ng-if="extendLeftMenu.show">
+				<span class="notification-icon" ng-show="extendLeftMenu.data.vhrInfo && selectedMenu != 'vhr'" >i</span>
+				<a>
+					<div  class="diagnostic icon" ng-class="{active: selectedMenu == 'vhr'  }"></div>
+				</a>
+			</li>    
+			<li class="btn btn_enable" ng-click="redirectPage('/vspec', 'vspec')" ng-class="{selected: selectedMenu == 'vspec' }" ng-if="extendLeftMenu.show">
+				<span class="notification-icon" ng-show="extendLeftMenu.data.vehicleSpec && selectedMenu != 'vspec'" >i</span>
+					<a>
+						<div  class="vehispec icon" ng-class="{active: selectedMenu == 'vspec'}"></div>
+					</a>
+			</li>
+			<li class="btn btn_enable" ng-class="{selected: selectedMenu == 'dtc' }" ng-click="redirectPage('/dtc', 'dtc')" ng-if="extendLeftMenu.show">
+			<span class="notification-icon" ng-show="extendLeftMenu.data.dtcInfo && selectedMenu != 'dtc'">i</span>
+			<a><div  class="dtc icon" ng-class="{active: selectedMenu == 'dtc'}"></div></a>
+		</li>
+         </ul>
+	  </div>

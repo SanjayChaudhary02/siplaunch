@@ -1,0 +1,250 @@
+<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 remLRpad auditLeftMenu" id="leftCol" ng-animate="animate" ng-swipe-right="toggleMenu($event)">
+      <!--div class="" id="leftCol"-->
+	  <ul class="nav1 nav-stacked1 leftmenu pull-left1" id="sidebar" ng-class="{'overShowMenu': extendLeftMenu.show,'notoyota': hideCareTab}">
+	 	<li id="menu1" class="btn btn_enable" ng-click="showAuditAssistant('issueList')" ng-class="{selected: selectedLeftTopMenu == 'issueList'}">				
+				<a><div  class="issuelist podleft-icons bgProp" ></div>
+				</a>
+			</li>
+			
+            <li id="menu2"  class="btn btn_enable" ng-class="{selected: selectedLeftTopMenu == 'issueEntry' || selectedLeftTopMenu == 'editEntry' }" >			
+				<a >
+					<div  class="podleft-icons issueEntry-red bgProp" ></div>					
+				</a>
+			</li>
+		<ul>
+</div>
+
+<div class="leftMenuBig1" id="leftMenuBig" ng-if="menu ==true" ng-animate="animate" ng-swipe-left="toggleMenu($event)">
+   <ul id="leftSidebar">
+   		<li id="menu1" class="btn btn_enable" ng-click="showAuditAssistant('issueList')" ng-class="{selected: selectedLeftTopMenu == 'issueList'}">
+			<a><span  class="col left lIcon issuelist icon bgProp" ng-class="{active: selectedMenu == 'issueList'}"></span>			
+				<span class="col center labelText adjSingle">
+					<span class="menu-text">ISSUE LIST</span>
+				</span>				
+			</a>
+		</li>
+		<li id="menu1" ng-click="showAuditAssistant('issueEntry')" class="btn btn_enable" ng-class="{selected: selectedLeftTopMenu == 'issueEntry' || selectedLeftTopMenu == 'editEntry' }"><a>
+				<span  class="col left lIcon issueEntry-red bgProp icon" ng-class="{active: selectedMenu == 'issueEntry'}"></span>
+				<span class="col center labelText adjSingle">
+					<span ng-if="selectedLeftTopMenu == 'issueEntry' " class="menu-text">NEW ISSUE ENTRY</span>
+					<span ng-if="selectedLeftTopMenu == 'editEntry' " class="menu-text">EDIT ISSUE ENTRY</span>
+				</span>				
+			</a>
+		</li>
+	</ul>
+</div>
+<div class="pagesection col-xs-10 col-sm-10 col-md-10 col-lg-11">
+	<div class="issueEntryPage" ng-if="PODVar.auditName">
+		<h4 ng-if="PODVar.auditName && selectedLeftTopMenu == 'issueEntry'" class="sub-header verticaliconspace">New Issue Entry
+			<span ng-if="PODVar.auditName && !issueEntry.flatTireErr" class="pod-scan pull-right" ng-click="doScan()"></span>
+		</h4>		
+		<h4  ng-if="PODVar.auditName && selectedLeftTopMenu == 'editEntry'"  class="sub-header verticaliconspace ">Edit Issue Entry		
+		<span ng-if="PODVar.auditName"  ng-class="{'hide': issueEntry.flatTireErr }" class="pull-right pod-scan" ng-click="doScan()"></span>
+		<input type="button" class="pull-right updateBtn btn btn-default frmLink" value="Delete" ng-click="issueEntryDelete()"/>
+		<button class="pull-right updateBtn btn btn-default" ng-click="backToList()" >Back</button>
+		</h4>	
+	</div>
+	<div class="panel panel-default errorDiv errorData" ng-if="!PODVar.selectAudit && !PODVar.auditName">
+		<div class="custPaneHead">&nbsp;</div>
+		<div class="panel-body">
+			<div class="info-table-body">Please select an audit name</div>
+		</div>
+	</div>
+	<div ng-if="issueEntry.flatTireErr" class="pull-left" ng-include="'/serviceLane/pages/asm/mobile/views/flattire.html'"></div>
+	<div ng-if="PODVar.auditName && !issueEntry.flatTireErr" class="adjPanel col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+		<form name="issueEntryForm" class="entryForm col-lg-12" enctype="multipart/form-data" method="post" action="">
+			<h5 class="addmargintop col-lg-12 col-md-12 col-sm-12 col-xs-12 remLRpad">Vehicle</h5>
+				<accordion close-others="true">
+					<accordion-group is-open="eachInAll.open">
+						<accordion-heading >
+							<div>
+								<div class="row" stop-event>
+									<div class="col-lg-6 col-md-6 col-sm-12 remLRpad">
+										<label class="fsLabel col-xs-4 col-sm-4 col-md-4 col-lg-4" ng-class="{'redTxt' : issueEntry.vehDet.defvin =='' && issueEntry.submitted}">VIN:</label>
+										<select class="fsLabel col-xs-5 col-sm-5 col-md-6 col-lg-6" id="auditvin" ng-model="issueEntry.vehDet.defvin" ng-options="vin for vin in issueEntry.vehDet.vin track by vin" ng-change="callVehDetails(issueEntry.vehDet.defvin,'')">
+											<option ng-if="issueEntry.vehDet.defvin==''" class="hide" value="" selected="selected"></option>
+										</select>										
+										<audio type="audio/mp3" src="/serviceLane/pages/asm/mobile/media/beep1.mp3" id="success_sound"></audio>
+										<span on-save="callVehDetails(issueEntry.vehDet.defvin,'')" validate-fn="is_valid_vin(vin)" click-to-edit="issueEntry.vehDet.defvin" editor-label="'VIN '" class="remLRpad col-lg-1 col-md-1 col-sm-3 col-xs-3 " editor-options="issueEntry.vehDet.vin" editor-pattern="'^[a-zA-Z0-9]{1,17}$'" stop-event>&nbsp;</span>
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-12 remLRpad dtcadjDD" >
+										<label class="fsLabel col-xs-4 col-sm-4 col-md-4 col-lg-4" ng-class="{'redTxt' : issueEntry.vehDet.deftag =='' && issueEntry.submitted}">Tag #:</label>
+										<select stop-event name="tag" class="fsLabel col-xs-5 col-sm-5 col-md-4 col-lg-4" ng-model="issueEntry.vehDet.deftag" ng-options="tag for tag in issueEntry.vehDet.tag" ng-change="callVehDetails(issueEntry.vehDet.defvin,issueEntry.vehDet.deftag)">
+											<option ng-if="issueEntry.vehDet.deftag==''" class="hide" value="" selected="selected"></option>
+										</select>
+										<span  click-to-edit="issueEntry.vehDet.deftag" editor-label="'Tag # '" class="remLRpad col-lg-1 col-md-1 col-sm-3 col-xs-3 " editor-pattern="'^[0-9]*$'" editor-options="issueEntry.vehDet.tag" stop-event>&nbsp;</span>
+									</div>
+								</div>
+								<i class="col-lg-1 col-md-1 col-sm-1 col-xs-1 pull-right glyphicon icon-plus-sign-service" ng-class="{'icon-minus-sign-service': eachInAll.open}" ></i> 
+							</div>
+						</accordion-heading>
+						
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-12 remLRpad">
+								<label class="fsLabel col-xs-4 col-sm-4 col-md-4 col-lg-4" ng-class="{'' : (issueEntry.vehDet.model =='' || issueEntry.vehDet.model == undefined ) && issueEntry.submitted}" >Model:</label>
+								<input class="col-xs-5 col-sm-5 col-md-6 col-lg-6" name="model" ng-disabled="true" ng-model="issueEntry.vehDet.model">
+								<span click-to-edit="issueEntry.vehDet.model" editor-label="'Model '" editor-pattern="'^[a-zA-Z0-9]+( [a-zA-Z0-9-]+)*$'" class="col-lg-1 col-md-1 col-sm-3 col-xs-3 remLRpad">&nbsp;</span>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-12 remLRpad dtcadjDD">
+								<label class="fsLabel col-xs-4 col-sm-4 col-md-4 col-lg-4" ng-class="{'' : (issueEntry.vehDet.grade =='' || issueEntry.vehDet.grade == undefined ) && issueEntry.submitted}" >Grade:</label>
+								<input class="col-xs-5 col-sm-5 col-md-4 col-lg-4" ng-disabled="true" ng-model="issueEntry.vehDet.grade">
+								</select>
+								<span click-to-edit="issueEntry.vehDet.grade" editor-label="'Grade '" editor-pattern="'^[a-zA-Z0-9.-]+( [a-zA-Z0-9-.]+)*$'" class="col-lg-1 col-md-1 col-sm-3 col-xs-1 remLRpad">&nbsp;</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-12 remLRpad">
+								<label class="fsLabel col-xs-4 col-sm-4 col-md-4 col-lg-4" ng-class="{'' : (issueEntry.vehDet.color =='' || issueEntry.vehDet.color == undefined ) && issueEntry.submitted}" >Color:</label>
+								<input class="col-xs-5 col-sm-5 col-md-6 col-lg-6" ng-disabled="true" ng-model="issueEntry.vehDet.color" >
+								</select>
+								<span click-to-edit="issueEntry.vehDet.color" editor-label="'Color '" editor-pattern="'^[a-zA-Z0-9]+( [a-zA-Z0-9-/]+)*$'" class="col-lg-1 col-md-1 col-sm-3 col-xs-3 remLRpad ">&nbsp;</span>
+							</div>							
+							<div class="col-lg-6 col-md-6 col-sm-12 remLRpad dtcadjDD">
+								<label class="fsLabel col-xs-4 col-sm-4 col-md-4 col-lg-4" ng-class="{'' : (issueEntry.vehDet.body =='' || issueEntry.vehDet.body == undefined ) && issueEntry.submitted}">Body #:</label>
+								<input class="col-xs-4 col-sm-5 col-md-4 col-lg-4" ng-disabled="true" ng-model="issueEntry.vehDet.body">
+								<span click-to-edit="issueEntry.vehDet.body" editor-label="'Body #'" editor-pattern="'^[a-zA-Z0-9.]+( [a-zA-Z0-9-.]+)*$'" class="col-lg-1 col-md-1 col-sm-3 col-xs-1 remLRpad">&nbsp;</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-12 remLRpad">
+								<label class="fsLabel col-xs-4 col-sm-4 col-md-4 col-lg-4" ng-class="{'' : (issueEntry.vehDet.engine =='' || issueEntry.vehDet.engine == undefined ) && issueEntry.submitted}">Engine:</label>
+								<input class="col-xs-4 col-sm-5 col-md-6 col-lg-6" ng-disabled="true"  ng-model="issueEntry.vehDet.engine">
+								</select>
+								<span click-to-edit="issueEntry.vehDet.engine" editor-label="'Engine '" editor-pattern="'^[a-zA-Z0-9]+( [a-zA-Z0-9-]+)*$'" class="col-lg-1 col-md-1 col-sm-3 col-xs-1 remLRpad ">&nbsp;</span>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-12 remLRpad dtcadjDD">
+								<label class="fsLabel col-xs-4 col-sm-4 col-md-4 col-lg-4" ng-class="{'' : (issueEntry.vehDet.drivetrain =='' || issueEntry.vehDet.drivetrain == undefined ) && issueEntry.submitted}">Drivetrain:</label>
+								<input class="col-xs-4 col-sm-5 col-md-4 col-lg-4" ng-disabled="true" ng-model="issueEntry.vehDet.drivetrain">
+								<span click-to-edit="issueEntry.vehDet.drivetrain" editor-label="'Drivetrain '" editor-pattern="'^[a-zA-Z0-9]+$'" class="col-lg-1  col-md-1 col-sm-3 col-xs-1 remLRpad">&nbsp;</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-12 remLRpad">
+								<label class="fsLabel col-xs-4 col-sm-4 col-md-4 col-lg-4" ng-class="{'' : (issueEntry.vehDet.plant =='' || issueEntry.vehDet.plant == undefined ) && issueEntry.submitted}">Plant:</label>
+								<input class="col-xs-4 col-sm-5 col-md-6 col-lg-6" ng-disabled="true" ng-model="issueEntry.vehDet.plant" >
+								<span click-to-edit="issueEntry.vehDet.plant" editor-label="'Plant '"  on-save="plantLine()" editor-pattern="'^[a-zA-Z0-9.]+( [a-zA-Z0-9-.]+)*$'" class="col-lg-1 col-md-1  col-sm-3 col-xs-1 remLRpad ">&nbsp;</span>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-12 remLRpad dtcadjDD">
+								<label class="fsLabel col-xs-4 col-sm-4 col-md-4 col-lg-4" ng-class="{'' : (issueEntry.vehDet.lastBuild =='' || issueEntry.vehDet.lastBuild == undefined ) && issueEntry.submitted}">Last Build Date:</label>						
+								<input class="col-xs-4 col-sm-5 col-md-4 col-lg-4 date-format-hgt remRpad" ng-disabled="true" ng-model="issueEntry.vehDet.lastBuild" >
+								<span datetime-picker ng-model="issueEntry.vehDet.lastBuild"  date-only date-format="MM/dd/yyyy " class="col-lg-1 col-md-1 col-sm-3 col-xs-1 remLRpad button tiny edit-drop bgProp">&nbsp;</span>
+							</div>
+						</div>
+						<div class="row">
+							<label class="fsLabel col-xs-4 col-sm-4 col-md-2 col-lg-2">Line #:</label>
+							<select class="fsLabel col-xs-4 col-sm-5 col-md-3 col-lg-3" ng-disabled="!issueEntry.vehDet.line" ng-model="issueEntry.vehDet.defline" ng-options="mod for mod in issueEntry.vehDet.line" style="padding:2px">
+							</select>
+						</div>						
+					</accordion-group>
+				</accordion>			
+			<h5 class="col-lg-11 col-md-10 col-sm-10 col-xs-10 remLRpad">Issue</h5>
+			<label class="checkbox-inline">
+				<input type="checkbox" ng-model="issueEntry.showissue">No issues
+			</label>
+			<div style="padding:15px;" ng-if="!issueEntry.showissue">
+				<div class="row">
+					<label class="fsLabel col-xs-4 col-sm-4 col-md-2 col-lg-2" ng-class="{'redTxt' : (issueEntry.issueDet.defrating =='' || issueEntry.issueDet.defrating == undefined ) && issueEntry.submitted}">Rating:</label>
+					<select class="col-xs-4 col-sm-5 col-md-3 col-lg-3" ng-model="issueEntry.issueDet.defrating" ng-options="rate for rate in issueEntry.issueDet.rating">
+						<option ng-if="issueEntry.issueDet.defrating==''" class="hide" value="" selected="selected"></option>
+					</select>
+					<span class="col-lg-1  col-md-1 col-sm-12">&nbsp;</span>
+					<label class="fsLabel col-xs-4 col-sm-4 col-md-2 col-lg-2" ng-class="{'redTxt' : (issueEntry.issueDet.deftype =='' || issueEntry.issueDet.deftype == undefined ) && issueEntry.submitted}">Issue Type:</label>
+					<select class="col-xs-4 col-sm-5 col-md-2 col-lg-2" ng-model="issueEntry.issueDet.deftype" ng-options="type for type in issueEntry.issueDet.issueType">
+						<option ng-if="issueEntry.issueDet.deftype==''" class="hide" value="" selected="selected"></option>
+					</select>			
+				</div>
+				<div class="row">
+					<label class="fsLabel col-xs-4 col-sm-4 col-md-2 col-lg-2" ng-class="{'redTxt' : (issueEntry.issueDet.defsvc =='' || issueEntry.issueDet.defsvc == undefined ) && issueEntry.submitted}">Svc Category:</label>
+					<select class="col-xs-4 col-sm-5 col-md-3 col-lg-3" ng-model="issueEntry.issueDet.defsvc" ng-options="sv.value for sv in issueEntry.issueDet.svc track by sv.key" ng-change="callIssueDetails(issueEntry.issueDet.defrating,issueEntry.issueDet.deftype,issueEntry.issueDet.defsvc.key,'','','','')">
+						<option ng-if="issueEntry.issueDet.defsvc==''" class="hide" value="" selected="selected"></option>
+					</select>
+					<span class="col-lg-1  col-md-1 col-sm-12">&nbsp;</span>
+					<label class="fsLabel col-xs-4 col-sm-4 col-md-2 col-lg-2" ng-class="{'redTxt' : (issueEntry.issueDet.defsection =='' || issueEntry.issueDet.defsection == undefined ) && issueEntry.submitted}">Section:</label>
+					<select class="col-xs-4 col-sm-5 col-md-2 col-lg-2" ng-model="issueEntry.issueDet.defsection" ng-options="sec.value for sec in issueEntry.issueDet.section track by sec.key" ng-disabled="!issueEntry.issueDet.section" ng-change="callIssueDetails(issueEntry.issueDet.defrating,issueEntry.issueDet.deftype,issueEntry.issueDet.defsvc.key,issueEntry.issueDet.defsection.key,'','','')">
+						<option ng-if="issueEntry.issueDet.defsection==''" class="hide" value="" selected="selected"></option>
+					</select>			
+				</div>
+				<div class="row">
+					<label class="fsLabel col-xs-4 col-sm-4 col-md-2 col-lg-2" ng-class="{'redTxt' : (issueEntry.issueDet.defsub =='' || issueEntry.issueDet.defsub == undefined ) && issueEntry.submitted}">Sub Component:</label>
+					<select class="col-xs-4 col-sm-5 col-md-3 col-lg-3" ng-model="issueEntry.issueDet.defsub" ng-options="comp.value for comp in issueEntry.issueDet.subComp track by comp.key" ng-disabled="!issueEntry.issueDet.subComp" ng-change="callIssueDetails(issueEntry.issueDet.defrating,issueEntry.issueDet.deftype,issueEntry.issueDet.defsvc.key,issueEntry.issueDet.defsection.key,issueEntry.issueDet.defsub.key,'','')">
+						<option ng-if="issueEntry.issueDet.defsub==''" class="hide" value="" selected="selected"></option>
+					</select>
+					<span class="col-lg-1  col-md-1 col-sm-12">&nbsp;</span>
+					<label class="fsLabel col-xs-4 col-sm-4 col-md-2 col-lg-2" ng-class="{'redTxt' : (issueEntry.issueDet.defcond =='' || issueEntry.issueDet.defcond == undefined ) && issueEntry.submitted}">Condition:</label>
+					<select class="col-xs-4 col-sm-5 col-md-2 col-lg-2" ng-model="issueEntry.issueDet.defcond" ng-disabled="!issueEntry.issueDet.condition" ng-options="cond.value for cond in issueEntry.issueDet.condition track by cond.key" >
+						<option ng-if="issueEntry.issueDet.defcond==''" class="hide" value="" selected="selected"></option>
+					</select>			
+				</div>
+				<div class="row">
+					<label class="fsLabel col-lg-2 col-md-2 col-sm-4 col-xs-3" ng-class="{'' : (issueEntry.issueDet.desc =='' || issueEntry.issueDet.desc == undefined ) && issueEntry.submitted}" >Description:</label>
+					<textarea rows="8"  ng-model="issueEntry.issueDet.desc" class=" col-lg-8 col-md-9 col-sm-8 col-xs-9" maxlength="1000" id="description"></textarea>
+					<span class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-offset-4 col-sm-8">{{1000 - issueEntry.issueDet.desc.length}} characters remaining</span>
+				</div>
+				<div class="row flexbox">
+					<div style="margin: 0 auto;">
+						<div class="findSimilar bgProp " ng-click="findSimilarIssues(issueEntry.issueDet.defsvc.key,issueEntry.issueDet.defsection.key,issueEntry.issueDet.defsub.key,issueEntry.issueDet.defcond.key)"></div><span class="fsLabel">Find Similar Issues</span>
+					</div>
+					<div class="overLay" ng-if="findsimilar.overlay" my-touchstart="hidePopupAndOverlay();hideImages()" ng-click="overlayShow();hideImages()" ></div>
+					<div class="vinHistory" ng-if="findsimilar.issuePopup"  ng-include="'pages/asm/mobile/views/similarIssues.html'"></div>
+				</div>
+				<div class="ng-modal-dialog iconcenter" ng-click="overlayShow();hideImages()" ng-if="issueEntry.vehDet.showImg">
+					<img ng-if="issueEntry.vehDet.showImage == 1" ng-click="overlayShow();hideImages()" class="" src={{issueEntry.issueDet.farAwayImg}} width="100%" height="75%" alt="farawayOrigimage"/>
+					<img ng-if="issueEntry.vehDet.showImage == 2" ng-click="overlayShow();hideImages()" class="" src={{issueEntry.issueDet.closeUpImg}} width="100%" height="75%" alt="closeOrigimage"/>
+					<img ng-if="issueEntry.vehDet.showImage == 3" ng-click="overlayShow();hideImages()" class="" src={{issueEntry.issueDet.additionImg}} width="100%" height="75%" alt="addnOrigimage"/>
+					<video ng-if="issueEntry.vehDet.showImage == 4" ng-click="overlayShow();hideImages()" width="80%" height="75%" controls>
+						<source src={{issueEntry.issueDet.video}} type="video/mp4">						
+					</video>	
+				</div>
+				<!-- for iOS and Browser upload -->
+				<div class="row" >				
+					<label class="fsLabel col-xs-4 col-sm-4 col-md-2 col-lg-2" ng-class="{'' : !(issueEntry.files.img1  != undefined || issueEntry.issueDet.farAwaythumbNailImg  != undefined ) &&  issueEntry.submitted }">Far away image:</label>
+					<div class="col-xs-4 col-sm-6 col-md-3 col-lg-3 remLRpad" ng-if="!issueEntry.issueDet.farAwaythumbNailImg" file-model ="issueEntry.files.img1" file-type="'image'" filepreview="far" on-open="liveImage()" device-type="issueEntry.device" ></div>
+					<div class="col-xs-4 col-sm-6 col-md-3 col-lg-3 remLRpad" ng-if="issueEntry.issueDet.farAwaythumbNailImg">
+						<!--input ng-if="!issueEntry.issueDet.farAwaythumbNailImg" class="col-xs-6 col-sm-9 col-md-9 col-lg-9" id="farImage" type="file" accept="image/*" image="image" file-model="issueEntry.files.img1"/-->		
+						<img ng-click="viewOriginal('img',1)" class="col-xs-6 col-sm-9 col-md-9 col-lg-9 adjPanel" src={{issueEntry.issueDet.farAwaythumbNailImg}} width="20px" height="100px" alt="farawayimage"/>
+						<a class="close_btn col-lg-3 col-md-3 col-sm-3" ng-click="removeImg('#farImage');issueEntry.files.img1 = undefined;issueEntry.issueDet.farAwaythumbNailImg = undefined">&nbsp;</a>
+					</div>
+					<!--span class="col-lg-1 col-md-1 col-sm-1 edit-drop ">&nbsp;</span-->
+					<div class="col-lg-1 col-md-1 col-sm-12 keysuggestion"></div>
+					<label class="fsLabel col-xs-4 col-sm-4 col-md-2 col-lg-2" ng-class="{'' : !(issueEntry.files.img2  != undefined || issueEntry.issueDet.closeUpThumbNailImg  != undefined ) &&  issueEntry.submitted }">Close up image:</label>
+					<div class="col-xs-4 col-sm-6 col-md-3 col-lg-3 remLRpad"  ng-if="!issueEntry.issueDet.closeUpThumbNailImg" file-model ="issueEntry.files.img2" file-type="'image'" filepreview="clo" on-open="liveImage()" device-type="issueEntry.device"></div>
+					<div class="col-xs-4 col-sm-6 col-md-3 col-lg-3 remLRpad" ng-if="issueEntry.issueDet.closeUpThumbNailImg">
+						<!--input ng-if="!issueEntry.issueDet.closeUpThumbNailImg" class="col-xs-6 col-sm-9 col-md-9 col-lg-9" id="closeImage" type="file" accept="image/*" image="image" file-model = "issueEntry.files.img2"/-->
+						<img ng-click="viewOriginal('img',2)" class="col-xs-6 col-sm-9 col-md-9 col-lg-9 adjPanel" src={{issueEntry.issueDet.closeUpThumbNailImg}} width="20px" height="100px" alt="closeimage"/>
+						<a class="close_btn col-lg-3 col-md-3 col-sm-3" ng-click="removeImg('#closeImage');issueEntry.files.img2 = undefined;issueEntry.issueDet.closeUpThumbNailImg = undefined">&nbsp;</a>
+					</div>
+				</div>								
+				<div class="row" >					
+					<label class="fsLabel col-xs-4 col-sm-4 col-md-2 col-lg-2" >Additional image:</label>
+					<div class="col-xs-4 col-sm-6 col-md-3 col-lg-3 remLRpad" ng-if="!issueEntry.issueDet.addithumbNailImg" file-model ="issueEntry.files.img3" file-type="'image'" filepreview="add" on-open="liveImage()" device-type="issueEntry.device"></div>
+					<div class="col-xs-4 col-sm-6 col-md-3 col-lg-3 remLRpad" ng-if="issueEntry.issueDet.addithumbNailImg">
+						<!--input ng-if="!issueEntry.issueDet.addithumbNailImg " class="col-xs-6 col-sm-9 col-md-9 col-lg-9" id="addnlImage" type="file" accept="image/*" image="image" file-model = "issueEntry.files.img3"/-->
+						<img ng-click="viewOriginal('img',3)" class="col-xs-6 col-sm-9 col-md-9 col-lg-9 adjPanel" src={{issueEntry.issueDet.addithumbNailImg}} width="20px" height="100px" alt="additionalimage"/>
+						<a class="close_btn col-lg-3 col-md-3 col-sm-3" ng-click="removeImg('#addnlImage');issueEntry.files.img3 = undefined;issueEntry.issueDet.addithumbNailImg = undefined">&nbsp;</a>
+					</div>
+					<!--span class="col-lg-1 col-md-1 col-sm-1 edit-drop ">&nbsp;</span-->
+					<div class="col-lg-1 col-md-1 col-sm-12 keysuggestion"></div>
+					<label class="fsLabel col-xs-4 col-sm-4 col-md-2 col-lg-2" >Video:</label>
+					<div class="col-xs-4 col-sm-6 col-md-3 col-lg-3 remLRpad" ng-if="!issueEntry.issueDet.videothumbNailImg" file-model ="issueEntry.files.video" file-type="'video'" filepreview="vd" on-open="liveImage()" device-type="issueEntry.device"></div>
+					<div class="col-xs-4 col-sm-6 col-md-3 col-lg-3 remLRpad" ng-if="issueEntry.issueDet.videothumbNailImg">
+						<!--input ng-if="!issueEntry.issueDet.videothumbNailImg" class="col-xs-6 col-sm-9 col-md-9 col-lg-9" id="podVideo" type="file" accept="video/*" video="video" /-->							
+						<img  ng-click="viewOriginal('vdo',4)" class="col-xs-6 col-sm-9 col-md-9 col-lg-9 adjPanel" src={{issueEntry.issueDet.videothumbNailImg}} width="20px" height="100px" alt="video"/>
+						<a class="close_btn col-lg-3 col-md-3 col-sm-3" ng-click="removeImg('#podVideo');issueEntry.files.video = undefined;issueEntry.issueDet.videothumbNailImg = undefined">&nbsp;</a>
+					</div>
+				</div>		
+			</div>
+			<div class="col-lg-12 row addmargintop">
+				<input type="submit"  class="pull-right updateBtn btn btn-default frmLink" value="Save" ng-click="issueEntry.fileUpload()"/>
+				<input type="button" class="pull-right updateBtn btn btn-default frmLink" value="Cancel" ng-click="issueEntryCancel()"/>
+			</div>
+		</form>	
+		<div>&nbsp;</div>
+		<div>&nbsp;</div>
+		<div>&nbsp;</div>
+		<div>&nbsp;</div>
+		<div>&nbsp;</div>
+	</div>
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+</div>

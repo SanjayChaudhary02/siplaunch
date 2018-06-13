@@ -1,0 +1,72 @@
+<div class="kcpanelbox panel-default pull-left col-xs-12 addmargintopkc remLRpad">
+	<div class="custPaneHeadkc">
+		<div class="row lsnopadding">
+			<div class="col-xs-12 lsnopadding" ng-class="{'col-xs-6' : lsData.lsCarInfo.refineSearch}">
+				<span><span class="darkfont">CAR Info (Current Accurate Relevant Information)</span></span>
+				<span ng-if="!lsData.lsCarFlatTireErr && !lsData.lsCarErr">: {{lsData.lsCarInfo.documentCount}} document(s) found.</span>
+				<span ng-if="lsData.lsCarInfo.documentCount == 0">: 0 document(s) found.</span>
+			</div>
+			<div class="col-xs-6 lsnopadding pull-right redTxt lstotheright" ng-bind-html="lsData.lsCarInfo.errorMsg" ng-if="lsData.lsCarInfo.documentCount == 100 && lsData.lsCarErr"></div>
+		</div>
+	</div>
+	<div class="tab-color" ng-class="{errorpanelpadding:lsData.lsCarFlatTireErr,errormesspanelpadding: lsData.lsCarErr && !lsData.refineSearch}">
+		<ol>
+			<li style="" ng-repeat="(keycamp,eachCarInfo) in lsData.lsCarInfo.summary">
+				<div><a open-document data-url="{{eachCarInfo.documentUrl}}" ng-bind-html="eachCarInfo.titleText"></a></div>
+				<div newtip class="rmLRPad newthreedot" ng-if="eachCarInfo.summaryText" ng-bind-html="eachCarInfo.summaryText"></div>
+			</li>
+		</ol>
+		<div class="col-xs-12 lsnopadding pull-right redTxt lserrbottompadding" ng-bind-html="lsData.lsCarInfo.errorMsg" ng-if="!lsData.lsCarInfo.refineSearch && lsData.lsCarErr"></div>
+		<span ng-if="lsData.lsCarInfo.displayMore && lsData.tabName=='servlane'" ng-click="lsData.bindLsCar('more')"><a>More...</a></span>
+		<span ng-if="lsData.lsCarInfo.displayMore && lsData.tabName=='summary'" ng-click="lsData.bindLsTabChange('servlane')"><a>More...</a></span>
+		<div ng-if="lsData.lsCarFlatTireErr" class="pull-left" ng-include="'/serviceLane/pages/asm/mobile/views/flattire.html'"></div>
+	</div>
+</div>
+<div class="kcpanelbox panel-default pull-left col-xs-12 addmargintopkc remLRpad">
+	<div class="custPaneHeadkc">
+		<div class="row lsnopadding">
+			<div class="col-xs-12 lsnopadding" ng-class="{'col-xs-6' : lsData.lsCifInfo.refineSearch}">
+				<span><span class="darkfont">Customer Interview Forms</span></span>
+				<span ng-if="!lsData.lsCifFlatTireErr && !lsData.lsCifErr">: {{lsData.lsCifInfo.documentCount}} document(s) found.</span>
+				<span ng-if="lsData.lsCifInfo.documentCount == 0">: 0 document(s) found.</span>
+			</div>
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 lsnopadding pull-right redTxt lstotheright" ng-bind-html="lsData.lsCifInfo.errorMsg" ng-if="lsData.lsCifInfo.documentCount == 100 && lsData.lsCifErr"></div>
+		</div>
+	</div>
+	<div class="tab-color" ng-class="{errorpanelpadding:lsData.lsCifFlatTireErr,errormesspanelpadding: lsData.lsCifErr && !lsData.refineSearch}">
+		<ol>
+			<li style="" ng-repeat="(keycamp,eachCifInfo) in lsData.lsCifInfo.summary">
+				<div><a open-document data-url="{{eachCifInfo.documentUrl}}" ng-bind-html="eachCifInfo.titleText"></a></div>
+				<div newtip class="rmLRPad newthreedot" ng-if="eachCifInfo.summaryText" ng-bind-html="eachCifInfo.summaryText"></div>
+			</li>
+		</ol>
+		<div class="col-xs-12 lsnopadding pull-right redTxt lserrbottompadding" ng-bind-html="lsData.lsCifInfo.errorMsg" ng-if="!lsData.lsCifInfo.refineSearch && lsData.lsCifErr"></div>
+		<span ng-if="lsData.lsCifInfo.displayMore && lsData.tabName=='servlane'" ng-click="lsData.bindLsCif('more')"><a>More...</a></span>
+		<span ng-if="lsData.lsCifInfo.displayMore && lsData.tabName=='summary'" ng-click="lsData.bindLsTabChange('servlane')"><a>More...</a></span>
+		<div ng-if="lsData.lsCifFlatTireErr" class="pull-left" ng-include="'/serviceLane/pages/asm/mobile/views/flattire.html'"></div>
+	</div>
+</div>
+<div class="kcpanelbox panel-default pull-left col-xs-12 addmargintopkc remLRpad">
+	<div class="custPaneHeadkc">
+		<div class="row lsnopadding">
+			<div class="col-xs-12 lsnopadding" ng-class="{'col-xs-6' : lsData.lsPedPevInfo.refineSearch}">
+				<span><span class="darkfont">Product Education</span></span>
+				<span ng-if="!lsData.lsPedPevFlatTireErr && !lsData.lsPedPevErr">: {{lsData.lsPedPevInfo.documentCount}} document(s) found.</span>
+				<span ng-if="lsData.lsPedPevInfo.documentCount == 0">: 0 document(s) found.</span>
+			</div>
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 lsnopadding pull-right redTxt lstotheright" ng-bind-html="lsData.lsPedPevInfo.errorMsg" ng-if="lsData.lsPedPevInfo.documentCount == 100 && lsData.lsPedPevErr"></div>
+		</div>
+	</div>
+	<div class="tab-color" ng-class="{errorpanelpadding:lsData.lsPedPevFlatTireErr,errormesspanelpadding: lsData.lsPedPevErr && !lsData.refineSearch}">
+		<ol>
+			<li style="" ng-repeat="(keycamp,eachPedPevInfo) in lsData.lsPedPevInfo.summary">
+				<div><a open-document data-url="{{eachPedPevInfo.documentUrl}}" ng-bind-html="eachPedPevInfo.titleText"></a></div>
+				<div newtip class="rmLRPad newthreedot" ng-if="eachPedPevInfo.summaryText" ng-bind-html="eachPedPevInfo.summaryText"></div>
+			</li>
+		</ol>
+		<div class="col-xs-12 lsnopadding pull-right redTxt lserrbottompadding" ng-bind-html="lsData.lsPedPevInfo.errorMsg" ng-if="!lsData.lsPedPevInfo.refineSearch && lsData.lsPedPevErr"></div>
+		<span ng-if="lsData.lsPedPevInfo.displayMore && lsData.tabName=='servlane'" ng-click="lsData.bindLsPedPev('more')"><a>More...</a></span>
+		<span ng-if="lsData.lsPedPevInfo.displayMore && lsData.tabName=='summary'" ng-click="lsData.bindLsTabChange('servlane')"><a>More...</a></span>
+		<div ng-if="lsData.lsPedPevFlatTireErr" class="pull-left" ng-include="'/serviceLane/pages/asm/mobile/views/flattire.html'"></div>
+	</div>
+</div>

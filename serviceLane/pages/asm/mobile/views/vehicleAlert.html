@@ -1,0 +1,41 @@
+<!-- Vin history view -->
+
+<h2 class="pull-left">Alert <span ng-if="leftMenu.VehicleAlertCount < 9 "> ({{"0"+leftMenu.VehicleAlertCount}})</span><span ng-if="leftMenu.VehicleAlertCount > 9 "> ({{leftMenu.VehicleAlertCount}})</span></h2>
+<span class="pull-right close" ng-click="overlayShow()">X</span>
+<ul id="vehicleAlertList">
+    <li ng-repeat="va in vAlertData" ng-class-odd="'odd'" ng-class-even="'even'" class="alertIcons" ng-class="{'WE_icon':va.vehicleAlertType == 'WARRANTY_ELIGIBILITY','CR_icon':va.vehicleAlertType == 'CUSTOMER_RELATION','TC_icon':va.vehicleAlertType == 'TASCASE','RR_icon':va.vehicleAlertType == 'REPEAT_REPAIR','BB_icon':va.vehicleAlertType == 'BUYBACK','survey_Smile':va.vehicleAlertType == 'CUSTOMER_SURVEY_SMILE','survey_Sad':va.vehicleAlertType == 'CUSTOMER_SURVEY_SAD'}" >      
+      
+      <div ng-if="va.vehicleAlertType == 'WARRANTY_ELIGIBILITY'" class="alertdesc">
+        <h4>Warranty Eligibility</h4>
+        <p>{{va.vehicleAlertNote}}</p>
+      </div>
+	  <div ng-if="va.vehicleAlertType == 'CUSTOMER_RELATION'" class="alertdesc">
+        <h4>CR Case: {{va.vehicleAlertArray.length}} recent CR case(s)</h4>
+		<div ng-repeat="s in va.vehicleAlertArray">
+			<p ng-class="{'redTxt': (s.status | lowercase) == 'open'}">{{s.status+" Created: "+s.creationTime+" "+s.codingType+" > "+s.category+" > "+s.probArea+" > "+s.component}}</p>
+		</div>
+      </div>
+	  <div ng-if="va.vehicleAlertType == 'TASCASE'" class="alertdesc">
+        <h4>TAS Case: {{va.tasCount}} open TAS case(s)</h4>
+		<div ng-repeat="s in va.vehicleAlertArray">
+			<p>{{s.createTime+" "+s.t3Id+" : "+s.servCatCode+" - "+s.secCode+" - "+s.subCompCode}}</p>
+		</div>
+      </div>
+	  <div ng-if="va.vehicleAlertType == 'REPEAT_REPAIR'" class="alertdesc">
+        <h4>Repeat Repair</h4>
+		<p>{{va.vehicleAlertNote}}</p>
+      </div>
+	  <div ng-if="va.vehicleAlertType == 'BUYBACK'" class="alertdesc">
+        <h4>Buy Back</h4>
+		
+		<div ng-repeat="ss in va.vehicleAlertArray track by $index">
+			<p ng-bind-html="ss"></p>
+		</div>
+      </div>
+	  <div ng-if="va.vehicleAlertType == 'CUSTOMER_SURVEY_SMILE' || va.vehicleAlertType == 'CUSTOMER_SURVEY_SAD'" class="alertdesc">
+        <h4>Customer Survey</h4>		
+		<p ng-bind-html="va.vehicleAlertNote"></p>
+      </div>
+    </li>
+
+	<ul>

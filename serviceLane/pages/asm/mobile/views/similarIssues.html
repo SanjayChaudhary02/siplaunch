@@ -1,0 +1,41 @@
+<!-- Vin history view -->
+<div ng-if="findsimilar.issuePopup" id="similarIssue" >		
+	<div class="ng-modal-dialog" >
+		<h4 >Similar Issues <span class="pull-right" ng-click="overlayShow()" style="cursor:pointer;">X</span></h4>
+		<div  ng-if="findsimilar.flatTireErr" class="pull-left" ng-include="'/serviceLane/pages/asm/mobile/views/flattire.html'"></div>
+		<div ng-if="!findsimilar.flatTireErr && issueEntry.errormsg">
+			<div class="panel panel-default errorData" >
+				<div class="custPaneHead">&nbsp;</div>
+				<div class="panel-body">
+					<div class="info-table-body">{{findsimilar.data.errormsg}}</div>
+				</div>
+			</div>
+		</div>
+		<div ng-if="!findsimilar.flatTireErr && !issueEntry.errormsg" class="issueScroller">
+			<table  ng-table="tableParams" class="table ng-table ">
+				<thead>
+					<tr>
+						<th class="header border-right">#</th>
+						<th class="header border-right">Rating</th>
+						<th class="header border-right">Service Category</th>
+						<th class="header border-right">Section</th>
+						<th class="header border-right border-right">Sub Component</th>
+						<th class="header border-right">Condition</th>
+						<th class="header border-right">Description</th>
+					</tr>
+				</thead>		
+				<tbody >
+					<tr ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="val in findsimilar.data" ng-click="similarIssue(val);overlayShow()">
+						<td class="iconcenter">{{$index + 1}}</td>
+						<td class="iconcenter">{{val.rating}}</td>
+						<td class="iconcenter">{{val.svc.value}}</td>
+						<td class="iconcenter">{{val.section.value}}</td>
+						<td class="iconcenter">{{val.subComp.value}}</td>
+						<td class="iconcenter">{{val.condition.value}}</td>
+						<td class="iconcenter fsEllipse">{{val.desc}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>		
+	</div>
+</div>

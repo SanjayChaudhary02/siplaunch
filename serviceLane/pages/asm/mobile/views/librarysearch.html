@@ -1,0 +1,110 @@
+<div class="pagesectionSM knowledgecenter col-xs-12 remLRpad" ng-if="selectedLeftTopMenu == 'librarysearch'">
+    <div class="errorDiv" ng-if="lsData.noInput">
+        <div class="panel panel-default">
+            <div class="custPaneHead">
+                <span>Enter VIN</span>
+            </div>
+            <div class="panel-body">
+                <div class="info-table-body">
+                    <div>Enter a 17 digit VIN or click
+                        <a ng-click="showHistory('/serviceLane/mobile/getVinHistory',1)" style="text-decoration:none;"><img src="/serviceLane/pages/asm/mobile/images/Tablet/Common_VIN_HistoryIcon_iPad@2x.png" width="24" height="24"> </a>to select previously lookup VIN.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+           
+<div   ng-if="!lsData.noInput" class="col-xs-12 remLRpad">
+    <div class="col-xs-1 remLRpad posfix  " > <!-- required for floating -->
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs tabs-left  leftmenu lsleftmenu">
+        <li class="btn btn_enable"   ng-class="{'active' : lsData.tabName=='summary'}" ><a href="/#summary"     ng-click="lsData.tabName=='summary' || lsData.bindLsTabChange('summary')" data-toggle="tab"><div class="vehicle icon" ng-class="{'active' : lsData.tabName=='summary'}"></div></a></li>
+        
+        <li   class="btn btn_enable"  ng-class="{'active' : lsData.tabName=='sc'}" ><a href="/#schedulecamp"   ng-click="lsData.tabName=='sc' || lsData.bindLsTabChange('sc')"  data-toggle="tab"><div class="campaign icon" ng-class="{'active' : lsData.tabName=='sc'}"></div></a></li>
+        
+          <li  class="btn btn_enable"   ng-class="{'active' : lsData.tabName=='ttsb'}" ><a href="/#ttsb"   ng-click="lsData.tabName=='ttsb' || lsData.bindLsTabChange('ttsb')"  data-toggle="tab"><div class="service icon" ng-class="{'active' : lsData.tabName=='ttsb'}"></div></a></li>
+           
+ 
+ 
+         <li  class="btn btn_enable"  ng-class="{'active' : lsData.tabName=='om'}"><a href="/#om"     ng-click="lsData.tabName=='om' || lsData.bindLsTabChange('om')" data-toggle="tab"><div class="care icon" ng-class="{'active' : lsData.tabName=='om'}"></div></a></li>
+        
+        <li  class="btn btn_enable"  ng-class="{'active' : lsData.tabName=='servlane'}" ><a href="/#servlaneref"   ng-click="lsData.tabName=='servlane' || lsData.bindLsTabChange('servlane')"  data-toggle="tab"><div class="warranty icon" ng-class="{'active' : lsData.tabName=='servlane'}"></div></a></li>
+		<!--
+		<li class="btn btn_enable" ng-class="{'active' : lsData.tabName=='ncf'}" ><a href="/#ncf"   ng-click="lsData.tabName=='ncf' || lsData.bindLsTabChange('ncf')"  data-toggle="tab"><div class="fsp icon" ng-class="{'active' : lsData.tabName=='ncf'}"></div></a></li>
+		-->
+		<li class="btn btn_enable"  ng-class="{'active' : lsData.tabName=='pantspoc'}" ><a href="/#pantspoc"   ng-click="lsData.tabName=='pantspoc' || lsData.bindLsTabChange('pantspoc')"  data-toggle="tab"><div class="guest icon" ng-class="{'active' : lsData.tabName=='pantspoc'}"></div></a></li>
+		<!--
+        <li  class="btn btn_enable"  ng-class="{'active' : lsData.tabName=='servpt'}"  ><a href="/#servptopts"   ng-click="lsData.tabName=='servpt' || lsData.bindLsTabChange('servpt')"  data-toggle="tab"><div class="roadside1 icon" ng-class="{'active' : lsData.tabName=='servpt'}"></div></a></li>
+		-->
+		<li  class="btn btn_enable"  ng-class="{'active' : lsData.tabName=='warrcp'}" ><a href="/#warrcp"   ng-click="lsData.tabName=='warrcp' || lsData.bindLsTabChange('warrcp')"  data-toggle="tab"><div class="  roadside icon" ng-class="{'active' : lsData.tabName=='warrcp'}"></div></a></li>
+            <li class="btn btn_enable"  ng-class="{'active' : lsData.tabName=='training'}"  ><a href="/#training"   ng-click="lsData.tabName=='training' || lsData.bindLsTabChange('training')"  data-toggle="tab"><div class="telematics  icon" ng-class="{'active' : lsData.tabName=='training'}"></div></a></li>
+ 
+        
+        <!-- li id="menu2" class="btn btn_enable" ng-class="{selected: selectedMenu == 'campaign' }" ng-click="redirectPage('/campaign', 'campaign')">			
+				<span class="notification-icon ng-hide" ng-show="leftMenu.serviceCampaign &amp;&amp; campaign != true">i</span>
+				
+				<a>
+					<div class="campaign icon" ng-class="{active: selectedMenu == 'campaign'}"></div>					
+				</a>
+			</li> -->
+         
+      </ul>
+    </div>
+
+    <div class="col-xs-11 col-sm-10 col-lg-11 col-md-11 posmargin mylibrarysearchpage">
+      
+          <div class="col-xs-12 remLRpad addmargintopkc"  >
+        <h4 class="sub-header">Library Search</h4>
+    </div>
+     <div class="custPaneHeadkc searchHead col-xs-12">
+    <span>Keyword</span>  <div class="searchParent"  ><input type="text" ng-model="lsData.searchWord" class="ng-pristine ng-untouched ng-valid searchinputstyle" my-maxlength="100" my-touchstart="scrollTopThePage(2);">
+    <button type="reset" class="resetbutton clearing searchresetbutton" ng-click="lsData.resetInputBox();">
+			X
+					</button>		
+					</button></div>
+    <select class="selectboxclass"   ng-model="lsData.language" ng-options="languagee.lid as languagee.name for languagee in lsData.languages"></select>
+   
+    <button type="button" class="btn btn-default " id="searchBtn"    ng-click="lsData.appendSearchData()">Search</button>
+
+   <div class="keysuggestion darkfont"  ng-if="lsData.suggestedWord != ''"> <i>Are you looking for</i> : <a class="sugglink"  ng-click="lsData.searchSuggestedData()">{{lsData.suggestedWord}}</a></div>
+               
+                </div>
+    
+    
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div class="tab-pane"  ng-if="lsData.tabName=='summary'" ng-class="{'active' : lsData.tabName=='summary'}"  id="summary"><div   ng-include="'/serviceLane/pages/asm/mobile/views/lssummary.html'"></div></div>
+        <div class="tab-pane"  ng-if="lsData.tabName=='sc'"  ng-class="{'active' : lsData.tabName=='sc'}"  id="schedulecamp"><div   ng-include="'/serviceLane/pages/asm/mobile/views/lssc.html'"></div></div>
+        <div class="tab-pane"  ng-if="lsData.tabName=='ttsb'" ng-class="{'active' : lsData.tabName=='ttsb'}"  id="ttsb"><div   ng-include="'/serviceLane/pages/asm/mobile/views/lsttsb.html'"></div></div>
+      
+ 
+ 
+        <div class="tab-pane"  ng-if="lsData.tabName=='om'"   ng-class="{'active' : lsData.tabName=='om'}"  id="om"><div   ng-include="'/serviceLane/pages/asm/mobile/views/lsom.html'"></div></div>
+        <div class="tab-pane"  ng-if="lsData.tabName=='servlane'"  ng-class="{'active' : lsData.tabName=='servlane'}"  id="servlaneref"><div   ng-include="'/serviceLane/pages/asm/mobile/views/lsservlaneref.html'"></div></div>
+		<!--
+		<div class="tab-pane"  ng-if="lsData.tabName=='ncf'"  ng-class="{'active' : lsData.tabName=='ncf'}" id="ncf"><div   ng-include="'/serviceLane/pages/asm/mobile/views/lsncf.html'"></div></div>
+		-->
+        <div class="tab-pane"  ng-if="lsData.tabName=='pantspoc'" ng-class="{'active' : lsData.tabName=='pantspoc'}"  id="pantspoc"><div   ng-include="'/serviceLane/pages/asm/mobile/views/lspantspoc.html'"></div></div>
+		<!--
+        <div class="tab-pane"  ng-if="lsData.tabName=='servpt'"  ng-class="{'active' : lsData.tabName=='servpt'}" id="servptopts"><div   ng-include="'/serviceLane/pages/asm/mobile/views/lsservptopts.html'"></div></div>
+		-->
+      
+         <div class="tab-pane"  ng-if="lsData.tabName=='warrcp'" ng-class="{'active' : lsData.tabName=='warrcp'}"  id="warrcp"><div   ng-include="'/serviceLane/pages/asm/mobile/views/lswarrcp.html'"></div></div>
+        <div class="tab-pane"  ng-if="lsData.tabName=='training'"  ng-class="{'active' : lsData.tabName=='training'}" id="training"><div   ng-include="'/serviceLane/pages/asm/mobile/views/lstraining.html'"></div></div>
+       
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+  </div>
+    
+    
+ 
+   
+</div>
+<div class="row remLRpad col-xs-12">
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+</div>

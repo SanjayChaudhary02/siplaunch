@@ -1,0 +1,179 @@
+<div class="overlay1" ng-click="overlayHide();" ng-show="menu || smData.custDDShow || smData.eyeNoteShow !=''" my-touchstart="hidePopupAndOverlay(false,true);" style="z-index: 1033;">&nbsp;</div>
+<div class="pagesectionSM"  no-touchstart="smData.removeHashinginpage()" ng-click="smData.removeHashinginpage()">
+    <div class="errorDiv" ng-if="smData.noInput">
+        <div class="panel panel-default">
+            <div class="custPaneHead">
+                <span>Enter VIN</span>
+            </div>
+            <div class="panel-body">
+                <div class="info-table-body">
+                    <div>Enter a 17 digit VIN or click
+                        <a ng-click="showHistory('/serviceLane/mobile/getVinHistory',1)" style="text-decoration:none;"><img src="/serviceLane/pages/asm/mobile/images/Tablet/Common_VIN_HistoryIcon_iPad@2x.png" width="24" height="24"> </a>to select previously lookup VIN.
+                    </div>
+					
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 remLRpad" ng-if="!smData.noInput" ng-hide="smData.flatTireErr">
+        <h4 class="sub-header">Scheduled Maintenance <button class="pull-right updateBtn btn btn-default" ng-click="smData.backToSM(smData.mileageValue)" ng-if="smData.showSMGrid">Back</button></h4>
+    </div>
+    <div ng-if="smData.flatTireErr" class="pull-left" ng-include="'/serviceLane/pages/asm/mobile/views/flattire.html'"></div>
+    <div ng-hide="smData.showSMGrid || smData.flatTireErr" ng-if="!smData.noInput">
+			<form id="smMileage"class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div id="etd" class="customeDesc drpdown" ng-if="smData.custDDShow == 'etd'">
+                <!--div id="etd" class="customeDesc" ng-if="smData.custDDShow == 'etd' || (smData.smInfo.scheduledMaintenanceData.showEtdDropDown && !smData.custEtdSelectedOp)"-->
+                    <table>
+                        <th>Engine</th>
+                        <th>Transmission</th>
+                        <th>Drive Type</th>
+                        <tr ng-repeat="etdOp in smData.smInfo.scheduledMaintenanceData.etd" ng-click="smData.custDDSelection('etd','',etdOp.etdEng,etdOp.etdTrans,etdOp.etdDriveTy,smData.mileageValue)" stop-event>
+                            <td>{{etdOp.etdEng}}</td>
+                            <td>{{etdOp.etdTrans}}</td>
+                            <td>{{etdOp.etdDriveTy}}</td>
+                        </tr>
+                    </table>
+                </div>
+				<div id="fuel" class="customeDesc drpdown" ng-if="smData.custDDShow == 'fuel'">
+                    <table>
+                        <th>Value</th>
+                        <th>Description</th>
+                        <tr ng-repeat="fuelOp in smData.smInfo.scheduledMaintenanceData.fuel" ng-click="smData.custDDSelection('fuel',fuelOp.instructionDesc,fuelOp.instructionId)" stop-event>
+                            <td>{{fuelOp.instructionDesc}}</td>
+                            <td>{{fuelOp.instructionNotes}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="specialopCond" class="customeDesc drpdown" ng-if="smData.custDDShow == 'opCond'">
+                    <table>
+                        <th>Driving Condition</th>
+                        <th>Description</th>
+                        <tr ng-repeat="dropdownOp in smData.smInfo.scheduledMaintenanceData.operatingCondition" ng-click="smData.custDDSelection('opCond',dropdownOp.operatingConditionNotes,dropdownOp.operatingConditionId)" stop-event>
+                            <td>{{dropdownOp.operatingConditionNotes}}</td>
+                            <td>{{dropdownOp.operatingConditionDesc}}</td>
+                        </tr>
+                    </table>
+                </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 remLRpad">
+            <div class="col-xs-5 col-sm-4 col-md-5 col-lg-5 customeDD remLRpad" >
+				<span class="removewhitespace" ng-if="!smData.smInfo.scheduledMaintenanceData.showEtdDropDown">{{smData.custEtdSelectedOp}}</span>
+				<a ng-click="smData.custDDShowFn('etd')" class="removewhitespace" ng-if="(smData.smInfo.scheduledMaintenanceData.showEtdDropDown && !smData.custEtdSelectedOp)">Engine, Trans, Drive</a>
+				<a ng-click="smData.custDDShowFn('etd')" class="removewhitespace" ng-if="(smData.smInfo.scheduledMaintenanceData.showEtdDropDown && smData.custEtdSelectedOp)">{{smData.custEtdSelectedOp}}</a>				
+            </div>
+            <div class="col-xs-5 col-sm-4 col-md-5 col-lg-5 customeDD remLRpad" ng-if="smData.smInfo.scheduledMaintenanceData.showFuelDropDown">               
+                <a ng-click="smData.custDDShowFn('fuel')" class="removewhitespace">{{smData.custFuelSelectedOp}}</a>
+            </div>
+            <div class="col-xs-6 col-sm-5 col-md-5 col-lg-5 customeDD remLRpad" ng-if="smData.smInfo.scheduledMaintenanceData.showOperatingConditonDropDown">               
+                <a ng-click="smData.custDDShowFn('opCond')"  class="removewhitespace">{{smData.custDDFuelSelectedOp}}</a>
+            </div>
+			<div ng-if="DMY.selDMYType !='VIN' && smData.smInfo.scheduledMaintenanceData.showApplyButton">
+				<input class="col-xs-1 col-sm-1 col-md-1 col-lg-1 remLRpad " type="number" id="mlgeBox" ng-model="smData.mileageValue"	onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;if (event.keyCode == 32) {event.returnValue = false;return false;}" is-number maxl="6" placeholder=" Miles">
+			</div>
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 remLRpad" ng-if="smData.smInfo.scheduledMaintenanceData.showApplyButton">
+                <button type="submit" class="updateBtn btn btn-default" ng-disabled="!smData.isEnableApply" 
+					no-touchstart="smData.applySM(smData.mileageValue)"	ng-click="smData.applySM(smData.mileageValue)">Apply</button>
+            </div>
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 smGrid" ng-click="smData.showGrid('smGrid')" ng-if="!smData.smErr" ng-hide="!smData.smInfo.scheduledMaintenanceData.recommendedService.length"></div>
+        </div>
+		</form>
+        <div class="barGraph" ng-if="smData.smInfo.scheduledMaintenanceData.sliderData.length">
+            <button class="barVal leftRightArr" id="leftArrow" ng-click="smData.leftrightArrow('left')" ng-disabled="1 > smData.CurrentItem"><a>&nbsp;</a>
+            </button>
+            <div class="serviceContainer">
+                <ul class="serviceWrap" ng-style="{'left': (smData.left)+'px'}">
+					<li class="barVal disabled" ng-if="smData.CurrentItem >-4 && smData.CurrentItem < 0"><a>&nbsp;</a><span class="serviceBarBorder"></span>
+                    </li>
+                    <li class="barVal disabled" ng-if="smData.CurrentItem >-4 && smData.CurrentItem < 0"><a>&nbsp;</a><span class="serviceBarBorder"></span>
+                    </li>
+                    <li class="barVal disabled" ng-if="smData.CurrentItem >-4 && smData.CurrentItem < 0"><a>&nbsp;</a><span class="serviceBarBorder"></span>
+                    </li>
+                    <li class="barVal disabled" ng-if="smData.CurrentItem >-4 && smData.CurrentItem < 0"><a>&nbsp;</a><span class="serviceBarBorder"></span>
+                    </li>
+                    <li class="barVal" ng-repeat="val in smData.smInfo.scheduledMaintenanceData.sliderData" rel="smData.smInfo.scheduledMaintenanceData_{{$index}}" ng-click="smData.smTab({{$index}},val.intervalMileage,smData.mileageValue)">
+                        <a ng-class="{'active': (smData.selectedSMTab == '{{$index}}')}">{{val.intervalMileageText}}</a>
+                        <span class="serviceBarBorder"></span>
+                    </li>
+                    <li class="barVal disabled"><a>&nbsp;</a><span class="serviceBarBorder"></span>
+                    </li>
+                    <li class="barVal disabled"><a>&nbsp;</a><span class="serviceBarBorder"></span>
+                    </li>
+                    <li class="barVal disabled"><a>&nbsp;</a><span class="serviceBarBorder"></span>
+                    </li>
+                    <li class="barVal disabled"><a>&nbsp;</a><span class="serviceBarBorder"></span>
+                    </li>
+                </ul>
+            </div>
+			<button class="barVal leftRightArr" id="rightArrow" ng-click="smData.leftrightArrow('right')" ng-disabled="(smData.smInfo.scheduledMaintenanceData.sliderData.length -2) <= (smData.CurrentItem + smData.disableRightArrow)"><a>&nbsp;</a>
+            </button>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" ng-if="smData.smInfo.scheduledMaintenanceData.currentMaintenanceText !='N/A' && !smData.flatTireErr" style="padding: 5px 0">Current Service: <b>{{smData.smInfo.scheduledMaintenanceData.currentMaintenanceText}}</b></div>
+        <div class="smScrollContainer scroller" ng-if="smData.smDatashow">
+            <div class="panel panel-default clearfix adjMargin" ng-if="smData.smErr">
+                <div class="custPaneHead"><span>&nbsp;</span>
+                </div>
+                <div class="panel-body">
+                    <div class="info-table-body redTxt">{{smData.smInfo.errorMsg}}</div>
+                </div>
+            </div>
+            <table ng-table="tableParams" class="table ng-table" ng-swipe-left="swipeLeft($event)" ng-hide="showTableError">
+                <thead>
+                    <tr>
+                        <th class="header" ng-if="smData.smInfo.scheduledMaintenanceData.recommendedServiceHeader !='N/A'">
+                            <div>{{smData.smInfo.scheduledMaintenanceData.recommendedServiceHeader}}</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="recommendTbl" ng-if="smData.smInfo.scheduledMaintenanceData.recommendedService.length">
+                    <tr ng-class-odd="'even'" ng-class-even="'odd'" ng-repeat="taskDes in smData.smInfo.scheduledMaintenanceData.recommendedService">
+                        <td ng-class="{'smGridIndent': taskDes.eyeNotes =='N/A'}">
+							<span class="smbluedot" ng-if="taskDes.eyeNotes =='N/A'">&nbsp;</span>
+                            <span class="circletelematics" ng-if="taskDes.eyeNotes !='N/A'" rel="{{taskDes.eyeNotes}}" dtip donly="true"></span>
+                            {{taskDes.taskDescription}}
+							<a ng-if="taskDes.containsNotes.length" ng-repeat="reFnote in taskDes.containsNotes track by $index" class="fLink" scroll-to scroll-url="{{reFnote}}">&nbsp;&nbsp;({{reFnote}})&nbsp;&nbsp;<span ng-if="taskDes.containsNotes.length > ($index +1)">,</span></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="rsNote" ng-if="smData.smInfo.scheduledMaintenanceData.recommendedServiceNote !='N/A'">{{smData.smInfo.scheduledMaintenanceData.recommendedServiceNote}}</p>
+            <table ng-table="tableParams" class="table ng-table" ng-swipe-left="swipeLeft($event)" ng-if="smData.smInfo.scheduledMaintenanceData.specialOperatingConditionArray.length">
+                <thead>
+                    <tr>
+                        <th class="header" style="text-align: center">
+                            <div>{{smData.smInfo.scheduledMaintenanceData.specialOperatingConditionHeader}}<a ng-if="smData.smInfo.scheduledMaintenanceData.specialOperatingConditionHeaderLinkText.length" ng-repeat="fNote in smData.smInfo.scheduledMaintenanceData.specialOperatingConditionHeaderLinkText track by $index" class="fLink" scroll-to scroll-url="{{fNote}}">&nbsp;&nbsp;({{fNote}})&nbsp;&nbsp;<span ng-if="smData.smInfo.scheduledMaintenanceData.specialOperatingConditionHeaderLinkText.length > ($index +1)">,</span></a>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="recommendTbl" id="specialTb">
+                    <tr ng-repeat="specialTaskDes in smData.smInfo.scheduledMaintenanceData.specialOperatingConditionArray">
+                        <td>
+                            <h5 ng-class="{'iSmHead': specialTaskDes.eyeNotes !='N/A'}">
+                                <span class="circletelematics" ng-if="specialTaskDes.eyeNotes !='N/A'" rel="{{specialTaskDes.eyeNotes}}" dtip donly="true"></span>
+                                {{specialTaskDes.taskDescription}}						
+								<a class="fLink" ng-if="specialTaskDes.containsNote.length" ng-repeat="fNote in specialTaskDes.containsNote" scroll-to scroll-url="{{fNote}}" >&nbsp;&nbsp;({{fNote}})&nbsp;&nbsp;<span ng-if="specialTaskDes.containsNote.length > ($index +1)">,</span></a>
+                            </h5>
+                            <ul class="specialdesctask">
+                                <li ng-class-odd="'even'" ng-class-even="'odd'" ng-repeat="subTask in specialTaskDes.taskVO" ng-class="{'smGridIndent': subTask.eyeNotes =='N/A'}">
+									<span class="smbluedot" ng-if="subTask.eyeNotes =='N/A'">&nbsp;</span>
+                                    <span class="circletelematics" ng-if="subTask.eyeNotes !='N/A'" rel="{{subTask.eyeNotes}}" dtip donly="true"></span>
+									{{subTask.subTaskDescription}}
+									<a ng-if="subTask.containsNote.length" ng-repeat="fNote in subTask.containsNote track by $index" class="fLink" scroll-to scroll-url="{{fNote}}" >&nbsp;&nbsp;({{fNote}})&nbsp;&nbsp;<span ng-if="subTask.containsNote.length > ($index +1)">,</span></a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div ng-if="smData.smInfo.scheduledMaintenanceData.screenNotesArray.length" class="smFootNote">
+                <h5>Note: </h5>
+                <ul style="padding-bottom: 20px;">
+                    <li id="linkNote_{{fNote.superscript}}" ng-repeat="fNote in smData.smInfo.scheduledMaintenanceData.screenNotesArray track by $index">{{fNote.superscript}}. {{fNote.notes}}</li>
+                </ul>
+            </div>
+            <div class="row remLRpad">
+                <div>&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="smData.showSMGrid" ng-include="'/serviceLane/pages/asm/mobile/views/smgrid.html'"></div>
+</div>

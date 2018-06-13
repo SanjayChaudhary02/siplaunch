@@ -1,0 +1,85 @@
+<div ng-if="salvage.showSalvage">
+	<div class="salvageLoad" 
+		ng-class="{'ng-modal-dialog' : !salvage.showSalvageTip }">
+		<h3 class="pull-left removeD" >Salvage VIN Acknowledgement</h3>
+		<span ng-if="salvage.showSalvageTip" class="close pull-right" ng-click="overlayShow()">X</span>		
+		<div  ng-if="salvage.showSalvageError" class="pull-left" ng-include="'/serviceLane/pages/asm/mobile/views/flattire.html'"></div>
+		<div  ng-if="!salvage.showSalvageError" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " 
+				ng-class="{'salvageCont':salvage.data.corporateView }">
+			<h4>Salvage Title</h4>
+			<p>{{salvage.data.message}}</p>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
+				<div class="col-lg-7 col-md-7 col-sm-9 col-xs-9 remLRpad">
+					<table  ng-table="tableParams" class="table ng-table tableBorder">
+						<tbody>
+							<tr>
+								<th class="header">VIN</th>
+								<td class="">{{salvage.data.vin}}</td>
+							</tr>
+							<tr>
+								<th class="header">Warranty Eligibility Flag</th>
+								<td class="">{{salvage.data.warrantyEligible}}</td>
+							</tr>
+							<tr ng-show="salvage.data.corporateView">
+								<th class="header">Reason Code</th>
+								<td class="">{{salvage.data.reasonCode}}</td>
+							</tr>
+							<tr ng-show="salvage.data.corporateView">
+								<th class="header">Reason Description</th>
+								<td class="">{{salvage.data.reasonDesc}}</td>
+							</tr>
+							<tr>
+								<th class="header">Date</th> 
+								<td class="">{{salvage.data.date}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 remLRpad overflowhide" ng-if="salvage.data.corporateView">
+					<table  ng-table="tableParams" class="table ng-table tableBorder">
+						<tbody>							
+							<tr >
+								<th class="header border-right">Brand Code</th>
+								<td  ng-repeat="val in salvage.data.salvageList" class="">{{val.brandcode}}</td>
+							</tr>
+							<tr>
+								<th class="header border-right">Brand Description</th>
+								<td  ng-repeat="val in salvage.data.salvageList" class="">{{val.brandDesc}}</td>
+							</tr>
+							<tr>
+								<th class="header border-right">Start Date</th>
+								<td  ng-repeat="val in salvage.data.salvageList" class="">{{val.startDate}}</td>
+							</tr>
+							<tr>
+								<th class="header border-right">End Date</th>
+								<td  ng-repeat="val in salvage.data.salvageList" class="">{{val.endDate}}</td>
+							</tr>
+							<tr>
+								<th class="header border-right">State</th>
+								<td  ng-repeat="val in salvage.data.salvageList" class="">{{val.state}}</td>
+							</tr>
+							<tr>
+								<th class="header border-right">Warranty Impact Flag</th>
+								<td  ng-repeat="val in salvage.data.salvageList" class="">{{val.warrantyImp}}</td>
+							</tr>
+							<tr>
+								<th class="header border-right">Data Source</th>
+								<td  ng-repeat="val in salvage.data.salvageList" class="">{{val.dataSrc}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 remLRpad" ng-if="salvage.data.showExperianLink">
+				<h4>Powered By<span class="autocheck_logo">&nbsp;</span></h4>
+				<p class="removeD" >
+					<span class="dealernameclass" open-document data-url="{{salvage.data.experianLink}}">Click here for more detailed Report</span>
+				</p>	
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 center" ng-class="{ addmargintopkc : !salvage.data.showExperianLink }">
+				<input type="button"  class="updateBtn btn btn-default " value="I Decline" ng-click="salvage.salvageDeclined()"/>
+				<input type="button" class="updateBtn btn btn-default frmLink" value="I Agree" ng-click="salvage.salvageAgreed()"/>			
+			</div>
+		</div> 		
+	</div>
+</div>

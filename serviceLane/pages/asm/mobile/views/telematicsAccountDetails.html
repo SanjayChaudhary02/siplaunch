@@ -1,0 +1,141 @@
+<h2 class="pull-left ng-scope feedbacktitle browncolor">{{teleAccoundDetailsData.data.custDetailsVO.displayName}} <span class="pull-right close closeFeedback" ng-click="overlayShow(false)">X</span></h2>
+   
+    <div class="panel panel-default margintopteleacc" ng-if="teleAccountFlatTire">
+					   <div class="custPaneHead">
+						<span  class="ng-scope">We're sorry... try again</span>
+					  </div>
+					  
+					 <div class="panel-body ng-scope" >
+						<div class="info-table-body">
+						 <div class="errorMsg"><span><img src="/serviceLane/pages/asm/mobile/images/Tablet/SLaneError.jpg" style="width: 148px; height: 160px;display:inline; float:left; margin-right: 10px; padding: 0 2px 13px 15px;"></span><span style="padding-right: 5px;"><span style="font-weight:bold;">Uh oh!.. Service Lane has a flat tire.  We apologize for any inconvenience. Please try to load the screen again.</span><span> If you are repeatedly getting this error, TMS Dealers please call 1-877-DL-DAILY, GST Dealers call 1-800-933-3416 and SET Dealers call 1-800-982-6057. Alternatively you may send an email using the Feedback link provided at the bottom of this page.</span>
+						  </span></div>
+						</div>
+					   </div>
+					</div>
+    
+<div class="col-xs-12   teleaccountContainer"  ng-if="!teleAccountFlatTire"  ng-class="{'tele-three-record': boxTableCount == 3}">
+ 
+	
+	
+	<table class="table">
+    
+    <tbody class="mytable" ng-if="teleAccoundDetailsData.data.showAddrSection">
+      <tr  ng-if="teleAccoundDetailsData.data.custDetailsVO.showPartAddr">
+        <td class="seperatorclass">Address </td>
+        <td class="">{{addressDisplay}}</td>
+      </tr>
+ 
+      <tr    ng-if="(teleAccoundDetailsData.data.custDetailsVO.primaryPhoneNO != 'N/A') || (teleAccoundDetailsData.data.custDetailsVO.alternatePhoneNO != 'N/A')">
+        <td class="seperatorclass">Phone</td>
+        <td class=""><span ng-if="(teleAccoundDetailsData.data.custDetailsVO.primaryPhoneNO != 'N/A')">{{teleAccoundDetailsData.data.custDetailsVO.primaryPhoneNO}}</span> <span ng-if="(teleAccoundDetailsData.data.custDetailsVO.primaryPhoneNO != 'N/A') && (teleAccoundDetailsData.data.custDetailsVO.alternatePhoneNO != 'N/A')">/</span><span ng-if="(teleAccoundDetailsData.data.custDetailsVO.alternatePhoneNO != 'N/A')"> {{teleAccoundDetailsData.data.custDetailsVO.alternatePhoneNO}}</span></td>
+      </tr>
+      
+          <tr ng-if="teleAccoundDetailsData.data.custDetailsVO.emailAddress != 'N/A'">
+        <td class="seperatorclass">Email</td>
+        <td class=" myemail">{{teleAccoundDetailsData.data.custDetailsVO.emailAddress}}</td>
+      </tr>
+      </tbody>
+      <tbody class="removebordertop"  ng-if="showDiagnostics && teleAccoundDetailsData.data.showAddrSection">
+            <tr class="" ng-if="showDiagnostics">
+        <td class="  removeBorder" colspan="2">&nbsp;</td>
+        
+      </tr>
+      </tbody>
+      <tbody class="mytable" ng-if="showDiagnostics">
+      <tr class="headingbackground" >
+        <td class="" colspan="2">Service Connect</td>
+        
+      </tr>
+  
+      <tr class="odd" >
+        <td class="seperatorclass">Opted IN</td>
+        <td class=""  ng-class="{'redtext':teleAccoundDetailsData.data.enformDiagnosticDetailsVO.optedIn == 'No'}">{{teleAccoundDetailsData.data.enformDiagnosticDetailsVO.optedIn}}</td>
+      </tr>
+       <tr class="even" >
+        <td class="seperatorclass">Service Connect Transmitting</td>
+        <td class=""  ng-class="{'redtext':teleAccoundDetailsData.data.enformDiagnosticDetailsVO.serviceActive == 'No'}">{{teleAccoundDetailsData.data.enformDiagnosticDetailsVO.serviceActive}}</td>
+      </tr>     
+      <tr class="odd" >
+        <td class="seperatorclass">Notification Email</td>
+        <td class=" myemail">{{teleAccoundDetailsData.data.enformDiagnosticDetailsVO.email}}</td>
+      </tr>
+
+      
+      
+      
+      <tr class="headingbackground internalcolor">
+        <td class="" colspan="2">Vehicle Health Report</td>
+        
+      </tr>
+      
+      
+        <tr class="odd" >
+        <td class="seperatorclass">Email</td>
+        <td class=" myemail"  ng-class="{'redtext':teleAccoundDetailsData.data.enformDiagnosticDetailsVO.vhrEmail == 'No'}">{{teleAccoundDetailsData.data.enformDiagnosticDetailsVO.vhrEmail}}</td>
+      </tr>
+
+      <tr class="even" >
+        <td class="seperatorclass">Push Notifications</td>
+        <td class=""  ng-class="{'redtext':teleAccoundDetailsData.data.enformDiagnosticDetailsVO.vhrPushNotification == 'No'}">{{teleAccoundDetailsData.data.enformDiagnosticDetailsVO.vhrPushNotification}}</td>
+       
+      </tr>
+      
+      
+        <tr class="headingbackground internalcolor">
+        <td class="" colspan="2">Vehicle & Maintenance Alerts</td>
+        
+      </tr>
+      
+      
+        <tr class="odd" >
+        <td class="seperatorclass">Email</td>
+        <td class=" myemail"  ng-class="{'redtext':teleAccoundDetailsData.data.enformDiagnosticDetailsVO.vmAlertEmail == 'No'}">{{teleAccoundDetailsData.data.enformDiagnosticDetailsVO.vmAlertEmail}}</td>
+      </tr>
+
+      <tr class="even" >
+        <td class="seperatorclass">Push Notifications</td>
+        <td class=""  ng-class="{'redtext':teleAccoundDetailsData.data.enformDiagnosticDetailsVO.vmAlertNotification == 'No'}">{{teleAccoundDetailsData.data.enformDiagnosticDetailsVO.vmAlertNotification}}</td>
+       
+      </tr>
+      
+     <tr class="odd" >
+        <td class="seperatorclass">Phone by Dealer</td>
+       <td class=" greentext" ng-class="{'redtext':teleAccoundDetailsData.data.enformDiagnosticDetailsVO.phoneByDealer == 'No'}"
+      >{{teleAccoundDetailsData.data.enformDiagnosticDetailsVO.phoneByDealer}}</td>
+       
+      </tr>
+      </tbody>
+      <tbody class="removebordertop"   ng-if="showRemote">
+      <tr class="">
+        <td class="  removeBorder" colspan="2">&nbsp;</td>
+        
+      </tr>
+      </tbody>
+       <tbody class="mytable"   ng-if="showRemote">
+     <tr class="headingbackground" >
+        <td class="seperatorclass" colspan="2">Enform Remote</td>
+        
+      </tr>
+      <tr class="odd" >
+        <td class="seperatorclass">Opted IN</td>
+        <td class=""  ng-class="{'redtext':teleAccoundDetailsData.data.enformRemoteDetailsVO.optedIn == 'No'}">{{teleAccoundDetailsData.data.enformRemoteDetailsVO.optedIn}}</td>
+      </tr>
+      <tr class="even" >
+        <td class="seperatorclass">Notification Email</td>
+        <td class=" myemail">{{teleAccoundDetailsData.data.enformRemoteDetailsVO.email}}</td>
+      </tr>
+      <tr class="odd"  ng-if="teleAccoundDetailsData.data.displayLinkedVehicles && showRemote">
+        <td class="seperatorclass verticalcenter">Associated Linked Vehicles</td>
+        <td class=" nullpadd"  ng-if="teleAccoundDetailsData.data.enformRemoteDetailsVO.subscribedVinDetails.length > 0">
+        <ul class="teleaccul">
+        
+        <li   ng-repeat="(eachVechicleKey,eachVehicle) in teleAccoundDetailsData.data.enformRemoteDetailsVO.subscribedVinDetails"  ng-class-odd="'odd'" ng-class-even="'even'" class="linowrap">{{eachVehicle.details}} <a ng-click="lookupVin(eachVehicle.vin)" ng-if="inputValue != eachVehicle.vin">({{eachVehicle.vin}})</a><span  ng-if="inputValue == eachVehicle.vin" class="spaninacolor">({{eachVehicle.vin}})</span></li>
+        
+        </ul>
+        </td>
+        <td ng-if="teleAccoundDetailsData.data.enformRemoteDetailsVO.subscribedVinDetails.length <= 0">N/A</td>
+      </tr>
+    </tbody>
+  </table>	
+	
+	</div>

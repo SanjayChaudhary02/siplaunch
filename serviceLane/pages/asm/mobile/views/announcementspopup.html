@@ -1,0 +1,10 @@
+<form>
+	
+	<h2>ANNOUNCEMENTS<span class="pull-right close closeFeedback" ng-click="overlayShow(false)">X</span></h2>
+	<div ng-if="!announcementsErr && announcementsObj.errorMsg == 'N/A'" class="announcementspopdiv ">
+	<p ng-repeat="eachAnnouncement in announcementsObj.announcement.announcementList"><a class="decoratenone" open-document data-url="{{eachAnnouncement.link}}">{{eachAnnouncement.title}} <sup ng-if="eachAnnouncement.isNew">New!</sup></a></p>
+	
+	</div>	
+	<div ng-if="announcementsObj.errorMsg != 'N/A'" class="errtxt">{{announcementsObj.errorMsg}}</div>
+	<div ng-if="announcementsErr" ng-include="'/serviceLane/pages/asm/mobile/views/flattire.html'"></div>
+</form>

@@ -1,0 +1,115 @@
+{  
+   "campaignsPresent":true,
+   "showSSC":true,
+   "serviceCampaigns":[  
+      {  
+         "campaignComplete":false,
+         "campaignDescr":"Not completed",
+         "campaignTitle":"1987 MY Camry Passive Restraint System",
+         "completionCode":"03",
+         "dateOfService":"        ",
+         "dealerCode":"04072",
+         "dealerName":"HANSEL TOYOTA            ",
+         "detailMemo":null,
+         "detailMemoEmpty":true,
+         "documentListEmpty":false,
+         "rowIndex":"0",
+         "t3DocumentList":[  
+            {  
+               "documentUrl":"/t3Portal/resources/jsp/siviewer/index.jsp?href=cp/T-CP-N02-0142-W/xhtml/T-CP-N02-0142-W.html&locale=en",
+               "language":"en",
+               "objectTitle":"SSC N02-1987 Camry Motorized Shoulder Belt ECU Cover",
+               "objectType":"cp",
+               "publicationNumber":"T-CP-N02-0142-W",
+               "t3Id":"T-CP-N02-0142-W",
+               "encodeObjectTitle":null,
+               "summary":null,
+               "docId":null,
+               "rowIndex":null,
+               "titleMSG":null,
+               "addToFav":null,
+               "rateDocument":null,
+               "contentCorrection":null
+            }
+         ]
+      },
+      {  
+         "campaignComplete":true,
+         "campaignDescr":"Completed",
+         "campaignTitle":"1987, 1988, and Early 1989 MY Toyota Camry's Replacement of the Front Seat Lap Belt Guides",
+         "completionCode":"00",
+         "dateOfService":"01/18/90",
+         "dealerCode":"04070",
+         "dealerName":"FREEMAN TOYOTA           ",
+         "detailMemo":null,
+         "detailMemoEmpty":true,
+         "documentListEmpty":false,
+         "rowIndex":"1",
+         "t3DocumentList":[  
+            {  
+               "documentUrl":"/t3Portal/resources/jsp/siviewer/index.jsp?href=cp/T-CP-K05-0132-W/xhtml/T-CP-K05-0132-W.html&locale=en",
+               "language":"en",
+               "objectTitle":"SSC K05-1987-1989 Camry Front Seat Lap Belt Guides",
+               "objectType":"cp",
+               "publicationNumber":"T-CP-K05-0132-W",
+               "t3Id":"T-CP-K05-0132-W",
+               "encodeObjectTitle":null,
+               "summary":null,
+               "docId":null,
+               "rowIndex":null,
+               "titleMSG":null,
+               "addToFav":null,
+               "rateDocument":null,
+               "contentCorrection":null
+            },
+            {  
+               "documentUrl":"/t3Portal/resources/jsp/siviewer/index.jsp?href=cp/T-CP-K05-ARITEST2/xhtml/T-CP-K05-ARITEST2.html&locale=en",
+               "language":"en",
+               "objectTitle":"Toyota 2012-2013 Camry,Camry HV Campaign Phasing ARI Test 2 (T-CP-K05-ARITEST2)",
+               "objectType":"cp",
+               "publicationNumber":"T-CP-K05-ARITEST2",
+               "t3Id":"T-CP-K05-ARITEST2",
+               "encodeObjectTitle":null,
+               "summary":null,
+               "docId":null,
+               "rowIndex":null,
+               "titleMSG":null,
+               "addToFav":null,
+               "rateDocument":null,
+               "contentCorrection":null
+            }
+         ]
+      },
+      {  
+         "campaignComplete":false,
+         "campaignDescr":"Not completed",
+         "campaignTitle":"1987 MY Camry Wagon Tailgate Premature Rust Condition",
+         "completionCode":"  ",
+         "dateOfService":"        ",
+         "dealerCode":"04070",
+         "dealerName":"FREEMAN TOYOTA           ",
+         "detailMemo":null,
+         "detailMemoEmpty":true,
+         "documentListEmpty":false,
+         "rowIndex":"2",
+         "t3DocumentList":[  
+            {  
+               "documentUrl":"/t3Portal/resources/jsp/siviewer/index.jsp?href=cp/T-CP-H04-0124-W/xhtml/T-CP-H04-0124-W.html&locale=en",
+               "language":"en",
+               "objectTitle":"SSC H04-Premature Rust Condition on 1987 Camry Wagon Tailgate",
+               "objectType":"cp",
+               "publicationNumber":"T-CP-H04-0124-W",
+               "t3Id":"T-CP-H04-0124-W",
+               "encodeObjectTitle":null,
+               "summary":null,
+               "docId":null,
+               "rowIndex":null,
+               "titleMSG":null,
+               "addToFav":null,
+               "rateDocument":null,
+               "contentCorrection":null
+            }
+         ]
+      }
+   ]
+}

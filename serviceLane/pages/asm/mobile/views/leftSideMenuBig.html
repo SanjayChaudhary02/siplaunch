@@ -1,0 +1,171 @@
+<!--div class="leftMenuBig1" id="leftMenuBig"-->
+<div class="leftMenuBig1" id="leftMenuBig"  ng-class="{pushdown : showVheader==true}" ng-if="menu ==true" ng-animate="animate" ng-swipe-left="toggleMenu($event)">
+
+   <ul id="leftSidebar">
+   		<li id="menu1" class="btn btn_enable" ng-click="redirectPage('/vehicleInfo', 'vinInfo')" ng-class="{selected: selectedMenu == 'vinInfo'}">
+			<a>
+				
+					<span  class="col left lIcon vehicleB icon" ng-class="{active: selectedMenu == 'vinInfo'}"></span>
+				
+				<span class="col center labelText">
+					<span class="menu-text">VEHICLE<br>INFORMATION</span>
+				</span>
+				<span class="col right" ng-show="leftMenu.vehicleInfo &&  selectedMenu != 'vinInfo' && showData != true">
+					<span class="notification-icon" >i</span>
+				</span>
+			</a>
+		</li>
+		<li id="menu1" ng-click="redirectPage('/campaign', 'campaign')"class="btn btn_enable" ng-class="{selected: selectedMenu == 'campaign' }">
+			<a>
+				<span  class="col left lIcon campaignB icon" ng-class="{active: selectedMenu == 'campaign'}"></span>
+				<span class="col center labelText adjSingle">
+					<span class="menu-text">CAMPAIGN</span>
+				</span>
+				<span class="col right">
+					<span class="notification-icon" ng-show="leftMenu.serviceCampaign &&  campaign != true">i</span>
+				</span>
+			</a>
+		</li>
+		<li class="btn btn_enable" ng-click="redirectPage('/servicehistory', 'servicehistory')" ng-class="{selected: selectedMenu == 'servicehistory' ||  selectedMenu == 'olderservicehistory'}">
+			<a>
+				<span  class="col left lIcon serviceB icon" ng-class="{active: selectedMenu == 'servicehistory'}"></span>
+				<span class="col center labelText">
+					<span class="menu-text">SERVICE<br>HISTORY</span>
+				</span>
+				<span class="col right">
+					<span class="notification-icon"  ng-show="leftMenu.ServiceHistory && servicehistoryiconflag != true" >i</span>
+				</span>
+			</a>
+		</li>
+		<li ng-click="redirectPage('/care', 'care')" class="btn btn_enable"  ng-class="{selected: selectedMenu == 'care' }" ng-hide="hideCareTab">
+			<a>
+				
+				
+				<span  class="col left lIcon careB icon" ng-class="{active: selectedMenu == 'care'}" ng-show="userDivision =='TOYOTA' && !vehOneLiner.division"></span>
+				<span  class="col left lIcon careB icon" ng-class="{active: selectedMenu == 'care'}" ng-show="vehOneLiner.division =='TOYOTA'" ></span>
+				<span  class="col left lIcon scionboostB icon" ng-class="{active: selectedMenu == 'care'}" ng-show="userDivision =='SCION' && !vehOneLiner.division"></span>
+				<span  class="col left lIcon scionboostB icon" ng-class="{active: selectedMenu == 'care'}" ng-show="vehOneLiner.division=='SCION'"></span>
+				<span class="col center labelText">
+				<span class="menu-text" ng-show="userDivision =='TOYOTA' && vehOneLiner ==''">TOYOTA<br>CARE</span>
+					<span class="menu-text" ng-show="vehOneLiner.division =='TOYOTA'" >TOYOTA<br>CARE</span>
+					<span class="menu-text" ng-show="userDivision =='SCION' && vehOneLiner ==''">SCION<br>BOOST</span>
+					<span class="menu-text" ng-show="vehOneLiner.division=='SCION'">SCION<br>BOOST</span>
+				</span>
+				<span class="col right">
+					<span class="notification-icon" ng-show="leftMenu.toyotaCareInfo && care != true &&  selectedMenu != 'care'">i</span>
+				</span>
+			</a>
+		</li>
+		<li class="btn btn_enable" ng-click="redirectPage('/warranty', 'warranty')" ng-class="{selected: selectedMenu == 'warranty' }">
+			<a>
+				<span  class="col left lIcon warrantyB icon" ng-class="{active: selectedMenu == 'warranty'  }"></span>
+				<span class="col center labelText adjSingle">
+					<span class="menu-text">WARRANTY</span>
+				</span>
+				<span class="col right" >
+					<span class="notification-icon"  ng-show="leftMenu.Warranty &&  selectedMenu != 'warranty' && warrantySecions != true">i</span>
+				</span>
+			</a>
+		</li>
+		<li class="btn btn_enable" ng-click="redirectPage('/product', 'product')" ng-class="{selected: selectedMenu == 'product' }">
+		<!--li class="btn btn_enable" ng-disabled="true"-->
+			<a>
+				
+					<span  class="col left lIcon fspB icon" ng-class="{active: selectedMenu == 'product' }"></span>
+					
+				
+				<span class="col center labelText">
+					<span class="menu-text">FS<br>PRODUCTS</span>
+				</span>
+				<span class="col right" >
+					<span class="notification-icon" ng-show="leftMenu.fsProductsInfo && !product">i</span>
+					<!--span class="notification-icon" ng-show="false">i</span-->
+				</span>
+			</a>
+		</li>
+		<li class="btn btn_enable" ng-click="redirectPage('/customersurvey', 'customersurvey')" ng-class="{selected: selectedMenu == 'customersurvey' }">
+			<a>
+				<span  class="col left lIcon  guestB icon" ng-class="{active: selectedMenu == 'customersurvey'  }"></span>
+				<span class="col center labelText">
+					<span class="menu-text">CUSTOMER<br>SURVEY</span>
+				</span>
+				<span class="col right" >
+					<span class="notification-icon"  ng-show="leftMenu.customerSurveyInfo &&  selectedMenu != 'customersurvey' && showData != true">i</span>
+				</span>
+			</a>
+		</li>
+		<li class="btn btn_enable extend-icon" ng-click="extendedMenu()" ng-if="!extendLeftMenu.show">				
+				<a>
+					<span  class="col left lIcon icon"></span>
+					<span class="col center labelText">
+					<span class="menu-text">EXPAND<br>MENU</span>
+				</span>
+				</a>
+			</li>
+		<li class="btn btn_enable" ng-click="redirectPage('/roadside', 'roadside')" ng-class="{selected: selectedMenu == 'roadside' }" ng-if="extendLeftMenu.show">
+			<a>
+				
+					<span  class="col left lIcon roadsideB icon" ng-class="{active: selectedMenu == 'roadside'}"></span>
+				
+				<span class="col center labelText">
+					<span class="menu-text">ROADSIDE<br>ASSISTANCE</span>
+				</span>
+				<span class="col right" >
+					<span class="notification-icon" ng-show="extendLeftMenu.data.roadSideAssistanceInfo && roadSideIconflag != true">i</span>
+				</span>
+			</a>
+		</li>	
+		<li class="btn btn_enable" ng-click="redirectPage('/telematics', 'telematics')" ng-class="{selected: selectedMenu == 'telematics' }" ng-if="extendLeftMenu.show">
+			<a>
+				
+					
+					<span  class="col left lIcon telematicsB icon" ng-class="{active: selectedMenu == 'telematics'  }"></span>
+				
+				<span class="col center labelText adjSingle">
+					<span class="menu-text">TELEMATICS</span>
+				</span>
+				<span class="col right" >
+					<span class="notification-icon"  ng-show="extendLeftMenu.data.teleMaticsInfo &&  selectedMenu != 'telematics' && showData != true">i</span>
+				</span>
+			</a>
+		</li>
+		<li class="btn btn_enable" ng-click="redirectPage('/vhr', 'vhr')" ng-class="{selected: selectedMenu == 'vhr' }" ng-if="extendLeftMenu.show">
+			<a>
+				
+					<span  class="col left lIcon diagnosticB icon" ng-class="{active: selectedMenu == 'vhr'}"></span>
+				
+				<span class="col center labelText">
+					<span class="menu-text">DIAGNOSTIC<br>REPORT</span>
+				</span>
+				<span class="col right" >
+					<span class="notification-icon" ng-show="extendLeftMenu.data.vhrInfo && selectedMenu != 'vhr'">i</span>
+				</span>
+			</a>
+		</li>
+
+			
+			<li class="btn btn_enable" ng-click="redirectPage('/vspec', 'vspec')" ng-class="{selected: selectedMenu == 'vspec' }" ng-if="extendLeftMenu.show">
+			<a>
+				<span  class="col left lIcon  vspecB icon" ng-class="{active: selectedMenu == 'vspec'  }"></span>
+				<span class="col center labelText">
+					<span class="menu-text">VEHICLE<br>SPECIFICATION</span>
+				</span>
+				<span class="col right" >
+					<span class="notification-icon"  ng-show="extendLeftMenu.data.vehicleSpec &&  selectedMenu != 'vspec'">i</span>
+				</span>
+			</a>
+		</li>
+			
+		<li class="btn btn_enable" ng-click="redirectPage('/dtc', 'dtc')" ng-class="{selected: selectedMenu == 'dtc' }" ng-if="extendLeftMenu.show">
+			<a>
+				<span  class="col left lIcon  dtcB icon" ng-class="{active: selectedMenu == 'dtc'  }"></span>
+				<span class="col center labelText adjSingleDTC">
+					<span class="menu-text">DTC<br>HISTORY</span>
+				</span>
+				<span class="col right" >
+					<span class="notification-icon"  ng-show="extendLeftMenu.data.dtcInfo &&  selectedMenu != 'dtc'">i</span>
+				</span>
+			</a>
+		</li>
+	</ul>
+</div>
